@@ -1,0 +1,33 @@
+使用gitlab搭建的git server，如果直接使用http的方式去提交的话，提交小文件不会有问题，但是提交大文件时，会出错： fatal: The remote end hung up unexpectedly。
+
+解决办法就是使用ssh提交。
+
+windows下解决方法：
+
+# 打开git bash
+
+# Step1:
+# 根据你的邮箱生成一个sshkey
+ssh-keygen -t rsa -C "389465209@qq.com"
+
+
+# 生成成功后，在本地会保存一个私钥，然后将公钥放到gitlab上：
+
+# Step2:
+
+cat ~/.ssh/id_rsa.pub
+# ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC6eNtGpNGwstc....
+
+# 就是将ssh-rsa...一串代码粘贴到sshkeys中。
+
+
+
+# Step3:
+
+# 修改git 的url为git@server:username/project.git
+
+git remote set-url origin git@github:libyyu/build.git
+
+
+# 然后再去提交，就可以成功了。
+
