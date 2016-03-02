@@ -7,3 +7,9 @@
 *.obj
 *.o
 *.d
+obj/
+*.ipdb
+*.iobj
+*.exp
+*.tlog
+*.log
