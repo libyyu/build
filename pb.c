@@ -32,9 +32,9 @@
 #include <endian.h>
 #endif
 
-#if __BYTE_ORDER == __LITTLE_ENDIAN
+//#if __BYTE_ORDER == __LITTLE_ENDIAN
 #define IS_LITTLE_ENDIAN
-#endif
+//#endif
 
 #define IOSTRING_META "protobuf.IOString"
 
