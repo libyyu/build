@@ -16,6 +16,18 @@
     <Filter Include="lualib">
       <UniqueIdentifier>{4006573e-a1c1-4445-8e75-0bec41a4d514}</UniqueIdentifier>
     </Filter>
+    <Filter Include="lpeg">
+      <UniqueIdentifier>{75c402fe-52a1-4e1b-ae45-761474b0aef1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="cjson">
+      <UniqueIdentifier>{ef1a6684-c562-4fe8-beed-b3245bacc563}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sqlite">
+      <UniqueIdentifier>{eb4d8784-829c-4ea6-924b-56e5c0b77ce4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="luasocket">
+      <UniqueIdentifier>{0af4d60c-cc28-4716-8a3f-8f2ed00ecb91}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\lua-5.1.5\src\lapi.c">
@@ -117,6 +129,63 @@
     <ClCompile Include="..\..\slua.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\lpeg\lpeg.c">
+      <Filter>lpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cjson\lua_cjson.c">
+      <Filter>cjson</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cjson\fpconv.c">
+      <Filter>cjson</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cjson\strbuf.c">
+      <Filter>cjson</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\sqlite\lsqlite3.c">
+      <Filter>sqlite</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\sqlite\src\sqlite3.c">
+      <Filter>sqlite</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\luasocket\src\auxiliar.c">
+      <Filter>luasocket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\luasocket\src\buffer.c">
+      <Filter>luasocket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\luasocket\src\except.c">
+      <Filter>luasocket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\luasocket\src\inet.c">
+      <Filter>luasocket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\luasocket\src\io.c">
+      <Filter>luasocket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\luasocket\src\luasocket.c">
+      <Filter>luasocket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\luasocket\src\mime.c">
+      <Filter>luasocket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\luasocket\src\options.c">
+      <Filter>luasocket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\luasocket\src\select.c">
+      <Filter>luasocket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\luasocket\src\tcp.c">
+      <Filter>luasocket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\luasocket\src\timeout.c">
+      <Filter>luasocket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\luasocket\src\udp.c">
+      <Filter>luasocket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\luasocket\src\wsocket.c">
+      <Filter>luasocket</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\lua-5.1.5\src\lapi.h">
@@ -187,6 +256,60 @@
     </ClInclude>
     <ClInclude Include="..\..\lua-5.1.5\src\lzio.h">
       <Filter>lualib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lpeg\lpeg.h">
+      <Filter>lpeg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cjson\fpconv.h">
+      <Filter>cjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cjson\strbuf.h">
+      <Filter>cjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\sqlite\src\sqlite3.h">
+      <Filter>sqlite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\luasocket\src\auxiliar.h">
+      <Filter>luasocket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\luasocket\src\buffer.h">
+      <Filter>luasocket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\luasocket\src\except.h">
+      <Filter>luasocket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\luasocket\src\inet.h">
+      <Filter>luasocket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\luasocket\src\io.h">
+      <Filter>luasocket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\luasocket\src\luasocket.h">
+      <Filter>luasocket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\luasocket\src\mime.h">
+      <Filter>luasocket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\luasocket\src\options.h">
+      <Filter>luasocket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\luasocket\src\select.h">
+      <Filter>luasocket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\luasocket\src\socket.h">
+      <Filter>luasocket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\luasocket\src\tcp.h">
+      <Filter>luasocket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\luasocket\src\timeout.h">
+      <Filter>luasocket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\luasocket\src\udp.h">
+      <Filter>luasocket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\luasocket\src\wsocket.h">
+      <Filter>luasocket</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

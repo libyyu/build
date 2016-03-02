@@ -223,7 +223,7 @@ static int json_integer_option(lua_State *l, int optindex, int *setting,
 
     if (!lua_isnil(l, optindex)) {
         value = luaL_checkinteger(l, optindex);
-        snprintf(errmsg, sizeof(errmsg), "expected integer between %d and %d", min, max);
+		_snprintf(errmsg, sizeof(errmsg), "expected integer between %d and %d", min, max);
         luaL_argcheck(l, min <= value && value <= max, 1, errmsg);
         *setting = value;
     }
@@ -981,9 +981,9 @@ static int json_is_invalid_number(json_parse_t *json)
     }
 
     /* Reject inf/nan */
-    if (!strncasecmp(p, "inf", 3))
+    if (!strncmp(p, "inf", 3))
         return 1;
-    if (!strncasecmp(p, "nan", 3))
+	if (!strncmp(p, "nan", 3))
         return 1;
 
     /* Pass all other numbers which may still be invalid, but
@@ -1111,7 +1111,7 @@ static void json_throw_parse_error(lua_State *l, json_parse_t *json,
                exp, found, token->index + 1);
 }
 
-static inline void json_decode_ascend(json_parse_t *json)
+static /*inline*/ void json_decode_ascend(json_parse_t *json)
 {
     json->current_depth--;
 }
