@@ -1,4 +1,4 @@
-//#define LUA_LIB
+#include "FLua.h"
 
 extern "C"
 {
@@ -8,6 +8,7 @@ extern "C"
 #include <windows.h>
 	BOOL WINAPI DllMain(HANDLE hModule, DWORD  dwReason, LPVOID lpReserved)
 	{
+		printf("FLua.dll Attached\n");
 		return true;
 	}
 #endif // _WIN32

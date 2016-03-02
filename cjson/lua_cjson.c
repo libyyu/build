@@ -40,6 +40,7 @@
 #include <string.h>
 #include <math.h>
 #include <limits.h>
+#define LUA_LIB
 #include <lua.h>
 #include <lauxlib.h>
 
@@ -223,7 +224,7 @@ static int json_integer_option(lua_State *l, int optindex, int *setting,
 
     if (!lua_isnil(l, optindex)) {
         value = luaL_checkinteger(l, optindex);
-		_snprintf(errmsg, sizeof(errmsg), "expected integer between %d and %d", min, max);
+		snprintf(errmsg, sizeof(errmsg), "expected integer between %d and %d", min, max);
         luaL_argcheck(l, min <= value && value <= max, 1, errmsg);
         *setting = value;
     }
@@ -1400,7 +1401,7 @@ static int lua_cjson_safe_new(lua_State *l)
     return 1;
 }
 
-int luaopen_cjson(lua_State *l)
+LUALIB_API int luaopen_cjson(lua_State *l)
 {
     lua_cjson_new(l);
 
@@ -1414,7 +1415,7 @@ int luaopen_cjson(lua_State *l)
     return 1;
 }
 
-int luaopen_cjson_safe(lua_State *l)
+LUALIB_API int luaopen_cjson_safe(lua_State *l)
 {
     lua_cjson_safe_new(l);
 

@@ -311,6 +311,9 @@
     <ClInclude Include="..\..\luasocket\src\wsocket.h">
       <Filter>luasocket</Filter>
     </ClInclude>
+    <ClInclude Include="FLua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\lua-5.1.5\src\Makefile">

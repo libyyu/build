@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <string.h>
 
+#define LUA_LIB
 #include "lua.h"
 #include "lauxlib.h"
 
@@ -2383,8 +2384,7 @@ static struct luaL_reg metapattreg[] = {
 };
 
 
-int luaopen_lpeg (lua_State *L);
-int luaopen_lpeg (lua_State *L) {
+LUALIB_API int luaopen_lpeg (lua_State *L) {
   lua_pushcfunction(L, (lua_CFunction)&l_newpf);  /* new-pattern function */
   lua_setfield(L, LUA_REGISTRYINDEX, KEYNEWPATT);  /* register it */
   luaL_newmetatable(L, PATTERN_T);

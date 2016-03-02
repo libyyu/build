@@ -53,7 +53,7 @@ static void fpconv_update_locale()
 {
     char buf[8];
 
-	_snprintf(buf, sizeof(buf), "%g", 0.5);
+	snprintf(buf, sizeof(buf), "%g", 0.5);
 
     /* Failing this test might imply the platform has a buggy dtoa
      * implementation or wide characters */
@@ -182,10 +182,10 @@ int fpconv_g_fmt(char *str, double num, int precision)
 
     /* Pass through when decimal point character is dot. */
     if (locale_decimal_point == '.')
-		return _snprintf(str, FPCONV_G_FMT_BUFSIZE, fmt, num);
+		return snprintf(str, FPCONV_G_FMT_BUFSIZE, fmt, num);
 
     /* snprintf() to a buffer then translate for other decimal point characters */
-	len = _snprintf(buf, FPCONV_G_FMT_BUFSIZE, fmt, num);
+	len = snprintf(buf, FPCONV_G_FMT_BUFSIZE, fmt, num);
 
     /* Copy into target location. Translate decimal point if required */
     b = buf;

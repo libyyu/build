@@ -4,3 +4,6 @@
 /FLua/FLua/Debug/FLua.tlog/*.lastbuildstate
 /FLua/FLua.opensdf
 /FLua/FLua.sdf
+*.obj
+*.o
+*.d
