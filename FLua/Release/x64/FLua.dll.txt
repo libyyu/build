@@ -1,0 +1,180 @@
+
+Dump of file E:\UnityWorks\WorkHere\UnityLuaGame\build\FLua\Release\x64\FLua.dll
+
+File Type: DLL
+
+  Section contains the following exports for FLua.dll
+
+    00000000 characteristics
+    56D83F66 time date stamp Thu Mar  3 21:43:02 2016
+        0.00 version
+           1 ordinal base
+         155 number of functions
+         155 number of names
+
+    ordinal hint RVA      name
+
+          1    0 000B6C40 FLua_CleanupLuaState = FLua_CleanupLuaState
+          2    1 000B6C60 FLua_EstablishAnyLog = FLua_EstablishAnyLog
+          3    2 000B6C50 FLua_SetupLuaState = FLua_SetupLuaState
+          4    3 00036F00 luaLS_loadbuffer = luaLS_loadbuffer
+          5    4 0000DAD0 luaL_addlstring = luaL_addlstring
+          6    5 0000DB50 luaL_addstring = luaL_addstring
+          7    6 0000DBA0 luaL_addvalue = luaL_addvalue
+          8    7 0000C600 luaL_argerror = luaL_argerror
+          9    8 0000DC80 luaL_buffinit = luaL_buffinit
+         10    9 0000D150 luaL_callmeta = luaL_callmeta
+         11    A 0000CD10 luaL_checkany = luaL_checkany
+         12    B 0000CF50 luaL_checkinteger = luaL_checkinteger
+         13    C 0000CD50 luaL_checklstring = luaL_checklstring
+         14    D 0000CE50 luaL_checknumber = luaL_checknumber
+         15    E 0000C930 luaL_checkoption = luaL_checkoption
+         16    F 0000CC80 luaL_checkstack = luaL_checkstack
+         17   10 0000CCC0 luaL_checktype = luaL_checktype
+         18   11 0000CB20 luaL_checkudata = luaL_checkudata
+         19   12 0000C8C0 luaL_error = luaL_error
+         20   13 0000D690 luaL_findtable = luaL_findtable
+         21   14 0000D050 luaL_getmetafield = luaL_getmetafield
+         22   15 0000D4F0 luaL_gsub = luaL_gsub
+         23   16 0000E2C0 luaL_loadbuffer = luaL_loadbuffer
+         24   17 0000DFD0 luaL_loadfile = luaL_loadfile
+         25   18 0000E310 luaL_loadstring = luaL_loadstring
+         26   19 0000CA00 luaL_newmetatable = luaL_newmetatable
+         27   1A 0000E3F0 luaL_newstate = luaL_newstate
+         28   1B 0000D1F0 luaL_openlib = luaL_openlib
+         29   1C 000186B0 luaL_openlibs = luaL_openlibs
+         30   1D 0000D010 luaL_optinteger = luaL_optinteger
+         31   1E 0000CDA0 luaL_optlstring = luaL_optlstring
+         32   1F 0000CF10 luaL_optnumber = luaL_optnumber
+         33   20 0000DAA0 luaL_prepbuffer = luaL_prepbuffer
+         34   21 0000DB70 luaL_pushresult = luaL_pushresult
+         35   22 0000DCA0 luaL_ref = luaL_ref
+         36   23 0000D1E0 luaL_register = luaL_register
+         37   24 0000C6F0 luaL_typerror = luaL_typerror
+         38   25 0000DDE0 luaL_unref = luaL_unref
+         39   26 0000C7F0 luaL_where = luaL_where
+         40   27 00035A50 luaS_checkColor = luaS_checkColor
+         41   28 00035A50 luaS_checkQuaternion = luaS_checkColor
+         42   29 000361B0 luaS_checkVector2 = luaS_checkVector2
+         43   2A 00035E50 luaS_checkVector3 = luaS_checkVector3
+         44   2B 00035A50 luaS_checkVector4 = luaS_checkColor
+         45   2C 000358C0 luaS_checkluatype = luaS_checkluatype
+         46   2D 00036B00 luaS_getcacheud = luaS_getcacheud
+         47   2E 000353B0 luaS_newuserdata = luaS_newuserdata
+         48   2F 00036E80 luaS_objlen = luaS_objlen
+         49   30 00035380 luaS_openextlibs = luaS_openextlibs
+         50   31 00036550 luaS_pushColor = luaS_pushColor
+         51   32 00036410 luaS_pushQuaternion = luaS_pushQuaternion
+         52   33 00036340 luaS_pushVector2 = luaS_pushVector2
+         53   34 000360A0 luaS_pushVector3 = luaS_pushVector3
+         54   35 00035D10 luaS_pushVector4 = luaS_pushVector4
+         55   36 00036E90 luaS_pushlstring = luaS_pushlstring
+         56   37 00036980 luaS_pushobject = luaS_pushobject
+         57   38 000355B0 luaS_pushuserdata = luaS_pushuserdata
+         58   39 00035420 luaS_rawnetobj = luaS_rawnetobj
+         59   3A 00036870 luaS_setColor = luaS_setColor
+         60   3B 00036730 luaS_setDataVec = luaS_setDataVec
+         61   3C 00036BE0 luaS_subclassof = luaS_subclassof
+         62   3D 00035620 luaS_tolstring32 = luaS_tolstring32
+         63   3E 0000AD60 lua_atpanic = lua_atpanic
+         64   3F 0000BEE0 lua_call = lua_call
+         65   40 0000AC40 lua_checkstack = lua_checkstack
+         66   41 00024470 lua_close = lua_close
+         67   42 0000C320 lua_concat = lua_concat
+         68   43 0000C060 lua_cpcall = lua_cpcall
+         69   44 0000B9F0 lua_createtable = lua_createtable
+         70   45 0000C0E0 lua_dump = lua_dump
+         71   46 0000B1C0 lua_equal = lua_equal
+         72   47 0000C2D0 lua_error = lua_error
+         73   48 0000C130 lua_gc = lua_gc
+         74   49 0000C3B0 lua_getallocf = lua_getallocf
+         75   4A 0000BAC0 lua_getfenv = lua_getfenv
+         76   4B 0000B900 lua_getfield = lua_getfield
+         77   4C 000142A0 lua_gethook = lua_gethook
+         78   4D 000142C0 lua_gethookcount = lua_gethookcount
+         79   4E 000142B0 lua_gethookmask = lua_gethookmask
+         80   4F 00014870 lua_getinfo = lua_getinfo
+         81   50 00014440 lua_getlocal = lua_getlocal
+         82   51 0000BA60 lua_getmetatable = lua_getmetatable
+         83   52 000142D0 lua_getstack = lua_getstack
+         84   53 0000B8D0 lua_gettable = lua_gettable
+         85   54 0000ADC0 lua_gettop = lua_gettop
+         86   55 0000C460 lua_getupvalue = lua_getupvalue
+         87   56 0000AE80 lua_insert = lua_insert
+         88   57 0000B090 lua_iscfunction = lua_iscfunction
+         89   58 0000B0C0 lua_isnumber = lua_isnumber
+         90   59 0000B100 lua_isstring = lua_isstring
+         91   5A 0000B140 lua_isuserdata = lua_isuserdata
+         92   5B 0000B220 lua_lessthan = lua_lessthan
+         93   5C 0000C0A0 lua_load = lua_load
+         94   5D 00024290 lua_newstate = lua_newstate
+         95   5E 0000AD80 lua_newthread = lua_newthread
+         96   5F 0000C3F0 lua_newuserdata = lua_newuserdata
+         97   60 0000C2E0 lua_next = lua_next
+         98   61 0000B400 lua_objlen = lua_objlen
+         99   62 0000BF40 lua_pcall = lua_pcall
+        100   63 0000B860 lua_pushboolean = lua_pushboolean
+        101   64 0000B790 lua_pushcclosure = lua_pushcclosure
+        102   65 0000B740 lua_pushfstring = lua_pushfstring
+        103   66 0000B5C0 lua_pushinteger = lua_pushinteger
+        104   67 0000B880 lua_pushlightuserdata = lua_pushlightuserdata
+        105   68 0000B5E0 lua_pushlstring = lua_pushlstring
+        106   69 0000B580 lua_pushnil = lua_pushnil
+        107   6A 0000B5A0 lua_pushnumber = lua_pushnumber
+        108   6B 0000B650 lua_pushstring = lua_pushstring
+        109   6C 0000B8A0 lua_pushthread = lua_pushthread
+        110   6D 0000B010 lua_pushvalue = lua_pushvalue
+        111   6E 0000B6F0 lua_pushvfstring = lua_pushvfstring
+        112   6F 0000B170 lua_rawequal = lua_rawequal
+        113   70 0000B970 lua_rawget = lua_rawget
+        114   71 0000B9B0 lua_rawgeti = lua_rawgeti
+        115   72 0000BBE0 lua_rawset = lua_rawset
+        116   73 0000BC60 lua_rawseti = lua_rawseti
+        117   74 0000AE30 lua_remove = lua_remove
+        118   75 0000AED0 lua_replace = lua_replace
+        119   76 00016410 lua_resume = lua_resume
+        120   77 0000C3D0 lua_setallocf = lua_setallocf
+        121   78 0000BE20 lua_setfenv = lua_setfenv
+        122   79 0000BB70 lua_setfield = lua_setfield
+        123   7A 00014270 lua_sethook = lua_sethook
+        124   7B 0000AD50 lua_setlevel = lua_setlevel
+        125   7C 000144B0 lua_setlocal = lua_setlocal
+        126   7D 0000BD20 lua_setmetatable = lua_setmetatable
+        127   7E 0000BB40 lua_settable = lua_settable
+        128   7F 0000ADD0 lua_settop = lua_settop
+        129   80 0000C500 lua_setupvalue = lua_setupvalue
+        130   81 0000C120 lua_status = lua_status
+        131   82 0000B330 lua_toboolean = lua_toboolean
+        132   83 0000B480 lua_tocfunction = lua_tocfunction
+        133   84 0000B2D0 lua_tointeger = lua_tointeger
+        134   85 0000B360 lua_tolstring = lua_tolstring
+        135   86 0000B270 lua_tonumber = lua_tonumber
+        136   87 0000B510 lua_topointer = lua_topointer
+        137   88 0000B4F0 lua_tothread = lua_tothread
+        138   89 0000B4B0 lua_touserdata = lua_touserdata
+        139   8A 0000B040 lua_type = lua_type
+        140   8B 0000B070 lua_typename = lua_typename
+        141   8C 0000ACF0 lua_xmove = lua_xmove
+        142   8D 000164D0 lua_yield = lua_yield
+        143   8E 00010BA0 luaopen_base = luaopen_base
+        144   8F 00001720 luaopen_bit = luaopen_bit
+        145   90 00004450 luaopen_cjson = luaopen_cjson
+        146   91 00004470 luaopen_cjson_safe = luaopen_cjson_safe
+        147   92 000141F0 luaopen_debug = luaopen_debug
+        148   93 0001A1D0 luaopen_io = luaopen_io
+        149   94 0000A9E0 luaopen_lpeg = luaopen_lpeg
+        150   95 0003D560 luaopen_lsqlite3 = luaopen_lsqlite3
+        151   96 0001C490 luaopen_math = luaopen_math
+        152   97 0001F7A0 luaopen_os = luaopen_os
+        153   98 0001E1C0 luaopen_package = luaopen_package
+        154   99 000271D0 luaopen_string = luaopen_string
+        155   9A 000296B0 luaopen_table = luaopen_table
+
+  Summary
+
+        4000 .data
+        B000 .pdata
+       1F000 .rdata
+        1000 .reloc
+        1000 .rsrc
+       B8000 .text
