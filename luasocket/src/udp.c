@@ -145,7 +145,7 @@ static int meth_sendto(lua_State *L) {
     if (!inet_aton(ip, &addr.sin_addr)) 
         luaL_argerror(L, 3, "invalid ip address");
     addr.sin_family = AF_INET;
-    addr.sin_port = htons(port);
+    addr.sin_port = t_htons(port);
     timeout_markstart(tm);
     err = socket_sendto(&udp->sock, data, count, &sent, 
             (SA *) &addr, sizeof(addr), tm);
@@ -197,7 +197,7 @@ static int meth_receivefrom(lua_State *L) {
     if (err == IO_DONE) {
         lua_pushlstring(L, buffer, got);
         lua_pushstring(L, inet_ntoa(addr.sin_addr));
-        lua_pushnumber(L, ntohs(addr.sin_port));
+        lua_pushnumber(L, t_ntohs(addr.sin_port));
         return 3;
     } else {
         lua_pushnil(L);

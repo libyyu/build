@@ -130,7 +130,7 @@ int inet_meth_getpeername(lua_State *L, p_socket ps)
         lua_pushstring(L, "getpeername failed");
     } else {
         lua_pushstring(L, inet_ntoa(peer.sin_addr));
-        lua_pushnumber(L, ntohs(peer.sin_port));
+        lua_pushnumber(L, t_ntohs(peer.sin_port));
     }
     return 2;
 }
@@ -147,7 +147,7 @@ int inet_meth_getsockname(lua_State *L, p_socket ps)
         lua_pushstring(L, "getsockname failed");
     } else {
         lua_pushstring(L, inet_ntoa(local.sin_addr));
-        lua_pushnumber(L, ntohs(local.sin_port));
+        lua_pushnumber(L, t_ntohs(local.sin_port));
     }
     return 2;
 }
@@ -212,7 +212,7 @@ const char *inet_tryconnect(p_socket ps, const char *address,
     int err;
     memset(&remote, 0, sizeof(remote));
     remote.sin_family = AF_INET;
-    remote.sin_port = htons(port);
+    remote.sin_port = t_htons(port);
 	if (strcmp(address, "*")) {
         if (!inet_aton(address, &remote.sin_addr)) {
             struct hostent *hp = NULL;
@@ -236,8 +236,8 @@ const char *inet_trybind(p_socket ps, const char *address, unsigned short port)
     int err;
     memset(&local, 0, sizeof(local));
     /* address is either wildcard or a valid ip address */
-    local.sin_addr.s_addr = htonl(INADDR_ANY);
-    local.sin_port = htons(port);
+    local.sin_addr.s_addr = t_htonl(INADDR_ANY);
+    local.sin_port = t_htons(port);
     local.sin_family = AF_INET;
     if (strcmp(address, "*") && !inet_aton(address, &local.sin_addr)) {
         struct hostent *hp = NULL;

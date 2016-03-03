@@ -122,7 +122,7 @@ static int opt_setmembership(lua_State *L, p_socket ps, int level, int name)
     lua_gettable(L, 3);
     if (!lua_isstring(L, -1)) 
         luaL_argerror(L, 3, "string 'interface' field expected");
-    val.imr_interface.s_addr = htonl(INADDR_ANY);
+    val.imr_interface.s_addr = t_htonl(INADDR_ANY);
     if (strcmp(lua_tostring(L, -1), "*") &&
             !inet_aton(lua_tostring(L, -1), &val.imr_interface)) 
         luaL_argerror(L, 3, "invalid 'interface' ip address");
