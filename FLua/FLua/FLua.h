@@ -1,11 +1,21 @@
+#include "FDef.h"
+#include "ILog.h"
+#include "lua.h"
 
-#include <stdio.h>
-#include <string.h>
+#ifdef __cplusplus
+extern "C"
+{
+#endif // __cplusplus
+	
+	extern AnyLog::ILog* g_theLog;
+	extern lua_State* g_luaState;
 
-#ifdef _WIN32
-#include <float.h>
-#define isnan _isnan
-#define snprintf _snprintf
-#else
-#include <math.h>
-#endif
+	DLL_API void FLua_CleanupLuaState();
+	DLL_API void FLua_SetupLuaState(lua_State* l);
+	DLL_API void FLua_EstablishAnyLog(void* pfunc);
+
+#ifdef __cplusplus
+}
+#endif // __cplusplus
+
+

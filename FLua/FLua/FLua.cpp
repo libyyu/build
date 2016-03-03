@@ -1,15 +1,29 @@
+#define LUA_LIB
+
 #include "FLua.h"
 
-extern "C"
+AnyLog::ILog* g_theLog = NULL;
+lua_State* g_luaState = NULL;
+
+void FLua_CleanupLuaState()
 {
-#ifdef _WIN32
-#define WIN32_LEAN_AND_MEAN             //  从 Windows 头文件中排除极少使用的信息
-	// Windows 头文件: 
-#include <windows.h>
-	BOOL WINAPI DllMain(HANDLE hModule, DWORD  dwReason, LPVOID lpReserved)
+	if (g_luaState != NULL)
 	{
-		printf("FLua.dll Attached\n");
-		return true;
+		g_luaState = NULL;
+		log_info("Cleanup luaState.");
 	}
-#endif // _WIN32
+}
+void FLua_SetupLuaState(lua_State* l)
+{
+	g_luaState = l;
+}
+void FLua_EstablishAnyLog(void* pfunc)
+{
+	if (g_theLog != NULL)
+	{
+		delete g_theLog;
+	}
+	g_theLog = new FLog();
+	g_theLog->SetLogCall((AnyLog::PLogFunc)pfunc);
+	g_theLog->Log("AnyLog Established!");
 }

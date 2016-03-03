@@ -28,6 +28,9 @@
     <Filter Include="luasocket">
       <UniqueIdentifier>{0af4d60c-cc28-4716-8a3f-8f2ed00ecb91}</UniqueIdentifier>
     </Filter>
+    <Filter Include="AnyLog">
+      <UniqueIdentifier>{23319bf3-ccf6-4384-8952-4d656f6dea9f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\lua-5.1.5\src\lapi.c">
@@ -120,9 +123,6 @@
     <ClCompile Include="..\..\lua-5.1.5\src\print.c">
       <Filter>lualib</Filter>
     </ClCompile>
-    <ClCompile Include="FLua.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\pb.c">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -186,6 +186,11 @@
     <ClCompile Include="..\..\luasocket\src\wsocket.c">
       <Filter>luasocket</Filter>
     </ClCompile>
+    <ClCompile Include="FLuaExport.cpp" />
+    <ClCompile Include="..\..\AnyLog\ILog.cpp">
+      <Filter>AnyLog</Filter>
+    </ClCompile>
+    <ClCompile Include="FLua.cpp" />
     <ClCompile Include="..\..\bit.c">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -314,9 +319,11 @@
     <ClInclude Include="..\..\luasocket\src\wsocket.h">
       <Filter>luasocket</Filter>
     </ClInclude>
-    <ClInclude Include="FLua.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="FDef.h" />
+    <ClInclude Include="..\..\AnyLog\ILog.h">
+      <Filter>AnyLog</Filter>
     </ClInclude>
+    <ClInclude Include="FLua.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\lua-5.1.5\src\Makefile">

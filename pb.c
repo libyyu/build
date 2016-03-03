@@ -22,6 +22,7 @@
 #include <stdint.h>
 #include <string.h>
 
+#define LUA_LIB
 #include <lua.h>
 #include <lualib.h>
 #include <lauxlib.h>
@@ -462,7 +463,7 @@ static const struct luaL_reg _c_iostring_m [] = {
     {NULL, NULL}
 };
 
-int luaopen_pb (lua_State *L)
+LUALIB_API int luaopen_pb (lua_State *L)
 {
     luaL_newmetatable(L, IOSTRING_META);
     lua_pushvalue(L, -1);

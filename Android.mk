@@ -23,6 +23,8 @@ JSON_PATH       := $(LOCAL_PATH)/cjson
 LPEG_PATH       := $(LOCAL_PATH)/lpeg
 SQLITE_PATH     := $(LOCAL_PATH)/sqlite
 SOCKET_PATH     := $(LOCAL_PATH)/luasocket/src
+ANYLOG_PATH     := $(LOCAL_PATH)/AnyLog
+FLUA_PATH       := $(LOCAL_PATH)/FLua/FLua
 LOCAL_MODULE    := FLua
 LOCAL_CPP_FEATURES := rtti exceptions
 #LOCAL_CFLAGS   += -D _ANDROID -fvisibility=hidden
@@ -85,7 +87,8 @@ $(SOCKET_PATH)/mime.c \
 $(SOCKET_PATH)/except.c \
 $(SOCKET_PATH)/select.c \
 $(SOCKET_PATH)/usocket.c \
-
+$(ANYLOG_PATH)/ILog.cpp \
+$(FLUA_PATH)/FLua.cpp
 
 LOCAL_SRC_FILES  += $(THIRD_SRCS)
 
@@ -94,7 +97,9 @@ $(LUA_PATH) \
 $(JSON_PATH) \
 $(LPEG_PATH) \
 $(SQLITE_PATH)/src \
-$(SOCKET_PATH)
+$(SOCKET_PATH) \
+$(ANYLOG_PATH) \
+$(FLUA_PATH)
 
 
 LOCAL_SHARE_LIBARIES  := \
