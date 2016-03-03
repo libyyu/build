@@ -22,7 +22,7 @@ LUA_PATH        := $(LOCAL_PATH)/lua-5.1.5/src
 JSON_PATH       := $(LOCAL_PATH)/cjson
 LPEG_PATH       := $(LOCAL_PATH)/lpeg
 SQLITE_PATH     := $(LOCAL_PATH)/sqlite
-SOCKET_PATH     := $(LOCAL_PATH)/luascoket/src
+SOCKET_PATH     := $(LOCAL_PATH)/luasocket/src
 LOCAL_MODULE    := FLua
 LOCAL_CPP_FEATURES := rtti exceptions
 #LOCAL_CFLAGS   += -D _ANDROID -fvisibility=hidden
@@ -34,6 +34,7 @@ LOCAL_CFLAGS   += -D _ANDROID -D ANDROID
 LOCAL_SRC_FILES := \
 $(LOCAL_PATH)/slua.c \
 $(LOCAL_PATH)/pb.c \
+$(LOCAL_PATH)/bit.c \
 $(LUA_PATH)/lapi.c \
 $(LUA_PATH)/lauxlib.c \
 $(LUA_PATH)/lbaselib.c \
@@ -68,22 +69,22 @@ $(JSON_PATH)/fpconv.c \
 $(JSON_PATH)/strbuf.c \
 $(JSON_PATH)/lua_cjson.c \
 $(LPEG_PATH)/lpeg.c \
-# $(SQLITE_PATH)/src/sqlite3.c \
-# $(SQLITE_PATH)/lsqlite3.c \
-$(SOCKAT_PATH)/luasocket.c \
-$(SOCKAT_PATH)/timeout.c \
-$(SOCKAT_PATH)/buffer.c \
-$(SOCKAT_PATH)/io.c \
-$(SOCKAT_PATH)/auxiliar.c \
-$(SOCKAT_PATH)/options.c \
-$(SOCKAT_PATH)/inet.c \
-$(SOCKAT_PATH)/tcp.c \
-$(SOCKAT_PATH)/udp.c \
-$(SOCKAT_PATH)/unix.c \
-$(SOCKAT_PATH)/mine.c \
-$(SOCKAT_PATH)/except.c \
-$(SOCKAT_PATH)/select.c \
-$(SOCKAT_PATH)/usocket.c \
+$(SQLITE_PATH)/src/sqlite3.c \
+$(SQLITE_PATH)/lsqlite3.c \
+$(SOCKET_PATH)/luasocket.c \
+$(SOCKET_PATH)/timeout.c \
+$(SOCKET_PATH)/buffer.c \
+$(SOCKET_PATH)/io.c \
+$(SOCKET_PATH)/auxiliar.c \
+$(SOCKET_PATH)/options.c \
+$(SOCKET_PATH)/inet.c \
+$(SOCKET_PATH)/tcp.c \
+$(SOCKET_PATH)/udp.c \
+$(SOCKET_PATH)/unix.c \
+$(SOCKET_PATH)/mime.c \
+$(SOCKET_PATH)/except.c \
+$(SOCKET_PATH)/select.c \
+$(SOCKET_PATH)/usocket.c \
 
 
 LOCAL_SRC_FILES  += $(THIRD_SRCS)
@@ -92,8 +93,8 @@ LOCAL_C_INCLUDES := $(LOCAL_PATH) \
 $(LUA_PATH) \
 $(JSON_PATH) \
 $(LPEG_PATH) \
-# $(SQLITE_PATH) \
-$(SOCKAT_PATH)
+$(SQLITE_PATH)/src \
+$(SOCKET_PATH)
 
 
 LOCAL_SHARE_LIBARIES  := \

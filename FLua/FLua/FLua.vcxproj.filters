@@ -186,6 +186,9 @@
     <ClCompile Include="..\..\luasocket\src\wsocket.c">
       <Filter>luasocket</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\bit.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\lua-5.1.5\src\lapi.h">
