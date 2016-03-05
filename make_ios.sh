@@ -1,25 +1,26 @@
 #!/usr/bin/env bash
 cd "$( dirname "${BASH_SOURCE[0]}" )"
-cp slua.c luajit-2.1.0/src/
+#cp slua.c luajit-2.1.0/src/
 cd luajit-2.1.0
 LIPO="xcrun -sdk iphoneos lipo"
 STRIP="xcrun -sdk iphoneos strip"
 
 IXCODE=`xcode-select -print-path`
 ISDK=$IXCODE/Platforms/iPhoneOS.platform/Developer
-ISDKVER=iPhoneOS.sdk
+ISDKVER=iPhoneOS9.1.sdk
 ISDKP=$IXCODE/usr/bin/
+ISDKD=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/
 
 if [ ! -e $ISDKP/ar ]; then 
-  sudo cp /usr/bin/ar $ISDKP
+  sudo cp $ISDKD/usr/bin/ar $ISDKP
 fi
 
 if [ ! -e $ISDKP/ranlib ]; then
-  sudo cp /usr/bin/ranlib $ISDKP
+  sudo cp $ISDKD/usr/bin/ranlib $ISDKP
 fi
 
 if [ ! -e $ISDKP/strip ]; then
-  sudo cp /usr/bin/strip $ISDKP
+  sudo cp $ISDKD/usr/bin/strip $ISDKP
 fi
 
 make clean
@@ -37,6 +38,9 @@ make HOST_CC="gcc -std=c99" CROSS="$ISDKP" TARGET_FLAGS="$ISDKF" TARGET=arm64 TA
 
 cd src
 lipo libsluav7.a -create libsluav7s.a libslua64.a -output libslua.a
-cp libslua.a ../ProjectUnity/Assets/Plugins/iOS/
+cd ../slua
+xcodebuild clean
+xcodebuild -configuration=Release
+cp -f ./build/Release-iphoneos/libslua.a ../../../Assets/Plugins/iOS/
 cd ..
 

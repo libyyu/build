@@ -19,13 +19,14 @@ include $(CLEAR_VARS)
 LOCAL_ARM_MODE  := arm
 LOCAL_PATH      := $(NDK_PROJECT_PATH)
 LUA_PATH        := $(LOCAL_PATH)/lua-5.1.5/src
-JSON_PATH       := $(LOCAL_PATH)/cjson
+JSON_PATH       := $(LOCAL_PATH)/lua-cjson-2.1.0
 LPEG_PATH       := $(LOCAL_PATH)/lpeg
-SQLITE_PATH     := $(LOCAL_PATH)/sqlite
-SOCKET_PATH     := $(LOCAL_PATH)/luasocket/src
+SQLITE_PATH     := $(LOCAL_PATH)/sqlite-amalgamation-3081101
+LSQLITE_PATH    := $(LOCAL_PATH)/lsqlite3-master
+SOCKET_PATH     := $(LOCAL_PATH)/luasocket-2.0.2/src
 ANYLOG_PATH     := $(LOCAL_PATH)/AnyLog
 FLUA_PATH       := $(LOCAL_PATH)/FLua/FLua
-LOCAL_MODULE    := FLua
+LOCAL_MODULE    := slua
 LOCAL_CPP_FEATURES := rtti exceptions
 #LOCAL_CFLAGS   += -D _ANDROID -fvisibility=hidden
 LOCAL_CFLAGS   += -D _ANDROID -D ANDROID
@@ -71,8 +72,8 @@ $(JSON_PATH)/fpconv.c \
 $(JSON_PATH)/strbuf.c \
 $(JSON_PATH)/lua_cjson.c \
 $(LPEG_PATH)/lpeg.c \
-$(SQLITE_PATH)/src/sqlite3.c \
-$(SQLITE_PATH)/lsqlite3.c \
+$(SQLITE_PATH)/sqlite3.c \
+$(LSQLITE_PATH)/lsqlite3.c \
 $(SOCKET_PATH)/luasocket.c \
 $(SOCKET_PATH)/timeout.c \
 $(SOCKET_PATH)/buffer.c \
@@ -96,7 +97,8 @@ LOCAL_C_INCLUDES := $(LOCAL_PATH) \
 $(LUA_PATH) \
 $(JSON_PATH) \
 $(LPEG_PATH) \
-$(SQLITE_PATH)/src \
+$(SQLITE_PATH) \
+$(LSQLITE_PATH) \
 $(SOCKET_PATH) \
 $(ANYLOG_PATH) \
 $(FLUA_PATH)

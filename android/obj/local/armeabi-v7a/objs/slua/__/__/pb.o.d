@@ -26,8 +26,7 @@ obj/local/armeabi-v7a/objs/slua/__/__/pb.o: jni/../../pb.c \
  /d/AndriodTools/adt-bundle-windows/ndk-r8d/platforms/android-3/arch-arm/usr/include/linux/types.h \
  /d/AndriodTools/adt-bundle-windows/ndk-r8d/platforms/android-3/arch-arm/usr/include/machine/kernel.h \
  /d/AndriodTools/adt-bundle-windows/ndk-r8d/platforms/android-3/arch-arm/usr/include/sys/sysmacros.h \
- /d/AndriodTools/adt-bundle-windows/ndk-r8d/platforms/android-3/arch-arm/usr/include/endian.h \
- /d/AndriodTools/adt-bundle-windows/ndk-r8d/platforms/android-3/arch-arm/usr/include/sys/endian.h
+ jni/../../endian.h
 
 /d/AndriodTools/adt-bundle-windows/ndk-r8d/platforms/android-3/arch-arm/usr/include/stdint.h:
 
@@ -89,6 +88,4 @@ jni/luajit/src/lauxlib.h:
 
 /d/AndriodTools/adt-bundle-windows/ndk-r8d/platforms/android-3/arch-arm/usr/include/sys/sysmacros.h:
 
-/d/AndriodTools/adt-bundle-windows/ndk-r8d/platforms/android-3/arch-arm/usr/include/endian.h:
-
-/d/AndriodTools/adt-bundle-windows/ndk-r8d/platforms/android-3/arch-arm/usr/include/sys/endian.h:
+jni/../../endian.h:
