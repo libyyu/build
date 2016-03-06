@@ -16,6 +16,7 @@ void FLua_CleanupLuaState()
 void FLua_SetupLuaState(lua_State* l)
 {
 	g_luaState = l;
+	log_info("SetupLuaState.");
 }
 void FLua_EstablishAnyLog(void* pfunc)
 {

@@ -1,7 +1,0 @@
-E:/UnityWorks/WorkHere/UnityLuaGame/build/vsproject-2.0.4/CMakeFiles/minilua.dir
-E:/UnityWorks/WorkHere/UnityLuaGame/build/vsproject-2.0.4/CMakeFiles/luajit.dir
-E:/UnityWorks/WorkHere/UnityLuaGame/build/vsproject-2.0.4/CMakeFiles/ALL_BUILD.dir
-E:/UnityWorks/WorkHere/UnityLuaGame/build/vsproject-2.0.4/CMakeFiles/wluajit.dir
-E:/UnityWorks/WorkHere/UnityLuaGame/build/vsproject-2.0.4/CMakeFiles/liblua.dir
-E:/UnityWorks/WorkHere/UnityLuaGame/build/vsproject-2.0.4/CMakeFiles/ZERO_CHECK.dir
-E:/UnityWorks/WorkHere/UnityLuaGame/build/vsproject-2.0.4/CMakeFiles/buildvm.dir

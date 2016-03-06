@@ -131,10 +131,10 @@ CMAKE_SKIP_BUILD_RPATH:STRING=FALSE
 
 //If set, runtime paths are not added when installing shared libraries,
 // but are added when building.
-CMAKE_SKIP_INSTALL_RPATH:BOOL=OFF
+CMAKE_SKIP_INSTALL_RPATH:BOOL=NO
 
 //If set, runtime paths are not added when using shared libraries.
-CMAKE_SKIP_RPATH:BOOL=OFF
+CMAKE_SKIP_RPATH:BOOL=NO
 
 //Flags used by the linker during the creation of static libraries.
 CMAKE_STATIC_LINKER_FLAGS:STRING= /machine:X86
@@ -155,7 +155,7 @@ CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 // .SILENT directive, and all commands will be echoed to the console
 // during the make.  This is useful for debugging only. With Visual
 // Studio IDE projects all commands are done without /nologo.
-CMAKE_VERBOSE_MAKEFILE:BOOL=OFF
+CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
 //Enable to build 7-Zip source packages
 CPACK_SOURCE_7Z:BOOL=ON
@@ -275,6 +275,9 @@ LUA_BUILD_WLUA:BOOL=ON
 
 //Environment variable to use as package.cpath.
 LUA_CPATH:STRING=LUA_CPATH
+
+//C++ complier
+LUA_CPP_COMPLIER:BOOL=OFF
 
 //gives the maximum size for the description of the source.
 LUA_IDSIZE:STRING=60

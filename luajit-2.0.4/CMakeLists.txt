@@ -512,6 +512,28 @@ SET (LUA_LIB_C
 )
 
 
+option ( LUA_CPP_COMPLIER "C++ complier" OFF )
+if (LUA_CPP_COMPLIER)
+  set(ANYLOG_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../AnyLog")
+  set(FLUA_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../FLua/FLua")
+  message (STATUS "FLua Attached.")
+  include_directories( ${FLUA_PATH} )
+  include_directories( ${ANYLOG_PATH} )
+
+  SET (LUA_LIB_H
+    ${LUA_LIB_H}
+    ${ANYLOG_PATH}/ILog.h
+    ${FLUA_PATH}/FDef.h
+    ${FLUA_PATH}/FLua.h
+  )
+
+  SET (LUA_LIB_C
+    ${LUA_LIB_C}
+    ${ANYLOG_PATH}/ILog.cpp
+    ${FLUA_PATH}/FLua.cpp
+  )
+endif()
+
 # file(GLOB_RECURSE HEADER_FILES *.h *.inl)
 # file(GLOB_RECURSE SOURCE_FILES *.cpp *.cc *.c)
 # set(ALL_FILES ${HEADER_FILES} ${SOURCE_FILES})
