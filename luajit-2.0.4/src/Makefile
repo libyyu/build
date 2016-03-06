@@ -271,7 +271,7 @@ endif
 
 ifeq (Windows,$(findstring Windows,$(OS))$(MSYSTEM)$(TERM))
   HOST_SYS= Windows
-  HOST_RM= del
+  # HOST_RM= del
 else
   HOST_SYS:= $(shell uname -s)
   ifneq (,$(findstring MINGW,$(HOST_SYS)))

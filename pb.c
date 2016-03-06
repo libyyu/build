@@ -30,7 +30,7 @@
 #ifdef _ALLBSD_SOURCE
 #include <machine/endian.h>
 #else
-#include <endian.h>
+#include "endian.h"
 #endif
 
 //#if __BYTE_ORDER == __LITTLE_ENDIAN

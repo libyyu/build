@@ -41,6 +41,6 @@ lipo libsluav7.a -create libsluav7s.a libslua64.a -output libslua.a
 cd ../slua
 xcodebuild clean
 xcodebuild -configuration=Release
-cp -f ./build/Release-iphoneos/libslua.a ../../../Assets/Plugins/iOS/
+cp -f ./build/Release-iphoneos/libslua.a ../../../LuaGame/ProjectUnity/Assets/Plugins/iOS/
 cd ..
 

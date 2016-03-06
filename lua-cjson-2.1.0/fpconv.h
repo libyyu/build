@@ -20,3 +20,15 @@ extern double fpconv_strtod(const char*, char**);
 
 /* vi:ai et sw=4 ts=4:
  */
+
+#if defined (_WIN32)
+#ifndef isnan
+#define isnan		_isnan
+#endif
+#ifndef snprintf
+#define snprintf	_snprintf
+#endif
+#ifndef strncasecmp
+#define strncasecmp strncmp
+#endif
+#endif
