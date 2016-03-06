@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\src\host\buildvm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\src\host\buildvm_asm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\src\host\buildvm_fold.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\src\host\buildvm_lib.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\src\host\buildvm_peobj.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\src\host\buildvm_arch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\CMakeLists.txt" />
+    <CustomBuild Include="E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4\CMakeFiles\6efff2199f89c245665245dd14201c1b\buildvm_arch.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{C2B298C4-26EE-3B3D-9ABB-6B53BCF9BA33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{EF4326F6-D58D-3FE7-A9D8-A1D8A67D6FD5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{AB2625BF-9E8A-324A-B071-AF348973FF12}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

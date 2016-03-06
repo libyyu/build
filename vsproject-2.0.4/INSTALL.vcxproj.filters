@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4\CMakeFiles\d6d0dc0cf8f566d96dc5991bd750d63f\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{AB2625BF-9E8A-324A-B071-AF348973FF12}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

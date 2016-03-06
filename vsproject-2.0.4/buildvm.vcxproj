@@ -1,0 +1,407 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|Win32">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGUID>{C9E19251-246D-3B7C-BB33-16F269844F17}</ProjectGUID>
+    <WindowsTargetPlatformVersion>10.0.10150.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>buildvm</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+    <PropertyGroup>
+      <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4\Debug\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">buildvm.dir\Debug\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">buildvm</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.exe</TargetExt>
+      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4\Release\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">buildvm.dir\Release\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">buildvm</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.exe</TargetExt>
+      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4\MinSizeRel\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">buildvm.dir\MinSizeRel\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">buildvm</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.exe</TargetExt>
+      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkIncremental>
+      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">true</GenerateManifest>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4\RelWithDebInfo\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">buildvm.dir\RelWithDebInfo\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">buildvm</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.exe</TargetExt>
+      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</LinkIncremental>
+      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</GenerateManifest>
+    </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\dynasm;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\src;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\src\host;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\luasocket-2.0.2\src;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\lua-cjson-2.1.0;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\lpeg;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\pbc-win;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\pbc-win\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsC</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_CRT_SECURE_NO_WARNINGS;LUA_BUILD_AS_DLL;LUAJIT_OS=LUAJIT_OS_WINDOWS;LIB_SOCKET;LIB_CJSON;LIB_LPEG;LIB_LPB;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_CRT_SECURE_NO_WARNINGS;LUA_BUILD_AS_DLL;LUAJIT_OS=LUAJIT_OS_WINDOWS;LIB_SOCKET;LIB_CJSON;LIB_LPEG;LIB_LPB;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\dynasm;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\src;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\src\host;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\luasocket-2.0.2\src;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\lua-cjson-2.1.0;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\lpeg;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\pbc-win;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\pbc-win\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\dynasm;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\src;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\src\host;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\luasocket-2.0.2\src;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\lua-cjson-2.1.0;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\lpeg;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\pbc-win;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\pbc-win\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalOptions> /machine:X86 /debug %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>E:/UnityWorks/WorkHere/UnityLuaGame/build/vsproject-2.0.4/Debug/buildvm.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/UnityWorks/WorkHere/UnityLuaGame/build/vsproject-2.0.4/Debug/buildvm.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version></Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\dynasm;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\src;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\src\host;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\luasocket-2.0.2\src;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\lua-cjson-2.1.0;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\lpeg;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\pbc-win;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\pbc-win\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsC</CompileAs>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;LUA_BUILD_AS_DLL;LUAJIT_OS=LUAJIT_OS_WINDOWS;LIB_SOCKET;LIB_CJSON;LIB_LPEG;LIB_LPB;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat></DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;LUA_BUILD_AS_DLL;LUAJIT_OS=LUAJIT_OS_WINDOWS;LIB_SOCKET;LIB_CJSON;LIB_LPEG;LIB_LPB;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\dynasm;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\src;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\src\host;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\luasocket-2.0.2\src;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\lua-cjson-2.1.0;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\lpeg;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\pbc-win;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\pbc-win\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\dynasm;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\src;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\src\host;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\luasocket-2.0.2\src;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\lua-cjson-2.1.0;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\lpeg;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\pbc-win;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\pbc-win\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalOptions> /machine:X86 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>E:/UnityWorks/WorkHere/UnityLuaGame/build/vsproject-2.0.4/Release/buildvm.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/UnityWorks/WorkHere/UnityLuaGame/build/vsproject-2.0.4/Release/buildvm.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version></Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\dynasm;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\src;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\src\host;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\luasocket-2.0.2\src;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\lua-cjson-2.1.0;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\lpeg;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\pbc-win;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\pbc-win\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
+      <CompileAs>CompileAsC</CompileAs>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;LUA_BUILD_AS_DLL;LUAJIT_OS=LUAJIT_OS_WINDOWS;LIB_SOCKET;LIB_CJSON;LIB_LPEG;LIB_LPB;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat></DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;LUA_BUILD_AS_DLL;LUAJIT_OS=LUAJIT_OS_WINDOWS;LIB_SOCKET;LIB_CJSON;LIB_LPEG;LIB_LPB;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\dynasm;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\src;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\src\host;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\luasocket-2.0.2\src;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\lua-cjson-2.1.0;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\lpeg;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\pbc-win;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\pbc-win\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\dynasm;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\src;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\src\host;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\luasocket-2.0.2\src;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\lua-cjson-2.1.0;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\lpeg;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\pbc-win;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\pbc-win\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalOptions> /machine:X86 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>E:/UnityWorks/WorkHere/UnityLuaGame/build/vsproject-2.0.4/MinSizeRel/buildvm.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/UnityWorks/WorkHere/UnityLuaGame/build/vsproject-2.0.4/MinSizeRel/buildvm.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version></Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\dynasm;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\src;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\src\host;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\luasocket-2.0.2\src;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\lua-cjson-2.1.0;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\lpeg;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\pbc-win;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\pbc-win\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
+      <CompileAs>CompileAsC</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;LUA_BUILD_AS_DLL;LUAJIT_OS=LUAJIT_OS_WINDOWS;LIB_SOCKET;LIB_CJSON;LIB_LPEG;LIB_LPB;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;LUA_BUILD_AS_DLL;LUAJIT_OS=LUAJIT_OS_WINDOWS;LIB_SOCKET;LIB_CJSON;LIB_LPEG;LIB_LPB;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\dynasm;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\src;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\src\host;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\luasocket-2.0.2\src;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\lua-cjson-2.1.0;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\lpeg;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\pbc-win;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\pbc-win\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\dynasm;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\src;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\src\host;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\luasocket-2.0.2\src;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\lua-cjson-2.1.0;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\lpeg;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\pbc-win;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\..\pbc-win\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalOptions> /machine:X86 /debug %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>E:/UnityWorks/WorkHere/UnityLuaGame/build/vsproject-2.0.4/RelWithDebInfo/buildvm.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/UnityWorks/WorkHere/UnityLuaGame/build/vsproject-2.0.4/RelWithDebInfo/buildvm.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version></Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule E:/UnityWorks/WorkHere/UnityLuaGame/build/luajit-2.0.4/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+"D:\Program Files (x86)\CMake\bin\cmake.exe" -HE:/UnityWorks/WorkHere/UnityLuaGame/build/luajit-2.0.4 -BE:/UnityWorks/WorkHere/UnityLuaGame/build/vsproject-2.0.4 --check-stamp-file E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:/UnityWorks/WorkHere/UnityLuaGame/build/luajit-2.0.4/CMakeLists.txt;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\CMakeLists.txt;E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4\CMakeFiles\3.4.0-rc3\CMakeSystem.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeSystemSpecificInitialize.cmake;E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4\CMakeFiles\3.4.0-rc3\CMakeCCompiler.cmake;E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4\CMakeFiles\3.4.0-rc3\CMakeASMCompiler.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeSystemSpecificInformation.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeGenericSystem.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\Windows.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\WindowsPaths.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeCInformation.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\Windows-MSVC-C.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\Windows-MSVC.cmake;E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4\CMakeFiles\3.4.0-rc3\CMakeRCCompiler.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeRCInformation.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeCommonLanguageInclude.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeASMInformation.cmake;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\cmake\dist.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CPack.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CPackComponent.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Templates\CPackConfig.cmake.in;D:\Program Files (x86)\CMake\share\cmake-3.4\Templates\CPackConfig.cmake.in;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\cmake\lua.cmake;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\cmake\FindReadline.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPkgConfig.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageHandleStandardArgs.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageMessage.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeParseArguments.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageHandleStandardArgs.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageMessage.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeParseArguments.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindCurses.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckLibraryExists.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageHandleStandardArgs.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageMessage.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeParseArguments.cmake;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\src\luaconf.h.in;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule E:/UnityWorks/WorkHere/UnityLuaGame/build/luajit-2.0.4/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+"D:\Program Files (x86)\CMake\bin\cmake.exe" -HE:/UnityWorks/WorkHere/UnityLuaGame/build/luajit-2.0.4 -BE:/UnityWorks/WorkHere/UnityLuaGame/build/vsproject-2.0.4 --check-stamp-file E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:/UnityWorks/WorkHere/UnityLuaGame/build/luajit-2.0.4/CMakeLists.txt;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\CMakeLists.txt;E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4\CMakeFiles\3.4.0-rc3\CMakeSystem.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeSystemSpecificInitialize.cmake;E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4\CMakeFiles\3.4.0-rc3\CMakeCCompiler.cmake;E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4\CMakeFiles\3.4.0-rc3\CMakeASMCompiler.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeSystemSpecificInformation.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeGenericSystem.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\Windows.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\WindowsPaths.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeCInformation.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\Windows-MSVC-C.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\Windows-MSVC.cmake;E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4\CMakeFiles\3.4.0-rc3\CMakeRCCompiler.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeRCInformation.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeCommonLanguageInclude.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeASMInformation.cmake;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\cmake\dist.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CPack.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CPackComponent.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Templates\CPackConfig.cmake.in;D:\Program Files (x86)\CMake\share\cmake-3.4\Templates\CPackConfig.cmake.in;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\cmake\lua.cmake;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\cmake\FindReadline.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPkgConfig.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageHandleStandardArgs.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageMessage.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeParseArguments.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageHandleStandardArgs.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageMessage.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeParseArguments.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindCurses.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckLibraryExists.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageHandleStandardArgs.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageMessage.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeParseArguments.cmake;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\src\luaconf.h.in;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule E:/UnityWorks/WorkHere/UnityLuaGame/build/luajit-2.0.4/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+"D:\Program Files (x86)\CMake\bin\cmake.exe" -HE:/UnityWorks/WorkHere/UnityLuaGame/build/luajit-2.0.4 -BE:/UnityWorks/WorkHere/UnityLuaGame/build/vsproject-2.0.4 --check-stamp-file E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:/UnityWorks/WorkHere/UnityLuaGame/build/luajit-2.0.4/CMakeLists.txt;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\CMakeLists.txt;E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4\CMakeFiles\3.4.0-rc3\CMakeSystem.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeSystemSpecificInitialize.cmake;E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4\CMakeFiles\3.4.0-rc3\CMakeCCompiler.cmake;E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4\CMakeFiles\3.4.0-rc3\CMakeASMCompiler.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeSystemSpecificInformation.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeGenericSystem.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\Windows.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\WindowsPaths.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeCInformation.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\Windows-MSVC-C.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\Windows-MSVC.cmake;E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4\CMakeFiles\3.4.0-rc3\CMakeRCCompiler.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeRCInformation.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeCommonLanguageInclude.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeASMInformation.cmake;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\cmake\dist.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CPack.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CPackComponent.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Templates\CPackConfig.cmake.in;D:\Program Files (x86)\CMake\share\cmake-3.4\Templates\CPackConfig.cmake.in;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\cmake\lua.cmake;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\cmake\FindReadline.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPkgConfig.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageHandleStandardArgs.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageMessage.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeParseArguments.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageHandleStandardArgs.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageMessage.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeParseArguments.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindCurses.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckLibraryExists.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageHandleStandardArgs.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageMessage.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeParseArguments.cmake;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\src\luaconf.h.in;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule E:/UnityWorks/WorkHere/UnityLuaGame/build/luajit-2.0.4/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+"D:\Program Files (x86)\CMake\bin\cmake.exe" -HE:/UnityWorks/WorkHere/UnityLuaGame/build/luajit-2.0.4 -BE:/UnityWorks/WorkHere/UnityLuaGame/build/vsproject-2.0.4 --check-stamp-file E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:/UnityWorks/WorkHere/UnityLuaGame/build/luajit-2.0.4/CMakeLists.txt;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\CMakeLists.txt;E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4\CMakeFiles\3.4.0-rc3\CMakeSystem.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeSystemSpecificInitialize.cmake;E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4\CMakeFiles\3.4.0-rc3\CMakeCCompiler.cmake;E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4\CMakeFiles\3.4.0-rc3\CMakeASMCompiler.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeSystemSpecificInformation.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeGenericSystem.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\Windows.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\WindowsPaths.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeCInformation.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\Windows-MSVC-C.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\Windows-MSVC.cmake;E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4\CMakeFiles\3.4.0-rc3\CMakeRCCompiler.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeRCInformation.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeCommonLanguageInclude.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeASMInformation.cmake;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\cmake\dist.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CPack.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CPackComponent.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Templates\CPackConfig.cmake.in;D:\Program Files (x86)\CMake\share\cmake-3.4\Templates\CPackConfig.cmake.in;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\cmake\lua.cmake;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\cmake\FindReadline.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPkgConfig.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageHandleStandardArgs.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageMessage.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeParseArguments.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageHandleStandardArgs.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageMessage.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeParseArguments.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindCurses.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckLibraryExists.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageHandleStandardArgs.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageMessage.cmake;D:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeParseArguments.cmake;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\src\luaconf.h.in;E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4\CMakeFiles\6efff2199f89c245665245dd14201c1b\buildvm_arch.h.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating E:/UnityWorks/WorkHere/UnityLuaGame/build/luajit-2.0.4/src/host/buildvm_arch.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+cd E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\dynasm
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4\Debug\minilua.exe E:/UnityWorks/WorkHere/UnityLuaGame/build/luajit-2.0.4/dynasm/dynasm.lua -D FPU -D HFABI -D WIN -D JIT -D FFI -D SSE2 -D VER= -o E:/UnityWorks/WorkHere/UnityLuaGame/build/luajit-2.0.4/src/host/buildvm_arch.h E:/UnityWorks/WorkHere/UnityLuaGame/build/luajit-2.0.4/src/vm_x86.dasc
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:/UnityWorks/WorkHere/UnityLuaGame/build/vsproject-2.0.4/CMakeFiles/6efff2199f89c245665245dd14201c1b/buildvm_arch.h.rule;E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4\Debug\minilua.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\src\host\buildvm_arch.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating E:/UnityWorks/WorkHere/UnityLuaGame/build/luajit-2.0.4/src/host/buildvm_arch.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+cd E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\dynasm
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4\Release\minilua.exe E:/UnityWorks/WorkHere/UnityLuaGame/build/luajit-2.0.4/dynasm/dynasm.lua -D FPU -D HFABI -D WIN -D JIT -D FFI -D SSE2 -D VER= -o E:/UnityWorks/WorkHere/UnityLuaGame/build/luajit-2.0.4/src/host/buildvm_arch.h E:/UnityWorks/WorkHere/UnityLuaGame/build/luajit-2.0.4/src/vm_x86.dasc
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:/UnityWorks/WorkHere/UnityLuaGame/build/vsproject-2.0.4/CMakeFiles/6efff2199f89c245665245dd14201c1b/buildvm_arch.h.rule;E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4\Release\minilua.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\src\host\buildvm_arch.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Generating E:/UnityWorks/WorkHere/UnityLuaGame/build/luajit-2.0.4/src/host/buildvm_arch.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+cd E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\dynasm
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4\MinSizeRel\minilua.exe E:/UnityWorks/WorkHere/UnityLuaGame/build/luajit-2.0.4/dynasm/dynasm.lua -D FPU -D HFABI -D WIN -D JIT -D FFI -D SSE2 -D VER= -o E:/UnityWorks/WorkHere/UnityLuaGame/build/luajit-2.0.4/src/host/buildvm_arch.h E:/UnityWorks/WorkHere/UnityLuaGame/build/luajit-2.0.4/src/vm_x86.dasc
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:/UnityWorks/WorkHere/UnityLuaGame/build/vsproject-2.0.4/CMakeFiles/6efff2199f89c245665245dd14201c1b/buildvm_arch.h.rule;E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4\MinSizeRel\minilua.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\src\host\buildvm_arch.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Generating E:/UnityWorks/WorkHere/UnityLuaGame/build/luajit-2.0.4/src/host/buildvm_arch.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+cd E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\dynasm
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4\RelWithDebInfo\minilua.exe E:/UnityWorks/WorkHere/UnityLuaGame/build/luajit-2.0.4/dynasm/dynasm.lua -D FPU -D HFABI -D WIN -D JIT -D FFI -D SSE2 -D VER= -o E:/UnityWorks/WorkHere/UnityLuaGame/build/luajit-2.0.4/src/host/buildvm_arch.h E:/UnityWorks/WorkHere/UnityLuaGame/build/luajit-2.0.4/src/vm_x86.dasc
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:/UnityWorks/WorkHere/UnityLuaGame/build/vsproject-2.0.4/CMakeFiles/6efff2199f89c245665245dd14201c1b/buildvm_arch.h.rule;E:\UnityWorks\WorkHere\UnityLuaGame\build\vsproject-2.0.4\RelWithDebInfo\minilua.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\src\host\buildvm_arch.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\src\host\buildvm_arch.h" />
+    <ClCompile Include="E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\src\host\buildvm.c"  />
+    <ClCompile Include="E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\src\host\buildvm_asm.c"  />
+    <ClCompile Include="E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\src\host\buildvm_fold.c"  />
+    <ClCompile Include="E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\src\host\buildvm_lib.c"  />
+    <ClCompile Include="E:\UnityWorks\WorkHere\UnityLuaGame\build\luajit-2.0.4\src\host\buildvm_peobj.c"  />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="E:/UnityWorks/WorkHere/UnityLuaGame/build/vsproject-2.0.4/ZERO_CHECK.vcxproj">
+      <Project>D7C76961-C287-3282-8F91-967D18114456</Project>
+    </ProjectReference>
+    <ProjectReference Include="E:/UnityWorks/WorkHere/UnityLuaGame/build/vsproject-2.0.4/minilua.vcxproj">
+      <Project>04424C77-DC3D-3685-9723-EB56E2197B2C</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

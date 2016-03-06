@@ -1,0 +1,37 @@
+# CMake generation dependency list for this directory.
+E:/UnityWorks/WorkHere/UnityLuaGame/build/luajit-2.0.4/CMakeLists.txt
+E:/UnityWorks/WorkHere/UnityLuaGame/build/vsproject-2.0.4/CMakeFiles/3.4.0-rc3/CMakeSystem.cmake
+D:/Program Files (x86)/CMake/share/cmake-3.4/Modules/CMakeSystemSpecificInitialize.cmake
+E:/UnityWorks/WorkHere/UnityLuaGame/build/vsproject-2.0.4/CMakeFiles/3.4.0-rc3/CMakeCCompiler.cmake
+E:/UnityWorks/WorkHere/UnityLuaGame/build/vsproject-2.0.4/CMakeFiles/3.4.0-rc3/CMakeASMCompiler.cmake
+D:/Program Files (x86)/CMake/share/cmake-3.4/Modules/CMakeSystemSpecificInformation.cmake
+D:/Program Files (x86)/CMake/share/cmake-3.4/Modules/CMakeGenericSystem.cmake
+D:/Program Files (x86)/CMake/share/cmake-3.4/Modules/Platform/Windows.cmake
+D:/Program Files (x86)/CMake/share/cmake-3.4/Modules/Platform/WindowsPaths.cmake
+D:/Program Files (x86)/CMake/share/cmake-3.4/Modules/CMakeCInformation.cmake
+D:/Program Files (x86)/CMake/share/cmake-3.4/Modules/Platform/Windows-MSVC-C.cmake
+D:/Program Files (x86)/CMake/share/cmake-3.4/Modules/Platform/Windows-MSVC.cmake
+E:/UnityWorks/WorkHere/UnityLuaGame/build/vsproject-2.0.4/CMakeFiles/3.4.0-rc3/CMakeRCCompiler.cmake
+D:/Program Files (x86)/CMake/share/cmake-3.4/Modules/CMakeRCInformation.cmake
+D:/Program Files (x86)/CMake/share/cmake-3.4/Modules/CMakeCommonLanguageInclude.cmake
+D:/Program Files (x86)/CMake/share/cmake-3.4/Modules/CMakeASMInformation.cmake
+E:/UnityWorks/WorkHere/UnityLuaGame/build/luajit-2.0.4/cmake/dist.cmake
+D:/Program Files (x86)/CMake/share/cmake-3.4/Modules/CPack.cmake
+D:/Program Files (x86)/CMake/share/cmake-3.4/Modules/CPackComponent.cmake
+D:/Program Files (x86)/CMake/share/cmake-3.4/Templates/CPackConfig.cmake.in
+D:/Program Files (x86)/CMake/share/cmake-3.4/Templates/CPackConfig.cmake.in
+E:/UnityWorks/WorkHere/UnityLuaGame/build/luajit-2.0.4/cmake/lua.cmake
+E:/UnityWorks/WorkHere/UnityLuaGame/build/luajit-2.0.4/cmake/FindReadline.cmake
+D:/Program Files (x86)/CMake/share/cmake-3.4/Modules/FindPkgConfig.cmake
+D:/Program Files (x86)/CMake/share/cmake-3.4/Modules/FindPackageHandleStandardArgs.cmake
+D:/Program Files (x86)/CMake/share/cmake-3.4/Modules/FindPackageMessage.cmake
+D:/Program Files (x86)/CMake/share/cmake-3.4/Modules/CMakeParseArguments.cmake
+D:/Program Files (x86)/CMake/share/cmake-3.4/Modules/FindPackageHandleStandardArgs.cmake
+D:/Program Files (x86)/CMake/share/cmake-3.4/Modules/FindPackageMessage.cmake
+D:/Program Files (x86)/CMake/share/cmake-3.4/Modules/CMakeParseArguments.cmake
+D:/Program Files (x86)/CMake/share/cmake-3.4/Modules/FindCurses.cmake
+D:/Program Files (x86)/CMake/share/cmake-3.4/Modules/CheckLibraryExists.cmake
+D:/Program Files (x86)/CMake/share/cmake-3.4/Modules/FindPackageHandleStandardArgs.cmake
+D:/Program Files (x86)/CMake/share/cmake-3.4/Modules/FindPackageMessage.cmake
+D:/Program Files (x86)/CMake/share/cmake-3.4/Modules/CMakeParseArguments.cmake
+E:/UnityWorks/WorkHere/UnityLuaGame/build/luajit-2.0.4/src/luaconf.h.in
