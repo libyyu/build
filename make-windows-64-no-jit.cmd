@@ -73,7 +73,6 @@ gcc slua.c ^
 	-I.\ ^
 	-Ilpeg ^
 	-Ilua-cjson-2.1.0 ^
-	-Iluajit-2.0.4\src ^
 	-Ipbc-win ^
 	-Iluasocket-2.0.2 ^
 	-Isproto-master ^
