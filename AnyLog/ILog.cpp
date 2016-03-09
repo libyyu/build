@@ -1,4 +1,5 @@
 #include "ILog.h"
+
 using namespace AnyLog;
 
 void ILog::Log(const char* format, ...)

@@ -126,7 +126,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_USRDLL;SLUA_EXPORTS;LUA_BUILD_AS_DLL;F_BUILD_AS_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_USRDLL;SLUA_EXPORTS;LUA_BUILD_AS_DLL;F_BUILD_AS_DLL;F_CPLUSPLUA;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\..\;..\..\lua-5.1.5\src;..\..\lpeg;..\..\lua-cjson-2.1.0;..\..\lsqlite3-master;..\..\sqlite-amalgamation-3081101;..\..\luasocket-2.0.2\src;..\..\AnyLog;..\src;..\src\Common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4005;4049;4217</DisableSpecificWarnings>
     </ClCompile>
@@ -137,6 +137,16 @@
       </EntryPointSymbol>
       <AdditionalDependencies>ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>set DST_PATH=..\..\..\LuaGame\ProjectUnity\Assets\Plugins\x86
+echo "Post-Event : CopyTo:%DST_PATH%"
+xcopy "$(SolutionDir)bin\$(Configuration)\x86\$(TargetName)$(TargetExt)" "%DST_PATH%\" /qry
+set PDB_FILE=$(SolutionDir)bin\$(Configuration)\x86\$(TargetName).pdb
+IF EXIST "%PDB_FILE%" xcopy "%PDB_FILE%" "%DST_PATH%\" /qry</Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>echo "Prebuild: $(SolutionDir)bin\$(Configuration)\x86\$(TargetName)$(TargetExt)"</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
     <ClCompile>
@@ -144,7 +154,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_USRDLL;SLUA_EXPORTS;LUA_BUILD_AS_DLL;F_BUILD_AS_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_USRDLL;SLUA_EXPORTS;LUA_BUILD_AS_DLL;F_BUILD_AS_DLL;F_CPLUSPLUA;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\..\;..\..\lua-5.1.5\src;..\..\lpeg;..\..\lua-cjson-2.1.0;..\..\lsqlite3-master;..\..\sqlite-amalgamation-3081101;..\..\luasocket-2.0.2\src;..\..\AnyLog;..\src;..\src\Common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4005;4049;4217</DisableSpecificWarnings>
     </ClCompile>
@@ -162,7 +172,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_USRDLL;SLUA_EXPORTS;LUA_BUILD_AS_DLL;F_BUILD_AS_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_USRDLL;SLUA_EXPORTS;LUA_BUILD_AS_DLL;F_BUILD_AS_DLL;F_CPLUSPLUA;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\..\;..\..\lua-5.1.5\src;..\..\lpeg;..\..\lua-cjson-2.1.0;..\..\lsqlite3-master;..\..\sqlite-amalgamation-3081101;..\..\luasocket-2.0.2\src;..\..\AnyLog;..\src;..\src\Common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4005;4049;4217</DisableSpecificWarnings>
     </ClCompile>
@@ -173,6 +183,16 @@
       </EntryPointSymbol>
       <AdditionalDependencies>ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>set DST_PATH=..\..\..\LuaGame\ProjectUnity\Assets\Plugins\x64
+echo "Post-Event : CopyTo:%DST_PATH%"
+xcopy "$(SolutionDir)bin\$(Configuration)\x64\$(TargetName)$(TargetExt)" "%DST_PATH%\" /qry
+set PDB_FILE=$(SolutionDir)bin\$(Configuration)\x64\$(TargetName).pdb
+IF EXIST "%PDB_FILE%" xcopy "%PDB_FILE%" "%DST_PATH%\" /qry</Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>echo "Prebuild: $(SolutionDir)bin\$(Configuration)\$(Platform)\$(TargetName)$(TargetExt)"</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -182,7 +202,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_WINDOWS;_USRDLL;SLUA_EXPORTS;LUA_BUILD_AS_DLL;F_BUILD_AS_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_WINDOWS;_USRDLL;SLUA_EXPORTS;LUA_BUILD_AS_DLL;F_BUILD_AS_DLL;F_CPLUSPLUA;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\..\;..\..\lua-5.1.5\src;..\..\lpeg;..\..\lua-cjson-2.1.0;..\..\lsqlite3-master;..\..\sqlite-amalgamation-3081101;..\..\luasocket-2.0.2\src;..\..\AnyLog;..\src;..\src\Common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -192,6 +212,16 @@
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>set DST_PATH=..\..\..\LuaGame\ProjectUnity\Assets\Plugins\x86
+echo "Post-Event : CopyTo:%DST_PATH%"
+xcopy "$(SolutionDir)bin\$(Configuration)\x86\$(TargetName)$(TargetExt)" "%DST_PATH%\" /qry
+set PDB_FILE=$(SolutionDir)bin\$(Configuration)\x86\$(TargetName).pdb
+IF EXIST "%PDB_FILE%" xcopy "%PDB_FILE%" "%DST_PATH%\" /qry</Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>echo "Prebuild: $(SolutionDir)bin\$(Configuration)\x86\$(TargetName)$(TargetExt)"</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
     <ClCompile>
@@ -201,7 +231,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_WINDOWS;_USRDLL;SLUA_EXPORTS;LUA_BUILD_AS_DLL;F_BUILD_AS_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_WINDOWS;_USRDLL;SLUA_EXPORTS;LUA_BUILD_AS_DLL;F_BUILD_AS_DLL;F_CPLUSPLUA;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\..\;..\..\lua-5.1.5\src;..\..\lpeg;..\..\lua-cjson-2.1.0;..\..\lsqlite3-master;..\..\sqlite-amalgamation-3081101;..\..\luasocket-2.0.2\src;..\..\AnyLog;..\src;..\src\Common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -220,7 +250,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_WINDOWS;_USRDLL;SLUA_EXPORTS;LUA_BUILD_AS_DLL;F_BUILD_AS_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_WINDOWS;_USRDLL;SLUA_EXPORTS;LUA_BUILD_AS_DLL;F_BUILD_AS_DLL;F_CPLUSPLUA;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\..\;..\..\lua-5.1.5\src;..\..\lpeg;..\..\lua-cjson-2.1.0;..\..\lsqlite3-master;..\..\sqlite-amalgamation-3081101;..\..\luasocket-2.0.2\src;..\..\AnyLog;..\src;..\src\Common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -230,6 +260,16 @@
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PreBuildEvent>
+      <Command>echo "Prebuild: $(SolutionDir)bin\$(Configuration)\$(Platform)\$(TargetName)$(TargetExt)"</Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>set DST_PATH=..\..\..\LuaGame\ProjectUnity\Assets\Plugins\x64
+echo "Post-Event : CopyTo:%DST_PATH%"
+xcopy "$(SolutionDir)bin\$(Configuration)\x64\$(TargetName)$(TargetExt)" "%DST_PATH%\" /qry
+set PDB_FILE=$(SolutionDir)bin\$(Configuration)\x64\$(TargetName).pdb
+IF EXIST "%PDB_FILE%" xcopy "%PDB_FILE%" "%DST_PATH%\" /qry</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\AnyLog\ILog.cpp" />

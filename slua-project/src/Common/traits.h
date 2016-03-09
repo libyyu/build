@@ -2,8 +2,6 @@
 #define traits_h
 #pragma once
 
-namespace em_utility
-{
 namespace trait
 {
 	template<typename T>
@@ -53,8 +51,8 @@ namespace trait
 		typedef void*                  pointer;
 		typedef const void*            const_pointer;
 	};
+
 }//namespace traits
 
-}//namespace em_utility
 
 #endif//traits_h

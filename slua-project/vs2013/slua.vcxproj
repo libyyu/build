@@ -139,10 +139,14 @@
     </Link>
     <PostBuildEvent>
       <Command>set DST_PATH=..\..\..\LuaGame\ProjectUnity\Assets\Plugins\x86
-xcopy "$(SolutionDir)bin\$(Configuration)\$(Platform)\$(TargetName).$(TargetExt)" "%DST_PATH%\" /qry
-set PDB_FILE=$(SolutionDir)bin\$(Configuration)\$(Platform)\$(TargetName).pdb
+echo "Post-Event : CopyTo:%DST_PATH%"
+xcopy "$(SolutionDir)bin\$(Configuration)\x86\$(TargetName)$(TargetExt)" "%DST_PATH%\" /qry
+set PDB_FILE=$(SolutionDir)bin\$(Configuration)\x86\$(TargetName).pdb
 IF EXIST "%PDB_FILE%" xcopy "%PDB_FILE%" "%DST_PATH%\" /qry</Command>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>echo "Prebuild: $(SolutionDir)bin\$(Configuration)\$(Platform)\$(TargetName)$(TargetExt)"</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
     <ClCompile>
@@ -179,6 +183,16 @@ IF EXIST "%PDB_FILE%" xcopy "%PDB_FILE%" "%DST_PATH%\" /qry</Command>
       </EntryPointSymbol>
       <AdditionalDependencies>ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>set DST_PATH=..\..\..\LuaGame\ProjectUnity\Assets\Plugins\x64
+echo "Post-Event : CopyTo:%DST_PATH%"
+xcopy "$(SolutionDir)bin\$(Configuration)\x64\$(TargetName)$(TargetExt)" "%DST_PATH%\" /qry
+set PDB_FILE=$(SolutionDir)bin\$(Configuration)\x64\$(TargetName).pdb
+IF EXIST "%PDB_FILE%" xcopy "%PDB_FILE%" "%DST_PATH%\" /qry</Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>echo "Prebuild: $(SolutionDir)bin\$(Configuration)\$(Platform)\$(TargetName)$(TargetExt)"</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -198,6 +212,16 @@ IF EXIST "%PDB_FILE%" xcopy "%PDB_FILE%" "%DST_PATH%\" /qry</Command>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>set DST_PATH=..\..\..\LuaGame\ProjectUnity\Assets\Plugins\x86
+echo "Post-Event : CopyTo:%DST_PATH%"
+xcopy "$(SolutionDir)bin\$(Configuration)\x86\$(TargetName)$(TargetExt)" "%DST_PATH%\" /qry
+set PDB_FILE=$(SolutionDir)bin\$(Configuration)\x86\$(TargetName).pdb
+IF EXIST "%PDB_FILE%" xcopy "%PDB_FILE%" "%DST_PATH%\" /qry</Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>echo "Prebuild: $(SolutionDir)bin\$(Configuration)\x86\$(TargetName)$(TargetExt)"</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
     <ClCompile>
@@ -236,6 +260,16 @@ IF EXIST "%PDB_FILE%" xcopy "%PDB_FILE%" "%DST_PATH%\" /qry</Command>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PreBuildEvent>
+      <Command>echo "Prebuild: $(SolutionDir)bin\$(Configuration)\$(Platform)\$(TargetName)$(TargetExt)"</Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>set DST_PATH=..\..\..\LuaGame\ProjectUnity\Assets\Plugins\x64
+echo "Post-Event : CopyTo:%DST_PATH%"
+xcopy "$(SolutionDir)bin\$(Configuration)\x64\$(TargetName)$(TargetExt)" "%DST_PATH%\" /qry
+set PDB_FILE=$(SolutionDir)bin\$(Configuration)\x64\$(TargetName).pdb
+IF EXIST "%PDB_FILE%" xcopy "%PDB_FILE%" "%DST_PATH%\" /qry</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\AnyLog\ILog.cpp" />

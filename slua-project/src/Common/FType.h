@@ -2,7 +2,7 @@
     FileName :  FType.h   
     Version  :  0.10
     Date     :	2010-2-1 19:41:30
-    Author   :  小家伙
+    Author   :  Feng(libyyu@qq.com)
     Comment  : 
 
 *********************************************************************/
@@ -19,12 +19,15 @@
   #define WIN32_LEAN_AND_MEAN             //  从 Windows 头文件中排除极少使用的信息
   #include <windows.h>
   #include <float.h>
+#ifndef isnan
   #define isnan     _isnan
-  #define snprintf  _snprintf
+#endif
+#ifndef snprintf
+	#define snprintf     _snprintf
+#endif
   #define STD_CALL  __stdcall
   #define CALLBACK  __stdcall
   #define WINAPI    __stdcall
-  #define FLock     CRITICAL_SECTION 
   #ifdef _T
   #undef _T
   #endif  

@@ -1,29 +1,29 @@
-#ifndef _ilog_h_
-#define _ilog_h_
+/********************************************************************
+FileName :  FType.h
+Version  :  0.10
+Date     :	2010-2-1 19:41:30
+Author   :  Feng(libyyu@qq.com)
+Comment  :
 
-#include <stdio.h>
-#include <stddef.h>
-#include <stdarg.h>
+*********************************************************************/
+#ifndef __ILOG_H__
+#define __ILOG_H__
 
-#ifdef _WIN32 
-	#define STD_LOG_CALL __stdcall
-#else
-	#define STD_LOG_CALL
-#endif
+#include "FType.h"
 
+enum LOG_TYPE
+{
+	LOG_ERROR = 0,
+	LOG_ASSERT = 1,
+	LOG_WARNING = 2,
+	LOG_INFO = 3,
+	LOG_EXCEPTION = 4,
+};
+typedef void (STD_CALL *PLogFunc) (int logType, const char* message);
+
+#ifdef   F_CPLUSPLUA
 namespace AnyLog
 {
-	enum LOG_TYPE
-	{
-		LOG_ERROR = 0,
-		LOG_ASSERT = 1,
-		LOG_WARNING = 2,
-		LOG_INFO = 3,
-		LOG_EXCEPTION = 4,
-	};
-
-	typedef void (STD_LOG_CALL *PLogFunc) (int logType,const char* message);
-
 	class ILog
 	{
 	public:
@@ -39,20 +39,19 @@ namespace AnyLog
 	};
 }
 
-#include <assert.h>
 class FLog : public AnyLog::ILog
 {
 private:
-	AnyLog::PLogFunc _log_message;
+	PLogFunc _log_message;
 public:
 	FLog() : _log_message(NULL) {}
-	void SetLogCall(AnyLog::PLogFunc pFunc)
+	void SetLogCall(PLogFunc pFunc)
 	{
 		assert(pFunc && "AnyLog::PLogFunc must not be null.");
 		_log_message = pFunc;
 	}
 protected:
-	void LogImpl(AnyLog::LOG_TYPE logType, const char* message)
+	void LogImpl(LOG_TYPE logType, const char* message)
 	{
 		if (_log_message != NULL)
 		{
@@ -63,4 +62,16 @@ protected:
 	}
 };
 
-#endif//_ilog_h_
+#else
+struct ILog
+{
+	PLogFunc _log_message;
+	void (*Log)(void* pLog,const char* format, ...);
+	void (*LogWarning)(void* pLog, const char* format, ...);
+	void (*LogError)(void* pLog, const char* format, ...);
+	void (*LogException)(void* pLog, const char* format, ...);
+};
+
+extern ILog* CreateILog(PLogFunc pFunc);
+#endif
+#endif//__ILOG_H__

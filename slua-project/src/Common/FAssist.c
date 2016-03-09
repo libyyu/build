@@ -2,7 +2,7 @@
 
 #include "FAssist.h"
 
-AnyLog::ILog* g_theLog = NULL;
+ILog* g_theLog = NULL;
 lua_State* g_luaState = NULL;
 
 void L_CleanupLuaState()

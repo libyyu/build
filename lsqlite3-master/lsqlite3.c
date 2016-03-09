@@ -29,7 +29,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <assert.h>
-
+#define LUA_LIB
 #include "lua.h"
 #include "lauxlib.h"
 
