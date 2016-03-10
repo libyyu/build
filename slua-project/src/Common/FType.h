@@ -8,7 +8,6 @@
 *********************************************************************/
 #ifndef __FTYPE_H__
 #define __FTYPE_H__
-#pragma once
 
 #include <stdio.h>
 #include <string.h>

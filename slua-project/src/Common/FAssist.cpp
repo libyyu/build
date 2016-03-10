@@ -20,21 +20,11 @@ void L_SetupLuaState(lua_State* l)
 }
 void L_EstablishAnyLog(void* pfunc)
 {
-	if (g_theLog != NULL)
-	{
-		delete g_theLog;
-	}
-	g_theLog = new FLog();
-	g_theLog->SetLogCall((PLogFunc)pfunc);
-	g_theLog->Log("AnyLog Established!");
+	g_theLog = FLog::CreateILog(pfunc);
 }
 
 void L_UnEstablishAnyLog()
 {
 	log_info("UnEstablishAnyLog.");
-	if (g_theLog != NULL)
-	{
-		delete g_theLog;
-		g_theLog = NULL;
-	}
+	FLog::DestroyILog(g_theLog);
 }

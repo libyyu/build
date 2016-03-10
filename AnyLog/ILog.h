@@ -21,7 +21,6 @@ enum LOG_TYPE
 };
 typedef void (STD_CALL *PLogFunc) (int logType, const char* message);
 
-#ifdef   F_CPLUSPLUA
 namespace AnyLog
 {
 	class ILog
@@ -37,6 +36,8 @@ namespace AnyLog
 	private:
 		void LogFormatInner(LOG_TYPE logType,const char* format, va_list va);
 	};
+
+	typedef ILog *PLOG;
 }
 
 class FLog : public AnyLog::ILog
@@ -50,6 +51,21 @@ public:
 		assert(pFunc && "AnyLog::PLogFunc must not be null.");
 		_log_message = pFunc;
 	}
+	static AnyLog::PLOG CreateILog(void* pfunc)
+	{
+		AnyLog::PLOG pLog = new FLog();
+		pLog->SetLogCall((PLogFunc)pfunc);
+		pLog->Log("AnyLog Established!");
+		return pLog;
+	}
+	static void DestroyILog(AnyLog::PLOG pLog)
+	{
+		if(NULL != pLog)
+		{
+			delete pLog;
+			pLog = NULL;
+		}
+	}
 protected:
 	void LogImpl(LOG_TYPE logType, const char* message)
 	{
@@ -62,16 +78,5 @@ protected:
 	}
 };
 
-#else
-struct ILog
-{
-	PLogFunc _log_message;
-	void (*Log)(void* pLog,const char* format, ...);
-	void (*LogWarning)(void* pLog, const char* format, ...);
-	void (*LogError)(void* pLog, const char* format, ...);
-	void (*LogException)(void* pLog, const char* format, ...);
-};
 
-extern ILog* CreateILog(PLogFunc pFunc);
-#endif
 #endif//__ILOG_H__
