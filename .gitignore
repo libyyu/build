@@ -13,3 +13,4 @@ obj/
 *.exp
 *.tlog
 *.log
+/vsproject-2.0.4/.vs
