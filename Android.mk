@@ -17,29 +17,35 @@ else
 	THIRD_MODULS :=
 endif
 
+$(warning $(LOCAL_PATH))
+$(warning $(LOCAL_MODULE))
+$(warning $(NDK_PROJECT_PATH))
+
 include $(CLEAR_VARS)
+LOCAL_FORCE_STATIC_EXECUTABLE := true
 
 # override strip command to strip all symbols from output library; no need to ship with those ...
 # cmd-strip = $(TOOLCHAIN_PREFIX)strip $1
 
 LOCAL_ARM_MODE  := arm
-LOCAL_PATH      := $(NDK_PROJECT_PATH)
+LOCAL_MODULE    := slua
 
+LOCAL_PATH      := $(NDK_PROJECT_PATH)
 LUA_PATH        := $(LOCAL_PATH)/luajit-2.0.4/src
 JSON_PATH       := $(LOCAL_PATH)/lua-cjson-2.1.0
 LPEG_PATH       := $(LOCAL_PATH)/lpeg
 SQLITE_PATH     := $(LOCAL_PATH)/sqlite-amalgamation-3081101
 LSQLITE_PATH    := $(LOCAL_PATH)/lsqlite3-master
 SOCKET_PATH     := $(LOCAL_PATH)/luasocket-2.0.2/src
-ANYLOG_PATH     := $(LOCAL_PATH)/AnyLog
-FLUA_PATH       := $(LOCAL_PATH)/FLua/FLua
-LOCAL_MODULE    := slua
+
+$(warning "LUA_PATH" $(LUA_PATH))
 LOCAL_CPP_FEATURES := rtti exceptions
 #LOCAL_CFLAGS   += -D _ANDROID -fvisibility=hidden
 LOCAL_CFLAGS   += -D _ANDROID -D ANDROID
 #LOCAL_CFLAGS   += -D _ANDROID -D __OpenBSD__
 #LOCAL_CFLAGS   += -fexceptions
 #LOCAL_CFLAGS   += -frtti
+LOCAL_CPPFLAGS  += -03 -ffast-math
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)
 LOCAL_C_INCLUDES += $(LUA_PATH)
@@ -52,7 +58,7 @@ LOCAL_C_INCLUDES += $(SOCKET_PATH)
 LOCAL_SRC_FILES := \
 $(LOCAL_PATH)/slua.c \
 $(LOCAL_PATH)/pb.c \
-$(LOCAL_PATH)/bit.c \
+#$(LOCAL_PATH)/bit.c \
 $(JSON_PATH)/fpconv.c \
 $(JSON_PATH)/strbuf.c \
 $(JSON_PATH)/lua_cjson.c \
@@ -82,6 +88,8 @@ libdl
 
 LOCAL_STATIC_LIBARIES := $(THIRD_MODULS)
 LOCAL_LDLIBS          += -landroid -llog
+
+LOCAL_WHOLE_STATIC_LIBRARIES += $(LOCAL_STATIC_LIBARIES)
 
 #cmd-strip = $(ndk)/arm-linux-androideabi-4.8/prebuild/strip -s --strip-debug -x $1
 

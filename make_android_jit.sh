@@ -4,11 +4,11 @@ echo "Compiling NativeCode..."
 
 
 echo "build libluajit-arm-v7.a"
-rm ./libluajit-arm-v7.a
+rm -f ./libluajit-arm-v7.a
 
 cd luajit-2.0.4/src
-rm ./libluajit.a
-rm -f *.o
+rm -f ./libluajit.a
+rm -f *.o *.exe
 NDK=D:/AndriodTools/adt-bundle-windows/ndk-r8d
 NFK=$NDK/toolchains/arm-linux-androideabi-4.6/prebuilt/windows/bin/arm-linux-androideabi-
 
@@ -26,11 +26,11 @@ echo "Success to build libluajit-arm-v7"
 
 
 echo "build libluajit-x86.a"
-rm ./libluajit-x86.a
+rm -f ./libluajit-x86.a
 
 cd luajit-2.0.4/src
-rm ./libluajit.a
-rm -f *.o
+rm -f ./libluajit.a
+rm -f *.o *.exe
 NDK=D:/AndriodTools/adt-bundle-windows/ndk-r8d
 NFK=$NDK/toolchains/x86-4.6/prebuilt/windows/bin/i686-linux-android-
 

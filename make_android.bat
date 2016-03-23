@@ -12,4 +12,9 @@ echo "Cleaning up / removing build folders..."  #optional..
 echo ""
 echo "Done!"
 
+cp ./libs/armeabi-v7a/libslua.so ../LuaGame/ProjectUnity/Assets/Plugins/Android/libs/armeabi-v7a/libslua.so
+
+cp ./libs/x86/libslua.so ../LuaGame/ProjectUnity/Assets/Plugins/Android/libs/x86/libslua.so
+
+
 pause
