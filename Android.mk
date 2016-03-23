@@ -1,12 +1,18 @@
 
 ifeq ($(TARGET_ARCH_ABI),armeabi-v7a)
-	LOCAL_PATH := $(call my-dir)
+	LOCAL_PATH:=$(call my-dir)
 	include $(CLEAR_VARS)
-	THIRD_MODULS :=
+	LOCAL_MODULE 		:= libluajit-arm-v7
+	LOCAL_SRC_FILES		:= libluajit-arm-v7.a
+	THIRD_MODULS 		:= $(LOCAL_MODULE)
+	include $(PREBUILT_STATIC_LIBRARY)
 else ifeq ($(TARGET_ARCH_ABI),x86)
-	LOCAL_PATH := $(call my-dir)
+	LOCAL_PATH:=$(call my-dir)
 	include $(CLEAR_VARS)
-	THIRD_MODULS :=
+	LOCAL_MODULE 		:= libluajit-x86
+	LOCAL_SRC_FILES		:= libluajit-x86.a
+	THIRD_MODULS 		:= $(LOCAL_MODULE)
+	include $(PREBUILT_STATIC_LIBRARY)
 else
 	THIRD_MODULS :=
 endif
@@ -18,7 +24,8 @@ include $(CLEAR_VARS)
 
 LOCAL_ARM_MODE  := arm
 LOCAL_PATH      := $(NDK_PROJECT_PATH)
-LUA_PATH        := $(LOCAL_PATH)/lua-5.1.5/src
+
+LUA_PATH        := $(LOCAL_PATH)/luajit-2.0.4/src
 JSON_PATH       := $(LOCAL_PATH)/lua-cjson-2.1.0
 LPEG_PATH       := $(LOCAL_PATH)/lpeg
 SQLITE_PATH     := $(LOCAL_PATH)/sqlite-amalgamation-3081101
@@ -34,40 +41,18 @@ LOCAL_CFLAGS   += -D _ANDROID -D ANDROID
 #LOCAL_CFLAGS   += -fexceptions
 #LOCAL_CFLAGS   += -frtti
 
+LOCAL_C_INCLUDES := $(LOCAL_PATH)
+LOCAL_C_INCLUDES += $(LUA_PATH)
+LOCAL_C_INCLUDES += $(LPEG_PATH)
+LOCAL_C_INCLUDES += $(JSON_PATH)
+LOCAL_C_INCLUDES += $(SQLITE_PATH)
+LOCAL_C_INCLUDES += $(LSQLITE_PATH)
+LOCAL_C_INCLUDES += $(SOCKET_PATH)
+
 LOCAL_SRC_FILES := \
 $(LOCAL_PATH)/slua.c \
 $(LOCAL_PATH)/pb.c \
 $(LOCAL_PATH)/bit.c \
-$(LUA_PATH)/lapi.c \
-$(LUA_PATH)/lauxlib.c \
-$(LUA_PATH)/lbaselib.c \
-$(LUA_PATH)/lcode.c \
-$(LUA_PATH)/ldblib.c \
-$(LUA_PATH)/ldebug.c \
-$(LUA_PATH)/ldo.c \
-$(LUA_PATH)/ldump.c \
-$(LUA_PATH)/lfunc.c \
-$(LUA_PATH)/lgc.c \
-$(LUA_PATH)/linit.c \
-$(LUA_PATH)/liolib.c \
-$(LUA_PATH)/llex.c \
-$(LUA_PATH)/lmathlib.c \
-$(LUA_PATH)/lmem.c \
-$(LUA_PATH)/loadlib.c \
-$(LUA_PATH)/lobject.c \
-$(LUA_PATH)/lopcodes.c \
-$(LUA_PATH)/loslib.c \
-$(LUA_PATH)/lparser.c \
-$(LUA_PATH)/lstate.c \
-$(LUA_PATH)/lstring.c \
-$(LUA_PATH)/lstrlib.c \
-$(LUA_PATH)/ltable.c \
-$(LUA_PATH)/ltablib.c \
-$(LUA_PATH)/ltm.c \
-$(LUA_PATH)/lundump.c \
-$(LUA_PATH)/lvm.c \
-$(LUA_PATH)/lzio.c \
-$(LUA_PATH)/print.c \
 $(JSON_PATH)/fpconv.c \
 $(JSON_PATH)/strbuf.c \
 $(JSON_PATH)/lua_cjson.c \
@@ -87,22 +72,9 @@ $(SOCKET_PATH)/unix.c \
 $(SOCKET_PATH)/mime.c \
 $(SOCKET_PATH)/except.c \
 $(SOCKET_PATH)/select.c \
-$(SOCKET_PATH)/usocket.c \
-$(ANYLOG_PATH)/ILog.cpp \
-$(FLUA_PATH)/FLua.cpp
+$(SOCKET_PATH)/usocket.c
 
 LOCAL_SRC_FILES  += $(THIRD_SRCS)
-
-LOCAL_C_INCLUDES := $(LOCAL_PATH) \
-$(LUA_PATH) \
-$(JSON_PATH) \
-$(LPEG_PATH) \
-$(SQLITE_PATH) \
-$(LSQLITE_PATH) \
-$(SOCKET_PATH) \
-$(ANYLOG_PATH) \
-$(FLUA_PATH)
-
 
 LOCAL_SHARE_LIBARIES  := \
 libcutils \
