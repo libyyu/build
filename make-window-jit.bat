@@ -1,9 +1,10 @@
 @echo off
 
 @set OLD_PATH=%PATH%
+@set MinGW=E:\UnityWorks\WorkHere\UnityLuaGame\MinGW\MinGW
 
 echo "Build LuaJit For x64"
-PATH=E:\UnityWorks\WorkHere\UnityLuaGame\MinGW\MinGW\x64\bin;%OLD_PATH%
+PATH=%MinGW%\x64\bin;%OLD_PATH%
 
 @del libluajit-window-x64.a
 cd luajit-2.0.4
@@ -17,7 +18,7 @@ PATH=%OLD_PATH%
 echo "Successful Build LuaJit For Window X64"
 
 echo "Build LuaJit For x86"
-PATH=E:\UnityWorks\WorkHere\UnityLuaGame\MinGW\MinGW\x86\bin;%OLD_PATH%
+PATH=%MinGW%\x86\bin;%OLD_PATH%
 
 @del libluajit-window-x86.a
 cd luajit-2.0.4
