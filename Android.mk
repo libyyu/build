@@ -58,7 +58,7 @@ LOCAL_C_INCLUDES += $(SOCKET_PATH)
 LOCAL_SRC_FILES := \
 $(LOCAL_PATH)/slua.c \
 $(LOCAL_PATH)/pb.c \
-#$(LOCAL_PATH)/bit.c \
+$(LOCAL_PATH)/bit.c \
 $(JSON_PATH)/fpconv.c \
 $(JSON_PATH)/strbuf.c \
 $(JSON_PATH)/lua_cjson.c \
