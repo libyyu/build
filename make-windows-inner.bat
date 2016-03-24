@@ -18,6 +18,9 @@ if "%target%" == "x64" (
 	@set movepath=..\LuaGame\ProjectUnity\Assets\Plugins\x86\%local_module%.dll
 )
 
+@set PROJECT_SRC_PATH=Project-Source
+
+
 @echo "Build Target Module %target%"
 
 gcc slua.c ^
@@ -57,6 +60,9 @@ gcc slua.c ^
 	sproto-master/sproto.c ^
 	lsqlite3-master/lsqlite3.c ^
 	sqlite-amalgamation-3081101/sqlite3.c ^
+	%PROJECT_SRC_PATH%/AnyLog/ILog.cpp ^
+	%PROJECT_SRC_PATH%/Common/FAssist.cpp ^
+	%PROJECT_SRC_PATH%/FLuaExport.cpp ^
 	-o %outmodule% %outmode% -shared ^
 	-I./ ^
 	-Ilpeg ^
@@ -67,8 +73,11 @@ gcc slua.c ^
 	-Isproto-master ^
 	-Ilsqlite3-master ^
 	-Isqlite-amalgamation-3081101 ^
+	-I%PROJECT_SRC_PATH% ^
+	-I%PROJECT_SRC_PATH%/Common ^
+	-I%PROJECT_SRC_PATH%/AnyLog ^
 	-Wl,--whole-archive %linkluajit% ^
-	-Wl,--no-whole-archive -lwsock32 -static-libgcc -static-libstdc++
+	-Wl,--no-whole-archive -lwsock32 -static-libgcc -lstdc++
 
 @copy %outmodule% %movepath% /y
 

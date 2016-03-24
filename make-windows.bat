@@ -1,3 +1,4 @@
+@echo off
 @set OLD_PATH=%PATH%
 
 set PATH=E:\UnityWorks\WorkHere\UnityLuaGame\MinGW\MinGW\x64\bin;%OLD_PATH%

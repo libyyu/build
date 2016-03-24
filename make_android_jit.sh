@@ -25,6 +25,8 @@ echo ""
 echo "Success to build libluajit-arm-v7"
 
 
+echo ""
+echo ""
 echo "build libluajit-x86.a"
 rm -f ./libluajit-x86.a
 

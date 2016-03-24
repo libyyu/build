@@ -37,6 +37,8 @@ LPEG_PATH       := $(LOCAL_PATH)/lpeg
 SQLITE_PATH     := $(LOCAL_PATH)/sqlite-amalgamation-3081101
 LSQLITE_PATH    := $(LOCAL_PATH)/lsqlite3-master
 SOCKET_PATH     := $(LOCAL_PATH)/luasocket-2.0.2/src
+PBC_PATH        := $(LOCAL_PATH)/pbc-master
+PROJECT_SRC_PATH := $(LOCAL_PATH)/Project-Source
 
 $(warning "LUA_PATH" $(LUA_PATH))
 LOCAL_CPP_FEATURES := rtti exceptions
@@ -45,7 +47,7 @@ LOCAL_CFLAGS   += -D _ANDROID -D ANDROID
 #LOCAL_CFLAGS   += -D _ANDROID -D __OpenBSD__
 #LOCAL_CFLAGS   += -fexceptions
 #LOCAL_CFLAGS   += -frtti
-LOCAL_CPPFLAGS  += -03 -ffast-math
+#LOCAL_CPPFLAGS  += -03 -ffast-math
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)
 LOCAL_C_INCLUDES += $(LUA_PATH)
@@ -54,11 +56,16 @@ LOCAL_C_INCLUDES += $(JSON_PATH)
 LOCAL_C_INCLUDES += $(SQLITE_PATH)
 LOCAL_C_INCLUDES += $(LSQLITE_PATH)
 LOCAL_C_INCLUDES += $(SOCKET_PATH)
+LOCAL_C_INCLUDES += $(PBC_PATH)
+LOCAL_C_INCLUDES += $(PBC_PATH)/src
+LOCAL_C_INCLUDES += $(PROJECT_SRC_PATH)
+LOCAL_C_INCLUDES += $(PROJECT_SRC_PATH)/Common
+LOCAL_C_INCLUDES += $(PROJECT_SRC_PATH)/AnyLog
+
 
 LOCAL_SRC_FILES := \
 $(LOCAL_PATH)/slua.c \
 $(LOCAL_PATH)/pb.c \
-$(LOCAL_PATH)/bit.c \
 $(JSON_PATH)/fpconv.c \
 $(JSON_PATH)/strbuf.c \
 $(JSON_PATH)/lua_cjson.c \
@@ -78,7 +85,24 @@ $(SOCKET_PATH)/unix.c \
 $(SOCKET_PATH)/mime.c \
 $(SOCKET_PATH)/except.c \
 $(SOCKET_PATH)/select.c \
-$(SOCKET_PATH)/usocket.c
+$(SOCKET_PATH)/usocket.c \
+$(PBC_PATH)/src/alloc.c \
+$(PBC_PATH)/src/array.c \
+$(PBC_PATH)/src/bootstrap.c \
+$(PBC_PATH)/src/context.c \
+$(PBC_PATH)/src/decode.c \
+$(PBC_PATH)/src/map.c \
+$(PBC_PATH)/src/pattern.c \
+$(PBC_PATH)/src/proto.c \
+$(PBC_PATH)/src/register.c \
+$(PBC_PATH)/src/rmessage.c \
+$(PBC_PATH)/src/stringpool.c \
+$(PBC_PATH)/src/varint.c \
+$(PBC_PATH)/src/wmessage.c \
+$(PBC_PATH)/binding/lua/pbc-lua.c \
+$(PROJECT_SRC_PATH)/AnyLog/ILog.cpp \
+$(PROJECT_SRC_PATH)/Common/FAssist.cpp
+
 
 LOCAL_SRC_FILES  += $(THIRD_SRCS)
 
