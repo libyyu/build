@@ -77,7 +77,7 @@ gcc slua.c ^
 	-I%PROJECT_SRC_PATH%/Common ^
 	-I%PROJECT_SRC_PATH%/AnyLog ^
 	-Wl,--whole-archive %linkluajit% ^
-	-Wl,--no-whole-archive -lwsock32 -static-libgcc -lstdc++
+	-Wl,--no-whole-archive -lwsock32 -static-libgcc -static-libstdc++ -lstdc++
 
 @copy %outmodule% %movepath% /y
 
