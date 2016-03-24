@@ -8,14 +8,14 @@ if "%target%" == "x64" (
 	mkdir window\x86_64
 	@set outmode=-m64
 	@set linkmodule=libluajit-window-x64.a
-	@set outmodule=window/x86_64/%local_module%.dll
-	@set movepath=../LuaGame/ProjectUnity/Assets/Plugins/x64/%local_module%.dll
+	@set outmodule=window\x86_64\%local_module%.dll
+	@set movepath=..\LuaGame\ProjectUnity\Assets\Plugins\x64\%local_module%.dll
 ) else ( 
 	mkdir window\x86
 	@set outmode=-m32
 	@set linkmodule=libluajit-window-x86.a
-	@set outmodule=window/x86/%local_module%.dll
-	@set movepath=../LuaGame/ProjectUnity/Assets/Plugins/x86/%local_module%.dll
+	@set outmodule=window\x86\%local_module%.dll
+	@set movepath=..\LuaGame\ProjectUnity\Assets\Plugins\x86\%local_module%.dll
 )
 
 @echo "Build Target Module %target%"
@@ -70,5 +70,6 @@ gcc slua.c ^
 	-Wl,--whole-archive %linkmodule% ^
 	-Wl,--no-whole-archive -lwsock32 -static-libgcc -static-libstdc++
 
+@copy %outmodule% %movepath% /y
 
 @echo "Build Successful For %target%"
