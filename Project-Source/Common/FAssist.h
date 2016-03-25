@@ -5,6 +5,7 @@
 
 #include "FType.h"
 #include "ILog.h"
+#include "lua.h"
 
 #define  log_info(fmt,...)    \
 if(g_theLog != NULL) \
@@ -27,8 +28,6 @@ if(g_theLog != NULL) \
 	g_theLog->LogException(fmt,##__VA_ARGS__);  \
 }
 
-
-struct lua_State;
 
 AnyLog::ILog* g_GetAnyLog();
 lua_State* g_GetLuaState();

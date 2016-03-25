@@ -62,7 +62,6 @@ gcc slua.c ^
 	sqlite-amalgamation-3081101/sqlite3.c ^
 	%PROJECT_SRC_PATH%/AnyLog/ILog.cpp ^
 	%PROJECT_SRC_PATH%/Common/FAssist.cpp ^
-	%PROJECT_SRC_PATH%/FLuaExport.cpp ^
 	-o %outmodule% %outmode% -shared ^
 	-I./ ^
 	-Ilpeg ^
@@ -77,7 +76,7 @@ gcc slua.c ^
 	-I%PROJECT_SRC_PATH%/Common ^
 	-I%PROJECT_SRC_PATH%/AnyLog ^
 	-Wl,--whole-archive %linkluajit% ^
-	-Wl,--no-whole-archive -lwsock32 -static-libgcc -static-libstdc++ -lsupc++
+	-Wl,--no-whole-archive -lwsock32 -static-libgcc -static-libstdc++ -lsupc++ -lstdc++
 
 @copy %outmodule% %movepath% /y
 
