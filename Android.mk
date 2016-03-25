@@ -17,9 +17,7 @@ else
 	THIRD_MODULS :=
 endif
 
-$(warning $(LOCAL_PATH))
-$(warning $(LOCAL_MODULE))
-$(warning $(NDK_PROJECT_PATH))
+#$(warning $(NDK_PROJECT_PATH))
 
 include $(CLEAR_VARS)
 LOCAL_FORCE_STATIC_EXECUTABLE := true
@@ -28,7 +26,7 @@ LOCAL_FORCE_STATIC_EXECUTABLE := true
 # cmd-strip = $(TOOLCHAIN_PREFIX)strip $1
 
 LOCAL_ARM_MODE  := arm
-LOCAL_MODULE    := slua
+LOCAL_MODULE    := $(OUT_MODULE_NAME)
 
 LOCAL_PATH      := $(NDK_PROJECT_PATH)
 LUA_PATH        := $(LOCAL_PATH)/luajit-2.0.4/src
@@ -40,7 +38,6 @@ SOCKET_PATH     := $(LOCAL_PATH)/luasocket-2.0.2/src
 PBC_PATH        := $(LOCAL_PATH)/pbc-master
 PROJECT_SRC_PATH := $(LOCAL_PATH)/Project-Source
 
-$(warning "LUA_PATH" $(LUA_PATH))
 LOCAL_CPP_FEATURES := rtti exceptions
 #LOCAL_CFLAGS   += -D _ANDROID -fvisibility=hidden
 LOCAL_CFLAGS   += -D _ANDROID -D ANDROID

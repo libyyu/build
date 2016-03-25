@@ -5,16 +5,16 @@
 set local_module=slua
  
 if "%target%" == "x64" (
-	mkdir window\x86_64
+	mkdir Plugins\x64
 	@set outmode=-m64
 	@set linkluajit=libluajit-window-x64.a
-	@set outmodule=window\x86_64\%local_module%.dll
+	@set outmodule=Plugins\x64\%local_module%.dll
 	@set movepath=..\LuaGame\ProjectUnity\Assets\Plugins\x64\%local_module%.dll
 ) else ( 
-	mkdir window\x86
+	mkdir Plugins\x86
 	@set outmode=-m32
 	@set linkluajit=libluajit-window-x86.a
-	@set outmodule=window\x86\%local_module%.dll
+	@set outmodule=Plugins\x86\%local_module%.dll
 	@set movepath=..\LuaGame\ProjectUnity\Assets\Plugins\x86\%local_module%.dll
 )
 
@@ -77,7 +77,7 @@ gcc slua.c ^
 	-I%PROJECT_SRC_PATH%/Common ^
 	-I%PROJECT_SRC_PATH%/AnyLog ^
 	-Wl,--whole-archive %linkluajit% ^
-	-Wl,--no-whole-archive -lwsock32 -static-libgcc -static-libstdc++ -lstdc++
+	-Wl,--no-whole-archive -lwsock32 -static-libgcc -static-libstdc++ -lsupc++
 
 @copy %outmodule% %movepath% /y
 

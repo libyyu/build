@@ -1,7 +1,7 @@
 
 echo ""
 echo "Compiling NativeCode..."
-ndk-build.cmd  NDK_PROJECT_PATH=. NDK_APPLICATION_MK=Application.mk
+ndk-build.cmd  NDK_PROJECT_PATH=. NDK_APPLICATION_MK=Application.mk OUT_MODULE_NAME=slua
 @rem #mv libs/armeabi/libAutoPF.so ./AutoPF.so
 
 echo ""
