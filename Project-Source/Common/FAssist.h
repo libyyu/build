@@ -5,7 +5,7 @@
 
 #include "FType.h"
 #include "ILog.h"
-#include "lua.h"
+#include "lua.hpp"
 
 #define  log_info(fmt,...)    \
 if(g_theLog != NULL) \
@@ -28,6 +28,9 @@ if(g_theLog != NULL) \
 	g_theLog->LogException(fmt,##__VA_ARGS__);  \
 }
 
+
+#define MODULE_NAME "slua"
+#define MODULE_VERSION "1.0.1"
 
 AnyLog::ILog* g_GetAnyLog();
 lua_State* g_GetLuaState();

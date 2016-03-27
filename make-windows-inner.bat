@@ -8,12 +8,14 @@ if "%target%" == "x64" (
 	mkdir Plugins\x64
 	@set outmode=-m64
 	@set linkluajit=libluajit-window-x64.a
+	@set linkcurllib=libcurl-window-x64.a
 	@set outmodule=Plugins\x64\%local_module%.dll
 	@set movepath=..\LuaGame\ProjectUnity\Assets\Plugins\x64\%local_module%.dll
 ) else ( 
 	mkdir Plugins\x86
 	@set outmode=-m32
 	@set linkluajit=libluajit-window-x86.a
+	@set linkcurllib=libcurl-window-x86.a
 	@set outmodule=Plugins\x86\%local_module%.dll
 	@set movepath=..\LuaGame\ProjectUnity\Assets\Plugins\x86\%local_module%.dll
 )
@@ -75,8 +77,11 @@ gcc slua.c ^
 	-I%PROJECT_SRC_PATH% ^
 	-I%PROJECT_SRC_PATH%/Common ^
 	-I%PROJECT_SRC_PATH%/AnyLog ^
-	-Wl,--whole-archive %linkluajit% ^
-	-Wl,--no-whole-archive -lwsock32 -static-libgcc -static-libstdc++ -lsupc++ -lstdc++
+	-L./ ^
+	-DCURL_STATICLIB ^
+	-Wl,--whole-archive ^
+	%linkluajit% ^
+	-Wl,--no-whole-archive -lws2_32 -lwldap32 -static-libgcc -static-libstdc++ -lsupc++ -lstdc++
 
 @copy %outmodule% %movepath% /y
 

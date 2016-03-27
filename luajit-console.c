@@ -506,6 +506,16 @@ static struct Smain {
 } smain;
 
 extern void luaS_openextlibs(lua_State *L);
+extern void L_EstablishDefaultLog();
+extern void L_SetupLuaState(lua_State* L);
+
+static void lua_extend_function(lua_State* L)
+{
+  L_EstablishDefaultLog();
+  L_SetupLuaState(L);
+  luaS_openextlibs(L);
+}
+
 static int pmain(lua_State *L)
 {
   struct Smain *s = &smain;
@@ -527,7 +537,7 @@ static int pmain(lua_State *L)
   }
   lua_gc(L, LUA_GCSTOP, 0);  /* stop collector during initialization */
   luaL_openlibs(L);  /* open libraries */
-  luaS_openextlibs(L);
+  lua_extend_function(L);
   lua_gc(L, LUA_GCRESTART, -1);
   if (!(flags & FLAGS_NOENV)) {
     s->status = handle_luainit(L);
