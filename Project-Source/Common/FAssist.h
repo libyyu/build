@@ -6,6 +6,12 @@
 #include "FType.h"
 #include "ILog.h"
 #include "lua.hpp"
+#ifdef _WIN32
+#elif _ANDROID
+	#include <jni.h>
+	#include <android/log.h>
+#else
+#endif
 
 #define  log_info(fmt,...)    \
 if(g_theLog != NULL) \
@@ -35,6 +41,16 @@ if(g_theLog != NULL) \
 AnyLog::ILog* g_GetAnyLog();
 lua_State* g_GetLuaState();
 
+#ifdef _WIN32
+#elif _ANDROID
+	JNIEnv* g_GetJniEnv();
+#define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, MODULE_NAME, __VA_ARGS__) 
+#define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG , MODULE_NAME, __VA_ARGS__)
+#define LOGI(...) __android_log_print(ANDROID_LOG_INFO  , MODULE_NAME, __VA_ARGS__)
+#define LOGW(...) __android_log_print(ANDROID_LOG_WARN  , MODULE_NAME, __VA_ARGS__)
+#define LOGE(...) __android_log_print(ANDROID_LOG_ERROR  , MODULE_NAME, __VA_ARGS__)
+#else
+#endif
 
 #endif//__FASSIST_H__
 

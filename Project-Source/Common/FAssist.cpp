@@ -8,6 +8,7 @@
 
 static AnyLog::ILog* g_theLog = NULL;
 static lua_State* g_luaState = NULL;
+static JNIEnv* g_JniEnv = NULL;
 
 AnyLog::ILog* g_GetAnyLog()
 {
@@ -17,6 +18,32 @@ lua_State* g_GetLuaState()
 {
 	return g_luaState;
 }
+
+#ifdef _WIN32
+#elif _ANDROID
+	JNIEnv* g_GetJniEnv()
+	{
+		return g_JniEnv;
+	}
+
+	JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM* vm, void* reserved)
+	{
+		LOGD("hello in c native code.\n");
+		jint result = -1;
+
+		if (vm->GetEnv((void**) &g_JniEnv, JNI_VERSION_1_4) != JNI_OK) {
+			return -1;
+		}
+		assert(g_JniEnv != NULL);
+
+		/* success -- return valid version number */
+		result = JNI_VERSION_1_4;
+
+		return result;
+	}
+#else
+#endif
+
 
 static void _DefaultLog(int logType, const char* message)
 {
