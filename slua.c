@@ -29,26 +29,29 @@
 
 #define LUA_LIB
 
-#include "lua.h"
-#include "lualib.h"
-#include "lauxlib.h"
+#include "lua.hpp"
 
 #include <stdio.h>
 #include <string.h>
 
-#ifdef _WIN32
+#if _WIN32
 #include <float.h>
-#define isnan _isnan
 #define snprintf _snprintf
 #else
 #include <math.h>
 #endif
+
+#ifndef isnan
+#define isnan _isnan
+#endif
+
+
 extern int luaopen_lpeg(lua_State* L);
 extern int luaopen_pb(lua_State* L);
 extern int luaopen_cjson(lua_State* L);
 extern int luaopen_cjson_safe(lua_State* L);
 extern int luaopen_socket_core(lua_State* L);
-extern int luaopen_lsqlite3(lua_State* L);
+//extern int luaopen_lsqlite3(lua_State* L);
 extern int luaopen_protobuf_c(lua_State* L);
 static const luaL_Reg s_lib_preload[] = {
 	{ "lpeg", luaopen_lpeg },
@@ -56,7 +59,7 @@ static const luaL_Reg s_lib_preload[] = {
 	{ "cjson",    luaopen_cjson },
 	{ "cjson.safe",    luaopen_cjson_safe },
 	{ "socket.core",    luaopen_socket_core },
-	{ "sqlite3",    luaopen_lsqlite3 },
+	//{ "sqlite3",    luaopen_lsqlite3 },
 	{ "protobuf.c",    luaopen_protobuf_c }, // any 3rd lualibs added here
 	{ NULL, NULL }
 };
@@ -137,7 +140,7 @@ LUA_API int luaS_rawnetobj(lua_State *L, int index)
 			return -1;
 	}
 
-	ud = lua_touserdata(L, index);
+	ud = (int*)lua_touserdata(L, index);
 	return (ud != NULL)?*ud:-1;
 }
 

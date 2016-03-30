@@ -6,8 +6,7 @@
 \*=========================================================================*/
 #include <string.h> 
 
-#include "lua.h"
-#include "lauxlib.h"
+#include "lua.hpp"
 
 #include "auxiliar.h"
 #include "socket.h"

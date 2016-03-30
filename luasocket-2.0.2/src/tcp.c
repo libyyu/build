@@ -6,14 +6,13 @@
 \*=========================================================================*/
 #include <string.h> 
 
-#include "lua.h"
-#include "lauxlib.h"
+#include "tcp.h"
 
 #include "auxiliar.h"
 #include "socket.h"
 #include "inet.h"
 #include "options.h"
-#include "tcp.h"
+
 
 /*=========================================================================*\
 * Internal function prototypes

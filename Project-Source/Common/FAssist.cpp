@@ -8,7 +8,6 @@
 
 static AnyLog::ILog* g_theLog = NULL;
 static lua_State* g_luaState = NULL;
-static JNIEnv* g_JniEnv = NULL;
 
 AnyLog::ILog* g_GetAnyLog()
 {
@@ -21,6 +20,7 @@ lua_State* g_GetLuaState()
 
 #ifdef _WIN32
 #elif _ANDROID
+	static JNIEnv* g_JniEnv = NULL;
 	JNIEnv* g_GetJniEnv()
 	{
 		return g_JniEnv;

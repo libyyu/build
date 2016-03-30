@@ -13,8 +13,8 @@
 #include <string.h>
 
 #define LUA_LIB
-#include "lua.h"
-#include "lauxlib.h"
+
+#include "lua.hpp"
 
 #include "lpeg.h"
 
@@ -2382,7 +2382,6 @@ static struct luaL_reg metapattreg[] = {
   {"__len", pattand_l},
   {NULL, NULL}
 };
-
 
 LUALIB_API int luaopen_lpeg (lua_State *L) {
   lua_pushcfunction(L, (lua_CFunction)&l_newpf);  /* new-pattern function */
