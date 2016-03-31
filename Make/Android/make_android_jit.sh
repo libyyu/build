@@ -2,11 +2,16 @@
 echo ""
 echo "Compiling NativeCode..."
 
+CUR_PATH=$(cd `dirname $0`; pwd)
+echo $CUR_PATH
+
 NDK=D:/AndriodTools/adt-bundle-windows/ndk-r8d
+CUR_DIR=$CUR_PATH
 
 echo "build libluajit-arm-v7.a"
 rm -f ./libluajit-arm-v7.a
 
+cd ../../
 cd luajit-2.0.4/src
 rm -f ./libluajit.a
 rm -f *.o *.exe
@@ -17,8 +22,8 @@ make HOST_CC="gcc -m32 -ffast-math -O3" \
 CROSS=$NFK \
 TARGET_SYS=Linux \
 TARGET_FLAGS="--sysroot $NDK/platforms/android-14/arch-arm -march=armv7-a -Wl,--fix-cortex-a8"
-cp ./libluajit.a ../../libluajit-arm-v7.a
-cd ../../
+cp ./libluajit.a $CUR_DIR/libluajit-arm-v7.a
+cd $CUR_DIR
 
 
 echo ""
@@ -30,6 +35,7 @@ echo ""
 echo "build libluajit-x86.a"
 rm -f ./libluajit-x86.a
 
+cd ../../
 cd luajit-2.0.4/src
 rm -f ./libluajit.a
 rm -f *.o *.exe
@@ -40,7 +46,7 @@ make HOST_CC="gcc -m32 -ffast-math -O3" \
 CROSS=$NFK \
 TARGET_SYS=Linux \
 TARGET_FLAGS="--sysroot $NDK/platforms/android-14/arch-x86 -Wl,--fix-cortex-a8"
-cp ./libluajit.a ../../libluajit-x86.a
+cp ./libluajit.a $CUR_DIR/libluajit-x86.a
 cd ../../
 
 echo ""

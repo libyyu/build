@@ -17,8 +17,7 @@ else
 	THIRD_MODULS :=
 endif
 
-#$(warning $(NDK_PROJECT_PATH))
-
+# $(warning  " NDK_PROJECT_PATH =  $(NDK_PROJECT_PATH)")  
 include $(CLEAR_VARS)
 LOCAL_FORCE_STATIC_EXECUTABLE := true
 
@@ -29,14 +28,15 @@ LOCAL_ARM_MODE  := arm
 LOCAL_MODULE    := $(OUT_MODULE_NAME)
 
 LOCAL_PATH      := $(NDK_PROJECT_PATH)
-LUA_PATH        := $(LOCAL_PATH)/luajit-2.0.4/src
-JSON_PATH       := $(LOCAL_PATH)/lua-cjson-2.1.0
-LPEG_PATH       := $(LOCAL_PATH)/lpeg
-SQLITE_PATH     := $(LOCAL_PATH)/sqlite-amalgamation-3081101
-LSQLITE_PATH    := $(LOCAL_PATH)/lsqlite3-master
-SOCKET_PATH     := $(LOCAL_PATH)/luasocket-2.0.2/src
-PBC_PATH        := $(LOCAL_PATH)/pbc-master
-PROJECT_SRC_PATH := $(LOCAL_PATH)/Project-Source
+PROJECT_PATH    := $(NDK_PROJECT_PATH)/../..
+LUA_PATH        := $(PROJECT_PATH)/luajit-2.0.4/src
+JSON_PATH       := $(PROJECT_PATH)/lua-cjson-2.1.0
+LPEG_PATH       := $(PROJECT_PATH)/lpeg
+SQLITE_PATH     := $(PROJECT_PATH)/sqlite-amalgamation-3081101
+LSQLITE_PATH    := $(PROJECT_PATH)/lsqlite3-master
+SOCKET_PATH     := $(PROJECT_PATH)/luasocket-2.0.2/src
+PBC_PATH        := $(PROJECT_PATH)/pbc-master
+PROJECT_SRC_PATH := $(PROJECT_PATH)/Project-Source
 
 LOCAL_CPP_FEATURES := rtti exceptions
 #LOCAL_CFLAGS   += -D _ANDROID -fvisibility=hidden
@@ -46,7 +46,7 @@ LOCAL_CFLAGS   += -D _ANDROID -D ANDROID
 #LOCAL_CFLAGS   += -frtti
 #LOCAL_CPPFLAGS  += -03 -ffast-math
 
-LOCAL_C_INCLUDES := $(LOCAL_PATH)
+LOCAL_C_INCLUDES := $(PROJECT_PATH)
 LOCAL_C_INCLUDES += $(LUA_PATH)
 LOCAL_C_INCLUDES += $(LPEG_PATH)
 LOCAL_C_INCLUDES += $(JSON_PATH)
@@ -61,8 +61,8 @@ LOCAL_C_INCLUDES += $(PROJECT_SRC_PATH)/AnyLog
 
 
 LOCAL_SRC_FILES := \
-$(LOCAL_PATH)/slua.c \
-$(LOCAL_PATH)/pb.c \
+$(PROJECT_PATH)/slua.c \
+$(PROJECT_PATH)/pb.c \
 $(JSON_PATH)/fpconv.c \
 $(JSON_PATH)/strbuf.c \
 $(JSON_PATH)/lua_cjson.c \

@@ -42,16 +42,17 @@
 #endif
 
 #ifndef isnan
+inline int _isnan(double x) {return x != x;}
 #define isnan _isnan
 #endif
 
-
+__CFunBegin
 extern int luaopen_lpeg(lua_State* L);
 extern int luaopen_pb(lua_State* L);
 extern int luaopen_cjson(lua_State* L);
 extern int luaopen_cjson_safe(lua_State* L);
 extern int luaopen_socket_core(lua_State* L);
-//extern int luaopen_lsqlite3(lua_State* L);
+extern int luaopen_lsqlite3(lua_State* L);
 extern int luaopen_protobuf_c(lua_State* L);
 static const luaL_Reg s_lib_preload[] = {
 	{ "lpeg", luaopen_lpeg },
@@ -59,11 +60,11 @@ static const luaL_Reg s_lib_preload[] = {
 	{ "cjson",    luaopen_cjson },
 	{ "cjson.safe",    luaopen_cjson_safe },
 	{ "socket.core",    luaopen_socket_core },
-	//{ "sqlite3",    luaopen_lsqlite3 },
+	{ "sqlite3",    luaopen_lsqlite3 },
 	{ "protobuf.c",    luaopen_protobuf_c }, // any 3rd lualibs added here
 	{ NULL, NULL }
 };
-
+__CFunEnd
 #if LUA_VERSION_NUM >= 503
 
 static const char *luaL_findtable(lua_State *L, int idx,
@@ -100,6 +101,7 @@ static int lua_absindex(lua_State *L, int index) {
 #endif
 
 
+__CFunBegin
 
 LUA_API void luaS_openextlibs(lua_State *L) {
 	const luaL_Reg *lib;
@@ -157,11 +159,14 @@ LUA_API const char* luaS_tolstring32(lua_State *L, int index, int* len) {
 	*len = (int)l;
 	return ret;
 }
+__CFunEnd
 
 #if LUA_VERSION_NUM>=503
 static int k(lua_State *L, int status, lua_KContext ctx) {
 	return status;
 }
+
+__CFunBegin
 
 LUA_API int luaS_yield(lua_State *L, int nrets) {
 	return k(L, lua_yieldk(L, nrets, 0, k), 0);
@@ -170,6 +175,7 @@ LUA_API int luaS_yield(lua_State *L, int nrets) {
 LUA_API int luaS_pcall(lua_State *L, int nargs, int nresults, int err) {
 	return k(L, lua_pcallk(L, nargs, nresults, err, 0, k), 0);
 }
+__CFunEnd
 #endif
 
 
@@ -238,6 +244,7 @@ static void setmetatable(lua_State *L, int p, int what) {
 }
 
 
+__CFunBegin
 
 LUA_API int luaS_checkluatype(lua_State *L, int p, const char *t) {
 	int top;
@@ -400,7 +407,7 @@ LUA_API void luaS_pushColor(lua_State *L, float x, float y, float z, float w) {
 	lua_rawseti(L, -2, 4);
 	setmetatable(L, -2, MT_COLOR);
 }
-
+__CFunEnd
 
 
 static void setelement(lua_State* L, int p, float v, const char* key) {
@@ -419,6 +426,8 @@ static void setelementid(lua_State* L, int p, float v, int id) {
 	}
 }
 
+__CFunBegin
+
 LUA_API void luaS_setDataVec(lua_State *L, int p, float x, float y, float z, float w) {
 	p=lua_absindex(L,p);
 	setelementid(L, p, x, 1);
@@ -434,6 +443,7 @@ LUA_API void luaS_setColor(lua_State *L, int p, float x, float y, float z, float
 	setelement(L, p, z, "b");
 	setelement(L, p, w, "a");
 }
+__CFunEnd
 
 static void cacheud(lua_State *l, int index, int cref) {
 	lua_rawgeti(l, LUA_REGISTRYINDEX, cref);
@@ -442,7 +452,7 @@ static void cacheud(lua_State *l, int index, int cref) {
 	lua_pop(l, 1);
 }
 
-
+__CFunBegin
 LUA_API int luaS_pushobject(lua_State *l, int index, const char* t, int gco, int cref) {
 
 	int is_reflect = 0;
@@ -529,4 +539,6 @@ LUALIB_API int luaLS_loadbuffer(lua_State *L, const char *buff, int sz, const ch
 {
 	return luaL_loadbuffer(L, buff, (size_t)sz, name);
 }
+
+__CFunEnd
 

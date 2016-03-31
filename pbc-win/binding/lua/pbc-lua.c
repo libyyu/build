@@ -1073,9 +1073,7 @@ _add_rmessage(lua_State *L) {
 	return 0;
 }
 
-// #ifdef __cplusplus
-// extern "C" {
-// #endif
+__CFunBegin
 
 LUALIB_API int luaopen_protobuf_c(lua_State *L) {
 	luaL_Reg reg[] = {
@@ -1125,6 +1123,4 @@ LUALIB_API int luaopen_protobuf_c(lua_State *L) {
 	return 1;
 }
 
-// #ifdef __cplusplus
-// }
-// #endif
+__CFunEnd

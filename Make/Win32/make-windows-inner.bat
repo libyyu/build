@@ -4,35 +4,39 @@
 
 set local_module=slua
  
+mkdir build
+
 if "%target%" == "x64" (
-	mkdir Plugins\x64
+	mkdir x64
+	@set extname=x64
 	@set outmode=-m64
-	@set linkluajit=libluajit-window-x64.a
-	@set linkcurllib=libcurl-window-x64.a
-	@set outmodule=Plugins\x64\%local_module%.dll
-	@set movepath=..\LuaGame\ProjectUnity\Assets\Plugins\x64\%local_module%.dll
+	@set linkluajit=libluajit-x64.a
+	@set linkcurllib=libcurl-x64.a
+	@set outmodule=x64\%local_module%.dll
+	@set movepath=..\..\LuaGame\ProjectUnity\Assets\Plugins\x64\%local_module%.dll
 ) else ( 
-	mkdir Plugins\x86
+	mkdir x86
+	@set extname=x86
 	@set outmode=-m32
-	@set linkluajit=libluajit-window-x86.a
-	@set linkcurllib=libcurl-window-x86.a
-	@set outmodule=Plugins\x86\%local_module%.dll
-	@set movepath=..\LuaGame\ProjectUnity\Assets\Plugins\x86\%local_module%.dll
+	@set linkluajit=libluajit-x86.a
+	@set linkcurllib=libcurl-x86.a
+	@set outmodule=x86\%local_module%.dll
+	@set movepath=..\..\LuaGame\ProjectUnity\Assets\Plugins\x86\%local_module%.dll
 )
 
-@set LOCAL_PATH=.
-@set LUAJIT_PATH=luajit-2.0.4/src
-@set PBC_PATH=pbc-win
-@set JSON_PATH=lua-cjson-2.1.0
-@set SOCKET_PATH=luasocket-2.0.2
-@set PROJECT_SRC_PATH=Project-Source
+@set LOCAL_PATH=..\..
+@set LUAJIT_PATH=..\..\luajit-2.0.4/src
+@set PBC_PATH=..\..\pbc-win
+@set JSON_PATH=..\..\lua-cjson-2.1.0
+@set SOCKET_PATH=..\..\luasocket-2.0.2
+@set PROJECT_SRC_PATH=..\..\Project-Source
 
 
 @echo "Build Target Module %target%"
 
-gcc slua.c ^
-	pb.c ^
-	lpeg/lpeg.c ^
+gcc %LOCAL_PATH%/slua.c ^
+	%LOCAL_PATH%/pb.c ^
+	%LOCAL_PATH%/lpeg/lpeg.c ^
 	%JSON_PATH%/strbuf.c ^
 	%JSON_PATH%/lua_cjson.c ^
 	%JSON_PATH%/fpconv.c ^
@@ -63,22 +67,25 @@ gcc slua.c ^
 	%SOCKET_PATH%/src/timeout.c ^
 	%SOCKET_PATH%/src/udp.c ^
 	%SOCKET_PATH%/src/wsocket.c ^
-	sproto-master/lsproto.c ^
-	sproto-master/sproto.c ^
-	lsqlite3-master/lsqlite3.c ^
-	sqlite-amalgamation-3081101/sqlite3.c ^
+	%LOCAL_PATH%/sproto-master/lsproto.c ^
+	%LOCAL_PATH%/sproto-master/sproto.c ^
+	%LOCAL_PATH%/lsqlite3-master/lsqlite3.c ^
+	%LOCAL_PATH%/sqlite-amalgamation-3081101/sqlite3.c ^
 	%PROJECT_SRC_PATH%/AnyLog/ILog.cpp ^
 	%PROJECT_SRC_PATH%/Common/FAssist.cpp ^
+	-Wl,--output-def=build/%local_module%_%extname%.def ^
+	-Wl,--out-implib=build/%local_module%_%extname%.lib ^
+	-Wl,--dll ^
 	-o %outmodule% %outmode% -shared ^
-	-I./ ^
-	-Ilpeg ^
+	-I%LOCAL_PATH%/ ^
+	-I%LOCAL_PATH%/lpeg ^
 	-I%JSON_PATH% ^
 	-I%LUAJIT_PATH% ^
 	-I%PBC_PATH% ^
 	-I%SOCKET_PATH% ^
-	-Isproto-master ^
-	-Ilsqlite3-master ^
-	-Isqlite-amalgamation-3081101 ^
+	-I%LOCAL_PATH%/sproto-master ^
+	-I%LOCAL_PATH%/lsqlite3-master ^
+	-I%LOCAL_PATH%/sqlite-amalgamation-3081101 ^
 	-I%PROJECT_SRC_PATH% ^
 	-I%PROJECT_SRC_PATH%/Common ^
 	-I%PROJECT_SRC_PATH%/AnyLog ^

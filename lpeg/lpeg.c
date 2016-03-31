@@ -2383,6 +2383,7 @@ static struct luaL_reg metapattreg[] = {
   {NULL, NULL}
 };
 
+__CFunBegin
 LUALIB_API int luaopen_lpeg (lua_State *L) {
   lua_pushcfunction(L, (lua_CFunction)&l_newpf);  /* new-pattern function */
   lua_setfield(L, LUA_REGISTRYINDEX, KEYNEWPATT);  /* register it */
@@ -2396,4 +2397,5 @@ LUALIB_API int luaopen_lpeg (lua_State *L) {
   lua_settable(L, -4);
   return 1;
 }
+__CFunEnd
 
