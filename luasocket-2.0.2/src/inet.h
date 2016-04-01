@@ -44,9 +44,43 @@ int inet_optsocktype(lua_State* L, int narg, const char* def);
 int inet_aton(const char *cp, struct in_addr *inp);
 #endif
 
-#ifdef LUASOCKET_INET_PTON
-const char *inet_ntop(int af, const void *src, char *dst, socklen_t cnt);
-int inet_pton(int af, const char *src, void *dst);
-#endif
+typedef unsigned short int uint16;  
+typedef unsigned long int uint32; 
+
+#define BigLittleSwap16(A)  ((((uint16)(A) & 0xff00) >> 8) | (((uint16)(A) & 0x00ff) << 8))  
+
+#define BigLittleSwap32(A)  ((((uint32)(A) & 0xff000000) >> 24) | (((uint32)(A) & 0x00ff0000) >> 8) | (((uint32)(A) & 0x0000ff00) << 8) | (((uint32)(A) & 0x000000ff) << 24)) 
+
+static int checkCPUendian()  
+{  
+    union{  
+        unsigned long int i;  
+        unsigned char s[4];  
+    }c;  
+      
+    c.i = 0x12345678;  
+    return (0x12 == c.s[0]);  
+} 
+
+static unsigned long int t_htonl(unsigned long int h)  
+{  
+    return checkCPUendian() ? h : BigLittleSwap32(h);  
+} 
+
+static unsigned long int t_ntohl(unsigned long int n)  
+{  
+    return checkCPUendian() ? n : BigLittleSwap32(n);  
+} 
+
+static unsigned short int t_htons(unsigned short int h)  
+{  
+    return checkCPUendian() ? h : BigLittleSwap16(h);  
+}  
+  
+static unsigned short int t_ntohs(unsigned short int n)  
+{  
+    return checkCPUendian() ? n : BigLittleSwap16(n);  
+}
+
 
 #endif /* INET_H */

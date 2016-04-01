@@ -69,19 +69,20 @@ $(JSON_PATH)/lua_cjson.c \
 $(LPEG_PATH)/lpeg.c \
 $(SQLITE_PATH)/sqlite3.c \
 $(LSQLITE_PATH)/lsqlite3.c \
-$(SOCKET_PATH)/luasocket.c \
-$(SOCKET_PATH)/timeout.c \
-$(SOCKET_PATH)/buffer.c \
-$(SOCKET_PATH)/io.c \
+$(SOCKET_PATH)/compat.c \
 $(SOCKET_PATH)/auxiliar.c \
-$(SOCKET_PATH)/options.c \
+$(SOCKET_PATH)/buffer.c \
+$(SOCKET_PATH)/except.c \
 $(SOCKET_PATH)/inet.c \
+$(SOCKET_PATH)/io.c \
+$(SOCKET_PATH)/luasocket.c \
+$(SOCKET_PATH)/mime.c \
+$(SOCKET_PATH)/options.c \
+$(SOCKET_PATH)/select.c \
 $(SOCKET_PATH)/tcp.c \
+$(SOCKET_PATH)/timeout.c \
 $(SOCKET_PATH)/udp.c \
 $(SOCKET_PATH)/unix.c \
-$(SOCKET_PATH)/mime.c \
-$(SOCKET_PATH)/except.c \
-$(SOCKET_PATH)/select.c \
 $(SOCKET_PATH)/usocket.c \
 $(PBC_PATH)/src/alloc.c \
 $(PBC_PATH)/src/array.c \
@@ -108,7 +109,7 @@ libcutils \
 libdl
 
 LOCAL_STATIC_LIBARIES := $(THIRD_MODULS)
-LOCAL_LDLIBS          += -landroid -llog -lGLESv2
+LOCAL_LDLIBS          += -landroid -llog -lc -lGLESv2
 
 LOCAL_WHOLE_STATIC_LIBRARIES += $(LOCAL_STATIC_LIBARIES)
 

@@ -7,6 +7,7 @@
 #include "auxiliar.h"
 #include "options.h"
 #include "inet.h"
+#include "compat.h"
 
 
 /*=========================================================================*\
@@ -199,7 +200,7 @@ int opt_set_ip_multicast_if(lua_State *L, p_socket ps)
 {
     const char *address = luaL_checkstring(L, 3);    /* obj, name, ip */
     struct in_addr val;
-    val.s_addr = htonl(INADDR_ANY);
+    val.s_addr = t_htonl(INADDR_ANY);
     if (strcmp(address, "*") && !inet_aton(address, &val))
         luaL_argerror(L, 3, "ip expected");
     return opt_set(L, ps, IPPROTO_IP, IP_MULTICAST_IF,
@@ -266,7 +267,7 @@ static int opt_setmembership(lua_State *L, p_socket ps, int level, int name)
     lua_gettable(L, 3);
     if (!lua_isstring(L, -1))
         luaL_argerror(L, 3, "string 'interface' field expected");
-    val.imr_interface.s_addr = htonl(INADDR_ANY);
+    val.imr_interface.s_addr = t_htonl(INADDR_ANY);
     if (strcmp(lua_tostring(L, -1), "*") &&
             !inet_aton(lua_tostring(L, -1), &val.imr_interface))
         luaL_argerror(L, 3, "invalid 'interface' ip address");

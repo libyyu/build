@@ -3,7 +3,7 @@
 
 #include "lua.hpp"
 
-#if LUA_VERSION_NUM==501
+#if !defined(LUA_VERSION_NUM) || LUA_VERSION_NUM < 502
 void luaL_setfuncs (lua_State *L, const luaL_Reg *l, int nup);
 #endif
 

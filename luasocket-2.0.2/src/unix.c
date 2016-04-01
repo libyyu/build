@@ -70,7 +70,7 @@ static t_opt optset[] = {
 /*-------------------------------------------------------------------------*\
 * Initializes module
 \*-------------------------------------------------------------------------*/
-_CFunBegin
+__CFunBegin
 UNIX_API int luaopen_socket_unix(lua_State *L) {
     /* create classes */
     auxiliar_newclass(L, "unix{master}", unix_methods);
@@ -84,7 +84,7 @@ UNIX_API int luaopen_socket_unix(lua_State *L) {
     lua_pushcfunction(L, global_create);
     return 1;
 }
-_CFunEnd
+__CFunEnd
 /*=========================================================================*\
 * Lua methods
 \*=========================================================================*/
