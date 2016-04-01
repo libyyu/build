@@ -460,7 +460,7 @@ static const struct luaL_reg _c_iostring_m [] = {
     {"clear", iostring_clear},
     {NULL, NULL}
 };
-
+__CFunBegin
 LUALIB_API int luaopen_pb (lua_State *L)
 {
     luaL_newmetatable(L, IOSTRING_META);
@@ -471,3 +471,4 @@ LUALIB_API int luaopen_pb (lua_State *L)
     luaL_register(L, "pb", _pb);
     return 1;
 } 
+__CFunEnd

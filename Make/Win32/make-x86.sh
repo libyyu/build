@@ -62,15 +62,13 @@ g++ \
 	$SOCKET_PATH/src/wsocket.c \
 	$PROJECT_SRC_PATH/AnyLog/ILog.cpp \
 	$PROJECT_SRC_PATH/Common/FAssist.cpp \
-	-Wl,--output-def=build/slua_x86.def \
-	-Wl,--out-implib=build/slua_x86.lib \
+	-Wl,--output-def=build/${MODULE_NAME}_x86.def \
+	-Wl,--out-implib=build/${MODULE_NAME}_x86.lib \
 	-Wl,--dll \
-	-o x86/slua.dll \
+	-o x86/${MODULE_NAME}.dll \
 	-L./ \
-	-lluajit-x86 \
-	-lws2_32 -lwldap32 \
-	-DWIN32 -D_WIN32 \
-	-Wl,--no-whole-archive -static-libgcc -static-libstdc++ \
+	-Wl,--whole-archive libluajit-x86.a \
+	-Wl,--no-whole-archive -lws2_32 -lwldap32 -static-libgcc -static-libstdc++ -lsupc++ -lstdc++ \
 	-fpermissive -fkeep-inline-functions
 
 echo "build end."

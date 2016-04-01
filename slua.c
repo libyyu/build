@@ -51,16 +51,16 @@ extern int luaopen_lpeg(lua_State* L);
 extern int luaopen_pb(lua_State* L);
 extern int luaopen_cjson(lua_State* L);
 extern int luaopen_cjson_safe(lua_State* L);
-extern int luaopen_socket_core(lua_State* L);
-extern int luaopen_lsqlite3(lua_State* L);
+//extern int luaopen_socket_core(lua_State* L);
+//extern int luaopen_lsqlite3(lua_State* L);
 extern int luaopen_protobuf_c(lua_State* L);
 static const luaL_Reg s_lib_preload[] = {
 	{ "lpeg", luaopen_lpeg },
 	{ "pb",    luaopen_pb }, 
 	{ "cjson",    luaopen_cjson },
 	{ "cjson.safe",    luaopen_cjson_safe },
-	{ "socket.core",    luaopen_socket_core },
-	{ "sqlite3",    luaopen_lsqlite3 },
+	//{ "socket.core",    luaopen_socket_core },
+	//{ "sqlite3",    luaopen_lsqlite3 },
 	{ "protobuf.c",    luaopen_protobuf_c }, // any 3rd lualibs added here
 	{ NULL, NULL }
 };

@@ -1401,6 +1401,7 @@ static int lua_cjson_safe_new(lua_State *l)
     return 1;
 }
 
+__CFunBegin
 LUALIB_API int luaopen_cjson(lua_State *l)
 {
     lua_cjson_new(l);
@@ -1422,6 +1423,6 @@ LUALIB_API int luaopen_cjson_safe(lua_State *l)
     /* Return cjson.safe table */
     return 1;
 }
-
+__CFunEnd
 /* vi:ai et sw=4 ts=4:
  */

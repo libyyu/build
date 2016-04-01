@@ -108,7 +108,7 @@ libcutils \
 libdl
 
 LOCAL_STATIC_LIBARIES := $(THIRD_MODULS)
-LOCAL_LDLIBS          += -landroid -llog
+LOCAL_LDLIBS          += -landroid -llog -lGLESv2
 
 LOCAL_WHOLE_STATIC_LIBRARIES += $(LOCAL_STATIC_LIBARIES)
 

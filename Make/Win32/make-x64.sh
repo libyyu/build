@@ -47,30 +47,15 @@ g++ \
 	$JSON_PATH/strbuf.c \
 	$JSON_PATH/lua_cjson.c \
 	$JSON_PATH/fpconv.c \
-	$SOCKET_PATH/src/auxiliar.c \
-	$SOCKET_PATH/src/buffer.c \
-	$SOCKET_PATH/src/except.c \
-	$SOCKET_PATH/src/inet.c \
-	$SOCKET_PATH/src/io.c \
-	$SOCKET_PATH/src/luasocket.c \
-	$SOCKET_PATH/src/mime.c \
-	$SOCKET_PATH/src/options.c \
-	$SOCKET_PATH/src/select.c \
-	$SOCKET_PATH/src/tcp.c \
-	$SOCKET_PATH/src/timeout.c \
-	$SOCKET_PATH/src/udp.c \
-	$SOCKET_PATH/src/wsocket.c \
 	$PROJECT_SRC_PATH/AnyLog/ILog.cpp \
 	$PROJECT_SRC_PATH/Common/FAssist.cpp \
-	-Wl,--output-def=build/slua_x64.def \
-	-Wl,--out-implib=build/slua_x64.lib \
+	-Wl,--output-def=build/${MODULE_NAME}_x64.def \
+	-Wl,--out-implib=build/${MODULE_NAME}_x64.lib \
 	-Wl,--dll \
-	-o x64/slua.dll \
+	-o x64/${MODULE_NAME}.dll \
 	-L./ \
-	-lluajit-x64 \
-	-lws2_32 \
-	-DWIN32 -D_WIN32 \
-	-Wl,--no-whole-archive -static-libgcc -static-libstdc++ \
+	-Wl,--whole-archive libluajit-x64.a \
+	-Wl,--no-whole-archive -lws2_32 -lwldap32 -static-libgcc -static-libstdc++ -lsupc++ -lstdc++ \
 	-fpermissive -fkeep-inline-functions
 
 echo "build end."
