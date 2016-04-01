@@ -19,12 +19,13 @@ extern "C" {
     #include <malloc.h>
 #endif
 
-
-//#ifndef WINVER
-//#include <alloca.h>
-//#else
-//#define alloca _alloca
-//#endif
+#ifndef _WIN32
+#ifndef _MSC_VER
+#include <alloca.h>
+#else
+#define alloca _alloca
+#endif
+#endif
 
 #include <string.h>
 #include <stdlib.h>

@@ -1,9 +1,10 @@
+#define LUA_LIB
+
+#include "lua.hpp"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
-#include "lua.h"
-#include "lualib.h"
-#include "lauxlib.h"
 
 #include "pbc.h"
 
@@ -18,11 +19,12 @@ extern "C" {
     #include <malloc.h>
 #endif
 
-
+#ifdef _WIN32
 #ifndef _MSC_VER
 #include <alloca.h>
 #else
 #define alloca _alloca
+#endif
 #endif
 
 #include <string.h>
@@ -1072,12 +1074,9 @@ _add_rmessage(lua_State *L) {
 	return 0;
 }
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+__CFunBegin
 
-int
-luaopen_protobuf_c(lua_State *L) {
+LUALIB_API int luaopen_protobuf_c(lua_State *L) {
 	luaL_Reg reg[] = {
 		{"_env_new" , _env_new },
 		{"_env_register" , _env_register },
@@ -1125,6 +1124,4 @@ luaopen_protobuf_c(lua_State *L) {
 	return 1;
 }
 
-#ifdef __cplusplus
-}
-#endif
+__CFunEnd

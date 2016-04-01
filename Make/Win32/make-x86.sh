@@ -47,6 +47,7 @@ g++ \
 	$JSON_PATH/strbuf.c \
 	$JSON_PATH/lua_cjson.c \
 	$JSON_PATH/fpconv.c \
+	$SOCKET_PATH/src/compat.c \
 	$SOCKET_PATH/src/auxiliar.c \
 	$SOCKET_PATH/src/buffer.c \
 	$SOCKET_PATH/src/except.c \
@@ -68,6 +69,7 @@ g++ \
 	-o x86/${MODULE_NAME}.dll \
 	-L./ \
 	-Wl,--whole-archive libluajit-x86.a \
+	-DWIN32 -D_WIN32 -DLUA_VERSION_NUM=501 \
 	-Wl,--no-whole-archive -lws2_32 -lwldap32 -static-libgcc -static-libstdc++ -lsupc++ -lstdc++ \
 	-fpermissive -fkeep-inline-functions
 

@@ -21,78 +21,32 @@
 #include "timeout.h"
 
 #ifdef _WIN32
-#define INET_ATON
+#define LUASOCKET_INET_ATON
 #endif
 
 int inet_open(lua_State *L);
 
-const char *inet_trycreate(p_socket ps, int type);
-const char *inet_tryconnect(p_socket ps, const char *address, 
-        unsigned short port, p_timeout tm);
-const char *inet_trybind(p_socket ps, const char *address, 
-        unsigned short port);
+const char *inet_trycreate(p_socket ps, int family, int type, int protocol);
+const char *inet_tryconnect(p_socket ps, int *family, const char *address,
+        const char *serv, p_timeout tm, struct addrinfo *connecthints);
+const char *inet_trybind(p_socket ps, int *family, const char *address,
+        const char *serv, struct addrinfo *bindhints);
+const char *inet_trydisconnect(p_socket ps, int family, p_timeout tm);
+const char *inet_tryaccept(p_socket server, int family, p_socket client, p_timeout tm);
 
-int inet_meth_getpeername(lua_State *L, p_socket ps);
-int inet_meth_getsockname(lua_State *L, p_socket ps);
+int inet_meth_getpeername(lua_State *L, p_socket ps, int family);
+int inet_meth_getsockname(lua_State *L, p_socket ps, int family);
 
-#ifdef INET_ATON
+int inet_optfamily(lua_State* L, int narg, const char* def);
+int inet_optsocktype(lua_State* L, int narg, const char* def);
+
+#ifdef LUASOCKET_INET_ATON
 int inet_aton(const char *cp, struct in_addr *inp);
 #endif
 
-
-
-typedef unsigned short int uint16;  
-typedef unsigned long int uint32; 
-
-// 短整型大小端互换  
-#define BigLittleSwap16(A)  ((((uint16)(A) & 0xff00) >> 8) | (((uint16)(A) & 0x00ff) << 8))  
-
-// 长整型大小端互换  
-#define BigLittleSwap32(A)  ((((uint32)(A) & 0xff000000) >> 24) | (((uint32)(A) & 0x00ff0000) >> 8) | (((uint32)(A) & 0x0000ff00) << 8) | (((uint32)(A) & 0x000000ff) << 24)) 
-
-// 本机大端返回1，小端返回0  
-static int checkCPUendian()  
-{  
-    union{  
-        unsigned long int i;  
-        unsigned char s[4];  
-    }c;  
-      
-    c.i = 0x12345678;  
-    return (0x12 == c.s[0]);  
-} 
-
-// 模拟htonl函数，本机字节序转网络字节序  
-static unsigned long int t_htonl(unsigned long int h)  
-{  
-    // 若本机为大端，与网络字节序同，直接返回  
-    // 若本机为小端，转换成大端再返回  
-    return checkCPUendian() ? h : BigLittleSwap32(h);  
-} 
-
-// 模拟ntohl函数，网络字节序转本机字节序  
-static unsigned long int t_ntohl(unsigned long int n)  
-{  
-    // 若本机为大端，与网络字节序同，直接返回  
-    // 若本机为小端，网络数据转换成小端再返回  
-    return checkCPUendian() ? n : BigLittleSwap32(n);  
-} 
-
-// 模拟htons函数，本机字节序转网络字节序  
-static unsigned short int t_htons(unsigned short int h)  
-{  
-    // 若本机为大端，与网络字节序同，直接返回  
-    // 若本机为小端，转换成大端再返回  
-    return checkCPUendian() ? h : BigLittleSwap16(h);  
-}  
-  
-// 模拟ntohs函数，网络字节序转本机字节序  
-static unsigned short int t_ntohs(unsigned short int n)  
-{  
-    // 若本机为大端，与网络字节序同，直接返回  
-    // 若本机为小端，网络数据转换成小端再返回  
-    return checkCPUendian() ? n : BigLittleSwap16(n);  
-} 
-
+#ifdef LUASOCKET_INET_PTON
+const char *inet_ntop(int af, const void *src, char *dst, socklen_t cnt);
+int inet_pton(int af, const char *src, void *dst);
+#endif
 
 #endif /* INET_H */

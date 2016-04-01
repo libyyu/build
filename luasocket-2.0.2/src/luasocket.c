@@ -10,8 +10,6 @@
 * involved in setting up both  client and server connections. The provided
 * IO routines, however, follow the Lua  style, being very similar  to the
 * standard Lua read and write functions.
-*
-* RCS ID: $Id: luasocket.c,v 1.53 2005/10/07 04:40:59 diego Exp $
 \*=========================================================================*/
 
 /*=========================================================================*\
@@ -19,9 +17,7 @@
 \*=========================================================================*/
 #include "luasocket.h"
 
-#if !defined(LUA_VERSION_NUM) || (LUA_VERSION_NUM < 501)
-#include "compat-5.1.h"
-#endif
+#include "compat.h"
 
 /*=========================================================================*\
 * LuaSocket includes
@@ -46,11 +42,11 @@ static int base_open(lua_State *L);
 /*-------------------------------------------------------------------------*\
 * Modules and functions
 \*-------------------------------------------------------------------------*/
-static const luaL_reg mod[] = {
-//    {"auxiliar", auxiliar_open},
+static const luaL_Reg mod[] = {
+    {"auxiliar", auxiliar_open},
     {"except", except_open},
     {"timeout", timeout_open},
-//    {"buffer", buffer_open},
+    {"buffer", buffer_open},
     {"inet", inet_open},
     {"tcp", tcp_open},
     {"udp", udp_open},
@@ -58,7 +54,7 @@ static const luaL_reg mod[] = {
     {NULL, NULL}
 };
 
-static luaL_reg func[] = {
+static luaL_Reg func[] = {
     {"skip",      global_skip},
     {"__unload",  global_unload},
     {NULL,        NULL}
@@ -68,7 +64,7 @@ static luaL_reg func[] = {
 * Skip a few arguments
 \*-------------------------------------------------------------------------*/
 static int global_skip(lua_State *L) {
-    int amount = luaL_checkint(L, 1);
+    int amount = luaL_checkinteger(L, 1);
     int ret = lua_gettop(L) - amount - 1;
     return ret >= 0 ? ret : 0;
 }
@@ -88,7 +84,8 @@ static int global_unload(lua_State *L) {
 static int base_open(lua_State *L) {
     if (socket_open()) {
         /* export functions (and leave namespace table on top of stack) */
-        luaL_openlib(L, "socket", func, 0);
+        lua_newtable(L);
+        luaL_setfuncs(L, func, 0);
 #ifdef LUASOCKET_DEBUG
         lua_pushstring(L, "_DEBUG");
         lua_pushboolean(L, 1);

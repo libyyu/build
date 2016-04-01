@@ -9,6 +9,12 @@
 #include <stdint.h>
 #ifndef _MSC_VER
 #include <stdbool.h>
+#else
+#ifndef bool
+#define bool	_Bool
+#define false	0
+#define true	1
+#endif
 #endif
 #include <stdlib.h>
 #include <stddef.h>
