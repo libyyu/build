@@ -85,7 +85,6 @@ LUALIB_API int (luaL_loadbufferx) (lua_State *L, const char *buff, size_t sz,
 LUALIB_API void luaL_traceback (lua_State *L, lua_State *L1, const char *msg,
 				int level);
 
-
 /*
 ** ===============================================================
 ** some useful macros

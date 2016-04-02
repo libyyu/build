@@ -1,10 +1,7 @@
 #include "compat.h"
 
+void socket_luaL_setfuncs (lua_State *L, const luaL_Reg *l, int nup) {
 #if !defined(LUA_VERSION_NUM) || LUA_VERSION_NUM < 502
-/*
-** Adapted from Lua 5.2
-*/
-void luaL_setfuncs (lua_State *L, const luaL_Reg *l, int nup) {
   luaL_checkstack(L, nup+1, "too many upvalues");
   for (; l->name != NULL; l++) {  /* fill the table with given functions */
     int i;
@@ -15,5 +12,7 @@ void luaL_setfuncs (lua_State *L, const luaL_Reg *l, int nup) {
     lua_settable(L, -(nup + 3));
   }
   lua_pop(L, nup);  /* remove upvalues */
-}
+#else
+  luaL_setfuncs(L,l,nup);
 #endif
+}

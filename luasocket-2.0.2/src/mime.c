@@ -77,7 +77,7 @@ __CFunBegin
 MIME_API int luaopen_mime_core(lua_State *L)
 {
     lua_newtable(L);
-    luaL_setfuncs(L, func, 0);
+    socket_luaL_setfuncs(L, func, 0);
     /* make version string available to scripts */
     lua_pushstring(L, "_VERSION");
     lua_pushstring(L, MIME_VERSION);

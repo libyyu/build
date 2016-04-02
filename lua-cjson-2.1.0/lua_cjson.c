@@ -188,6 +188,33 @@ static const char *char2escape[256] = {
     NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
 };
 
+
+
+/*
+** Adapted from Lua 5.2
+*/
+#if !defined(LUA_VERSION_NUM) || LUA_VERSION_NUM < 502
+void json_luaL_setfuncs (lua_State *L, const luaL_Reg *l, int nup) {
+#ifdef luaL_checkversion
+  luaL_checkversion(L);
+#endif
+  luaL_checkstack(L, nup, "too many upvalues");
+  for (; l->name != NULL; l++) {  /* fill the table with given functions */
+    int i;
+    for (i = 0; i < nup; i++)  /* copy upvalues to the top */
+      lua_pushvalue(L, -nup);
+    lua_pushcclosure(L, l->func, nup);  /* closure with those upvalues */
+    lua_setfield(L, -(nup + 2), l->name);
+  }
+  lua_pop(L, nup);  /* remove upvalues */
+}
+#else
+typedef luaL_setfuncs json_luaL_setfuncs
+#endif
+
+
+
+
 /* ===== CONFIGURATION ===== */
 
 static json_config_t *json_fetch_config(lua_State *l)
@@ -1289,28 +1316,6 @@ static int json_decode(lua_State *l)
     return 1;
 }
 
-/* ===== INITIALISATION ===== */
-
-#if !defined(LUA_VERSION_NUM) || LUA_VERSION_NUM < 502
-/* Compatibility for Lua 5.1.
- *
- * luaL_setfuncs() is used to create a module table where the functions have
- * json_config_t as their first upvalue. Code borrowed from Lua 5.2 source. */
-static void luaL_setfuncs (lua_State *l, const luaL_Reg *reg, int nup)
-{
-    int i;
-
-    luaL_checkstack(l, nup, "too many upvalues");
-    for (; reg->name != NULL; reg++) {  /* fill the table with given functions */
-        for (i = 0; i < nup; i++)  /* copy upvalues to the top */
-            lua_pushvalue(l, -nup);
-        lua_pushcclosure(l, reg->func, nup);  /* closure with those upvalues */
-        lua_setfield(l, -(nup + 2), reg->name);
-    }
-    lua_pop(l, nup);  /* remove upvalues */
-}
-#endif
-
 /* Call target function in protected mode with all supplied args.
  * Assumes target function only returns a single non-nil value.
  * Convert and return thrown errors as: nil, "error message" */
@@ -1365,7 +1370,7 @@ static int lua_cjson_new(lua_State *l)
 
     /* Register functions with config data as upvalue */
     json_create_config(l);
-    luaL_setfuncs(l, reg, 1);
+    json_luaL_setfuncs(l, reg, 1);
 
     /* Set cjson.null */
     lua_pushlightuserdata(l, NULL);

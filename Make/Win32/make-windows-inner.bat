@@ -23,12 +23,18 @@ if "%target%" == "x64" (
 	@set outmodule=x86\%local_module%.dll
 	@set movepath=..\..\LuaGame\ProjectUnity\Assets\Plugins\x86\%local_module%.dll
 )
+@echo 清理以前构建文件
+@del %outmodule%
+@del build\%local_module%_%extname%.def
+@del build\%local_module%_%extname%.lib
+@echo 清理结束，开始构建
 
 @set LOCAL_PATH=..\..
 @set LUAJIT_PATH=..\..\luajit-2.0.4/src
 @set PBC_PATH=..\..\pbc-win
 @set JSON_PATH=..\..\lua-cjson-2.1.0
 @set SOCKET_PATH=..\..\luasocket-2.0.2
+@set SPROTO_PATH=..\..\sproto-master
 @set PROJECT_SRC_PATH=..\..\Project-Source
 
 
@@ -54,6 +60,7 @@ gcc %LOCAL_PATH%/slua.c ^
 	%PBC_PATH%/src/varint.c ^
 	%PBC_PATH%/src/wmessage.c ^
 	%PBC_PATH%/binding/lua/pbc-lua.c ^
+	%SOCKET_PATH%/src/compat.c ^
 	%SOCKET_PATH%/src/auxiliar.c ^
 	%SOCKET_PATH%/src/buffer.c ^
 	%SOCKET_PATH%/src/except.c ^
@@ -67,10 +74,10 @@ gcc %LOCAL_PATH%/slua.c ^
 	%SOCKET_PATH%/src/timeout.c ^
 	%SOCKET_PATH%/src/udp.c ^
 	%SOCKET_PATH%/src/wsocket.c ^
-	%LOCAL_PATH%/sproto-master/lsproto.c ^
-	%LOCAL_PATH%/sproto-master/sproto.c ^
 	%LOCAL_PATH%/lsqlite3-master/lsqlite3.c ^
 	%LOCAL_PATH%/sqlite-amalgamation-3081101/sqlite3.c ^
+	%SPROTO_PATH%/sproto.c ^
+	%SPROTO_PATH%/lsproto.c ^
 	%PROJECT_SRC_PATH%/AnyLog/ILog.cpp ^
 	%PROJECT_SRC_PATH%/Common/FAssist.cpp ^
 	-Wl,--output-def=build/%local_module%_%extname%.def ^
@@ -83,9 +90,9 @@ gcc %LOCAL_PATH%/slua.c ^
 	-I%LUAJIT_PATH% ^
 	-I%PBC_PATH% ^
 	-I%SOCKET_PATH% ^
-	-I%LOCAL_PATH%/sproto-master ^
 	-I%LOCAL_PATH%/lsqlite3-master ^
 	-I%LOCAL_PATH%/sqlite-amalgamation-3081101 ^
+	-I%SPROTO_PATH% ^
 	-I%PROJECT_SRC_PATH% ^
 	-I%PROJECT_SRC_PATH%/Common ^
 	-I%PROJECT_SRC_PATH%/AnyLog ^

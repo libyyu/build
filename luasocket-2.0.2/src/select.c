@@ -43,7 +43,7 @@ int select_open(lua_State *L) {
     lua_pushstring(L, "_SOCKETINVALID");
     lua_pushinteger(L, SOCKET_INVALID);
     lua_rawset(L, -3);
-    luaL_setfuncs(L, func, 0);
+    socket_luaL_setfuncs(L, func, 0);
     return 0;
 }
 
