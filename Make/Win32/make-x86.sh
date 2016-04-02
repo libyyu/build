@@ -77,6 +77,7 @@ g++ \
 	$PROJECT_SRC_PATH/AnyLog/ILog.cpp \
 	$PROJECT_SRC_PATH/Common/FAssist.cpp \
 	$PROJECT_SRC_PATH/VersionMan/VersionMan.cpp \
+	$PROJECT_SRC_PATH/FLuaExport.cpp \
 	-Wl,--output-def=build/${MODULE_NAME}_x86.def \
 	-Wl,--out-implib=build/${MODULE_NAME}_x86.lib \
 	-Wl,--dll \

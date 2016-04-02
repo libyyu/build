@@ -13,33 +13,13 @@
 #else
 #endif
 
-#define  log_info(fmt,...)    \
-if(g_theLog != NULL) \
-{	\
-	g_theLog->Log(fmt,##__VA_ARGS__);  \
-}
-#define  log_warning(fmt,...)  \
-if(g_theLog != NULL) \
-{	\
-	g_theLog->LogWarning(fmt,##__VA_ARGS__);  \
-}
-#define  log_error(fmt,...)   \
-if(g_theLog != NULL) \
-{	\
-	g_theLog->LogError(fmt,##__VA_ARGS__);  \
-}
-#define  log_exception(fmt,...)   \
-if(g_theLog != NULL) \
-{	\
-	g_theLog->LogException(fmt,##__VA_ARGS__);  \
-}
-
-
 #define MODULE_NAME "slua"
 #define MODULE_VERSION "1.0.1"
 
 AnyLog::ILog* g_GetAnyLog();
+void g_SetAnyLog(AnyLog::ILog*);
 lua_State* g_GetLuaState();
+void g_SetLuaState(lua_State*);
 
 #ifdef _WIN32
 #elif _ANDROID
@@ -51,6 +31,54 @@ lua_State* g_GetLuaState();
 #define LOGE(...) __android_log_print(ANDROID_LOG_ERROR  , MODULE_NAME, __VA_ARGS__)
 #else
 #endif
+
+
+
+#define  log_info(fmt,...)    \
+if(g_GetAnyLog() != NULL) \
+{	\
+	g_GetAnyLog()->Log(fmt,##__VA_ARGS__);  \
+}
+#define  log_warning(fmt,...)  \
+if(g_GetAnyLog() != NULL) \
+{	\
+	g_GetAnyLog()->LogWarning(fmt,##__VA_ARGS__);  \
+}
+#define  log_error(fmt,...)   \
+if(g_GetAnyLog() != NULL) \
+{	\
+	g_GetAnyLog()->LogError(fmt,##__VA_ARGS__);  \
+}
+#define  log_exception(fmt,...)   \
+if(g_GetAnyLog() != NULL) \
+{	\
+	g_GetAnyLog()->LogException(fmt,##__VA_ARGS__);  \
+}
+
+
+//频率较高的工具函数
+void MBS2WCS(const char* str, wchar_t* &out,int* len);
+void WCS2MBS(const wchar_t* str, char* &out,int* len);
+
+
+#ifndef SAFE_DELETE
+#define SAFE_DELETE(p) { if(p){delete(p);  (p)=NULL;} }
+#endif
+ 
+#ifndef SAFE_DELETE_ARRAY
+#define SAFE_DELETE_ARRAY(p) { if(p){delete[] (p);  (p)=NULL;} }
+#endif
+
+#ifndef SAFE_RELEASE
+#define SAFE_RELEASE(p) { if(p){ (p)->Release();  (p)=NULL;} }
+#endif
+
+
+
+
+
+
+
 
 #endif//__FASSIST_H__
 

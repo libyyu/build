@@ -18,7 +18,7 @@ bool VersionMan::LoadVersions(const char* szFileName,std::string& err_msg)
 		return false;
 	}
 
-	err_msg = "success";
+	err_msg = "读取成功";
 	return true;
 }
 
@@ -35,11 +35,12 @@ _FCFunBegin
 		VersionMan v;
  		bool ret = v.LoadVersions(szFileName,msg);
 
- 		char* p_msg = new char[msg.size()];
- 		memset(p_msg,0,msg.size());
- 		memcpy(p_msg,msg.c_str(),msg.size());
+ 		int size = msg.size();
+ 		char* p_msg = new char[size];
+ 		memset(p_msg,0,size);
+ 		memcpy(p_msg,msg.c_str(),size);
  		*err_msg = p_msg;
- 		*len = msg.size();
+ 		*len = size;
  		return ret;
 	}
 

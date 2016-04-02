@@ -1,5 +1,4 @@
 #define _F_DLL_
-
 #include "FAssist.h"
 #if !defined(WIN32) && !defined(_WIN32)
 #include <dirent.h>
@@ -13,9 +12,18 @@ AnyLog::ILog* g_GetAnyLog()
 {
 	return g_theLog;
 }
+void g_SetAnyLog(AnyLog::ILog* pLog)
+{
+	FLog::DestroyILog(g_theLog);
+	g_theLog = pLog;
+}
 lua_State* g_GetLuaState()
 {
 	return g_luaState;
+}
+void g_SetLuaState(lua_State* L)
+{
+	g_luaState = L;
 }
 
 #ifdef _WIN32
@@ -45,41 +53,50 @@ lua_State* g_GetLuaState()
 #endif
 
 
+//频率较高的工具函数
+void MBS2WCS(const char* str, wchar_t* &p_out,int* len)
+{
+#   if defined(_WIN32) || defined(WIN32)
+		int size = MultiByteToWideChar(CP_ACP, 0, str, -1, NULL, 0);
+#	else
+		size_t size = mbstowcs(NULL, str, 0);
+#	endif
+
+	p_out = new wchar_t[size];
+	memset(p_out,0,size);
+#   if defined(_WIN32) || defined(WIN32)
+		MultiByteToWideChar(CP_ACP, 0, str, strlen(str), p_out, size);
+#	else
+		mbstowcs(p_out, str, size);
+#	endif
+	
+	*len = size;
+}
+void WCS2MBS(const wchar_t* str, char* &p_out,int* len)
+{
+#   if defined(_WIN32) || defined(WIN32)
+		int size = WideCharToMultiByte(CP_ACP, 0, str, -1, NULL, 0, NULL, NULL);
+#	else
+		size_t size = wcstombs(NULL, str, 0);
+#	endif
+
+	p_out = new char[size];
+	memset(p_out,0,size);
+#   if defined(_WIN32) || defined(WIN32)
+		WideCharToMultiByte(CP_ACP, 0, str, -1, p_out, size, NULL, NULL);	
+#	else
+		wcstombs(p_out, str, ( size + 1 )*4);
+#	endif
+	
+	*len = size;
+}
+
+
 _FCFunBegin
 
-F_LIB_API void L_CleanupLuaState()
-{
-	if (g_luaState != NULL)
+	F_LIB_API void SafeReleaseIntPtr(char* ptr)
 	{
-		g_luaState = NULL;
-		log_info("Cleanup luaState.");
-	}
-}
-F_LIB_API void L_SetupLuaState(lua_State* l)
-{
-	g_luaState = l;
-	log_info("SetupLuaState.");
-}
-F_LIB_API void L_EstablishAnyLog(void* pfunc)
-{
-	FLog::DestroyILog(g_theLog);
-	g_theLog = FLog::CreateILog(pfunc);
-}
-
-F_LIB_API void L_UnEstablishAnyLog()
-{
-	log_info("UnEstablishAnyLog.");
-	FLog::DestroyILog(g_theLog);
-	g_theLog = NULL;
-}
-
-F_LIB_API void L_Exit()
-{
-	log_info("Exit.");
-	L_CleanupLuaState();
-	L_UnEstablishAnyLog();
-}
-
-
+		SAFE_DELETE(ptr);
+	} 
 
 _FCFunEnd

@@ -1,13 +1,40 @@
+
+#define _F_DLL_
+
 #include "FAssist.h"
 
 _FCFunBegin
 
-#ifdef _WIN32
-	BOOL WINAPI DllMain(HANDLE hModule, DWORD  dwReason, LPVOID lpReserved)
+F_LIB_API void L_CleanupLuaState()
+{
+	if (g_GetLuaState() != NULL)
 	{
-		printf("slua.dll Attached\n");
-		return true;
+		g_SetLuaState( NULL );
+		log_info("Cleanup luaState.");
 	}
-#endif // _WIN32
+}
+F_LIB_API void L_SetupLuaState(lua_State* l)
+{
+	g_SetLuaState(l);
+	log_info("SetupLuaState.");
+}
+F_LIB_API void L_EstablishAnyLog(void* pfunc)
+{
+	g_SetAnyLog(FLog::CreateILog(pfunc));
+}
+
+F_LIB_API void L_UnEstablishAnyLog()
+{
+	log_info("UnEstablishAnyLog.");
+	g_SetAnyLog(NULL);
+}
+
+F_LIB_API void L_Exit()
+{
+	log_info("Exit.");
+	L_CleanupLuaState();
+	L_UnEstablishAnyLog();
+}
+
 
 _FCFunEnd
