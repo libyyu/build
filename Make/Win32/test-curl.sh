@@ -1,0 +1,1 @@
+gcc -I../../curl-7.48.0/include -L./ test-curl.c -DCURL_STATICLIB -lcurl-x86 -lws2_32 -lwldap32 -o test-curl.exe
