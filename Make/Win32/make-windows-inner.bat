@@ -1,4 +1,4 @@
-@echo off
+﻿@echo off
 
 @set target=%1
 
@@ -80,6 +80,7 @@ gcc %LOCAL_PATH%/slua.c ^
 	%SPROTO_PATH%/lsproto.c ^
 	%PROJECT_SRC_PATH%/AnyLog/ILog.cpp ^
 	%PROJECT_SRC_PATH%/Common/FAssist.cpp ^
+	%PROJECT_SRC_PATH%/FLuaExport.cpp ^
 	-Wl,--output-def=build/%local_module%_%extname%.def ^
 	-Wl,--out-implib=build/%local_module%_%extname%.lib ^
 	-Wl,--dll ^

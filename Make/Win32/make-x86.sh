@@ -35,7 +35,6 @@ g++ \
 	-I$PROJECT_SRC_PATH \
 	-I$PROJECT_SRC_PATH/Common \
 	-I$PROJECT_SRC_PATH/AnyLog \
-	-I$PROJECT_SRC_PATH/VersionMan \
 	-I$SPROTO_PATH \
 	-shared -m32 \
 	$LOCAL_PATH/slua.c \
@@ -76,7 +75,6 @@ g++ \
 	$SPROTO_PATH/lsproto.c \
 	$PROJECT_SRC_PATH/AnyLog/ILog.cpp \
 	$PROJECT_SRC_PATH/Common/FAssist.cpp \
-	$PROJECT_SRC_PATH/VersionMan/VersionMan.cpp \
 	$PROJECT_SRC_PATH/FLuaExport.cpp \
 	-Wl,--output-def=build/${MODULE_NAME}_x86.def \
 	-Wl,--out-implib=build/${MODULE_NAME}_x86.lib \
