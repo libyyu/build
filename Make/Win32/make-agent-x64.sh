@@ -29,11 +29,13 @@ $HOST_CC \
 	-I$PROJECT_SRC_PATH \
 	-I$PROJECT_SRC_PATH/Common \
 	-I$PROJECT_SRC_PATH/AnyLog \
+	-I$PROJECT_SRC_PATH/VersionMan \
 	-I$PROJECT_SRC_PATH/Agent/src \
 	-shared -m64 \
 	$PROJECT_SRC_PATH/AnyLog/ILog.cpp \
 	$PROJECT_SRC_PATH/Common/FAssist.cpp \
 	$PROJECT_SRC_PATH/FLuaExport.cpp \
+	$PROJECT_SRC_PATH/VersionMan/VersionMan.cpp \
 	$PROJECT_SRC_PATH/Agent/src/TestAgent.cpp \
 	-Wl,--output-def=build/${MODULE_NAME}_x64.def \
 	-Wl,--out-implib=build/${MODULE_NAME}_x64.lib \
@@ -48,7 +50,7 @@ echo "$HOST_CC - $MODULE_NAME build end."
 
 # -lsupc++ -lstdc++
 
-#cp x64/${MODULE_NAME}.dll C:/Users/Feng/Desktop/agent.dll
+cp x64/${MODULE_NAME}.dll ../${MODULE_NAME}.dll
 
 #-Wl,--whole-archive libagent-x64.a \
 

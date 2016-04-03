@@ -1,6 +1,6 @@
-﻿@echo off
+@echo off
 
-@set target=%1
+set target=%1
 
 set local_module=slua
  
@@ -23,11 +23,13 @@ if "%target%" == "x64" (
 	@set outmodule=x86\%local_module%.dll
 	@set movepath=..\..\LuaGame\ProjectUnity\Assets\Plugins\x86\%local_module%.dll
 )
-@echo 清理以前构建文件
+@echo "cleanup previous cached files"
+@echo " "
 @del %outmodule%
 @del build\%local_module%_%extname%.def
 @del build\%local_module%_%extname%.lib
-@echo 清理结束，开始构建
+@echo "cleanup end,complie start"
+@echo " "
 
 @set LOCAL_PATH=..\..
 @set LUAJIT_PATH=..\..\luajit-2.0.4/src
@@ -103,6 +105,6 @@ gcc %LOCAL_PATH%/slua.c ^
 	%linkluajit% ^
 	-Wl,--no-whole-archive -lws2_32 -lwldap32 -static-libgcc -static-libstdc++ -lsupc++ -lstdc++
 
-@copy %outmodule% %movepath% /y
+::@copy %outmodule% %movepath% /y
 
 @echo "Build Successful For %target%"

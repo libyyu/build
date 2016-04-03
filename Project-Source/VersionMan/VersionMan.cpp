@@ -18,7 +18,7 @@ bool VersionMan::LoadVersions(const char* szFileName,std::string& err_msg)
 		return false;
 	}
 
-	err_msg = "读取成功";
+	err_msg = "success";
 	return true;
 }
 
