@@ -72,7 +72,7 @@ g++ \
 	-Wl,--no-whole-archive -lws2_32 -lwldap32 -static-libgcc -static-libstdc++ \
 	-fpermissive -fkeep-inline-functions
 
-echo "build end."
+echo "$MODULE_NAME build end."
 
 #-Wl,--whole-archive libluajit-x64.a \
 

@@ -5,11 +5,11 @@ echo $CUR_PATH
 
 CUR_DIR=$CUR_PATH
 
-rm -f libcurldll-x86.a
+rm -f libcurl-x86.a
 
 cd ../../curl-7.48.0/lib
 mingw32-make -f Makefile.m32 clean
-mingw32-make -f Makefile.m32 ARCH=w86
-cp libcurldll.a $CUR_DIR/libcurldll-x86.a
+mingw32-make -f Makefile.m32 ARCH=w86 CURL_CFLAG_EXTRAS=-DCURL_STATICLIB
+cp libcurl.a $CUR_DIR/libcurl-x86.a
 
 echo "Build End."
