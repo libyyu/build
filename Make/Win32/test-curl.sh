@@ -23,7 +23,8 @@ g++ \
 	-o x86/${MODULE_NAME}.dll \
 	-shared -m32 \
 	test-curl.c \
-	-Wl,--no-whole-archive -static-libgcc -static-libstdc++ -lcurldll-x86 -lws2_32 -lwldap32 -lluajit-x86
+	-DCURL_STATICLIB \
+	-Wl,--no-whole-archive -static-libgcc -static-libstdc++ -lcurl-x86 -lws2_32 -lwldap32 -lluajit-x86
 
 g++ \
 	-I./ \
@@ -39,5 +40,5 @@ g++ \
 	$PROJECT_SRC_PATH/FLuaExport.cpp \
 	-o ${MODULE_NAME}.exe \
 	test-curl.c \
-	-DTEST \
-	-Wl,--no-whole-archive -static-libgcc -static-libstdc++ -lcurldll-x86 -lws2_32 -lwldap32 -lluajit-x86
+	-DTEST -DCURL_STATICLIB \
+	-Wl,--no-whole-archive -static-libgcc -static-libstdc++ -lcurl-x86 -lws2_32 -lwldap32 -lluajit-x86

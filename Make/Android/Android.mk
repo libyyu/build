@@ -99,7 +99,8 @@ $(PBC_PATH)/src/varint.c \
 $(PBC_PATH)/src/wmessage.c \
 $(PBC_PATH)/binding/lua/pbc-lua.c \
 $(PROJECT_SRC_PATH)/AnyLog/ILog.cpp \
-$(PROJECT_SRC_PATH)/Common/FAssist.cpp
+$(PROJECT_SRC_PATH)/Common/FAssist.cpp \
+$(PROJECT_SRC_PATH)/FLuaExport.cpp
 
 
 LOCAL_SRC_FILES  += $(THIRD_SRCS)

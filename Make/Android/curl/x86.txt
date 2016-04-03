@@ -1,6 +1,12 @@
+#x86
 export NDK=D:/AndriodTools/adt-bundle-windows/ndk-r8d
 
 
 export CC="$NDK/toolchains/x86-4.6/prebuilt/windows/bin/i686-linux-android-gcc --sysroot $NDK/platforms/android-14/arch-x86 -Wl,--fix-cortex-a8"
 
-./configure --host=arm-linux-androideabi
+./configure --host=x86-linux-androideabi
+
+make
+
+
+
