@@ -9,4 +9,24 @@ export CC="$NDK/toolchains/x86-4.6/prebuilt/windows/bin/i686-linux-android-gcc -
 make
 
 
+##hostip.c
+
+#ifdef HAVE_SETJMP_H
+#ifdef __cplusplus
+extern "C" {
+    void siglongjmp(jmp_buf env, int val);
+    int sigsetjmp(jmp_buf env, int savemask);
+}
+#endif
+void siglongjmp(jmp_buf env, int val)
+{
+    longjmp(env, val);
+}
+int sigsetjmp(jmp_buf env, int savemask)
+{
+    return setjmp(env);
+}
+#endif
+
+
 
