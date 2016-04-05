@@ -18,7 +18,6 @@ LUAJIT_PATH=../../luajit-2.0.4/src
 CURL_PATH=../../curl-7.48.0
 PROJECT_SRC_PATH=../../Project-Source
 
-
 HOST_CC=g++
 
 $HOST_CC \
@@ -29,24 +28,24 @@ $HOST_CC \
 	-I$PROJECT_SRC_PATH \
 	-I$PROJECT_SRC_PATH/Common \
 	-I$PROJECT_SRC_PATH/AnyLog \
-	-I$PROJECT_SRC_PATH/VersionMan \
+	-I$PROJECT_SRC_PATH/Agent \
 	-I$PROJECT_SRC_PATH/Agent/src \
 	-shared -m64 \
 	$PROJECT_SRC_PATH/AnyLog/ILog.cpp \
 	$PROJECT_SRC_PATH/Common/FAssist.cpp \
 	$PROJECT_SRC_PATH/FLuaExport.cpp \
-	$PROJECT_SRC_PATH/VersionMan/VersionMan.cpp \
 	$PROJECT_SRC_PATH/Agent/src/TestAgent.cpp \
+	$PROJECT_SRC_PATH/Agent/HTTPRequest.cpp \
 	-Wl,--output-def=build/${MODULE_NAME}_x64.def \
 	-Wl,--out-implib=build/${MODULE_NAME}_x64.lib \
 	-Wl,--dll \
-	-o x64/${MODULE_NAME}.dll \
+	-o x64/${MODULE_NAME}.dll -std=c++11 \
 	-L./ \
 	-DWIN32 -D_WIN32 -DLUA_VERSION_NUM=501 -DCURL_STATICLIB \
 	-Wl,--no-whole-archive -lluajit-x64 -lcurl-x64 -lws2_32 -lwldap32 -static-libgcc -static-libstdc++ \
 	-fpermissive -fkeep-inline-functions
 
-g++ \
+$HOST_CC \
 	-I./ \
 	-I$LOCAL_PATH \
 	-I$LUAJIT_PATH \
@@ -60,17 +59,18 @@ g++ \
 	$PROJECT_SRC_PATH/Common/FAssist.cpp \
 	$PROJECT_SRC_PATH/FLuaExport.cpp \
 	$PROJECT_SRC_PATH/Agent/src/TestAgent.cpp \
-	-o x64/${MODULE_NAME}.exe \
-	-DWIN32 -D_WIN32 -DLUA_VERSION_NUM=501 -DTEST -DCURL_STATICLIB \
+	$PROJECT_SRC_PATH/Agent/HTTPRequest.cpp \
+	$PROJECT_SRC_PATH/Agent/HTTPDemo.cpp \
+	-o x64/${MODULE_NAME}.exe -std=c++11 \
+	-DWIN32 -D_WIN32 -DLUA_VERSION_NUM=501 -DCURL_STATICLIB \
 	-Wl,--no-whole-archive -static-libgcc -static-libstdc++ -lcurl-x64 -lws2_32 -lwldap32 -lluajit-x64 \
 	-fpermissive -fkeep-inline-functions
 
 
-echo "$HOST_CC - $MODULE_NAME build end."
+echo "$HOST_CC ${MODULE_NAME} build end."
 
-# -lsupc++ -lstdc++
 
-cp x64/${MODULE_NAME}.dll ../${MODULE_NAME}.dll
+
 
 #-Wl,--whole-archive libagent-x64.a \
 

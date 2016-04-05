@@ -74,7 +74,7 @@ public class Hello
     public extern static void L_UnEstablishAnyLog();
 
     [DllImport(AGENT_DLL, CallingConvention = CallingConvention.Cdecl)]
-    public extern static void curl_get_baidu();
+    public extern static void curl_get_baidu(string url);
 
     #pragma warning disable 414
     public class MonoPInvokeCallbackAttribute : System.Attribute
@@ -114,7 +114,7 @@ public class Hello
             Establish(L);
 
 
-            curl_get_baidu();
+            curl_get_baidu("http://www.baidu.com");
         }
         catch(Exception e)
         {

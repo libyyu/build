@@ -7,6 +7,9 @@
 #include <string>
 #include <fstream>
 #include <functional>
+#ifdef _WIN32
+#include <Windows.h>
+#endif
 
 class DownCallbackClass
 {
@@ -21,7 +24,7 @@ public:
         int down_callback(double total_size, double downloaded_size, void* userdata)
         {
                 long tmp = static_cast<long>(downloaded_size / total_size * 100);
-                printf("\r下载进度%d", tmp);
+                printf("\rdownload progress:%d", tmp);
                 return 0;
         }
         bool IsDownFinished(void) { return m_down_finished;  }
@@ -51,7 +54,7 @@ private:
         bool m_request_finished;
 };
 
-int _tmain(int argc, _TCHAR* argv[])
+int main(int argc, char* argv[])
 {
         MyResultClass mc;
 

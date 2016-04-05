@@ -1,15 +1,16 @@
-echo "build for windows x64"
+
+echo "build for windows x86"
 echo ""
-mkdir -p x64
+mkdir -p x86
 mkdir -p build
 
 MODULE_NAME=agent
 
 echo "clear all"
 echo ""
-rm -f x64/${MODULE_NAME}.dll
-rm -f build/${MODULE_NAME}_x64.def
-rm -f build/${MODULE_NAME}_x64.lib
+rm -f x86/${MODULE_NAME}.dll
+rm -f build/${MODULE_NAME}_x86.def
+rm -f build/${MODULE_NAME}_x86.lib
 echo "clear end,build complie"
 echo ""
 
@@ -19,9 +20,7 @@ CURL_PATH=../../curl-7.48.0
 PROJECT_SRC_PATH=../../Project-Source
 
 
-HOST_CC=g++
-
-$HOST_CC \
+g++ \
 	-I./ \
 	-I$LOCAL_PATH \
 	-I$LUAJIT_PATH \
@@ -29,21 +28,21 @@ $HOST_CC \
 	-I$PROJECT_SRC_PATH \
 	-I$PROJECT_SRC_PATH/Common \
 	-I$PROJECT_SRC_PATH/AnyLog \
-	-I$PROJECT_SRC_PATH/VersionMan \
+	-I$PROJECT_SRC_PATH/Agent \
 	-I$PROJECT_SRC_PATH/Agent/src \
-	-shared -m64 \
+	-shared -m32 \
 	$PROJECT_SRC_PATH/AnyLog/ILog.cpp \
 	$PROJECT_SRC_PATH/Common/FAssist.cpp \
 	$PROJECT_SRC_PATH/FLuaExport.cpp \
-	$PROJECT_SRC_PATH/VersionMan/VersionMan.cpp \
 	$PROJECT_SRC_PATH/Agent/src/TestAgent.cpp \
-	-Wl,--output-def=build/${MODULE_NAME}_x64.def \
-	-Wl,--out-implib=build/${MODULE_NAME}_x64.lib \
+	$PROJECT_SRC_PATH/Agent/HTTPRequest.cpp \
+	-Wl,--output-def=build/${MODULE_NAME}_x86.def \
+	-Wl,--out-implib=build/${MODULE_NAME}_x86.lib \
 	-Wl,--dll \
-	-o x64/${MODULE_NAME}.dll \
+	-o x86/${MODULE_NAME}.dll -std=c++11 \
 	-L./ \
 	-DWIN32 -D_WIN32 -DLUA_VERSION_NUM=501 -DCURL_STATICLIB \
-	-Wl,--no-whole-archive -lluajit-x64 -lcurl-x64 -lws2_32 -lwldap32 -static-libgcc -static-libstdc++ \
+	-Wl,--no-whole-archive -lluajit-x86 -lcurl-x86 -lws2_32 -lwldap32 -static-libgcc -static-libstdc++ \
 	-fpermissive -fkeep-inline-functions
 
 g++ \
@@ -60,18 +59,19 @@ g++ \
 	$PROJECT_SRC_PATH/Common/FAssist.cpp \
 	$PROJECT_SRC_PATH/FLuaExport.cpp \
 	$PROJECT_SRC_PATH/Agent/src/TestAgent.cpp \
-	-o x64/${MODULE_NAME}.exe \
-	-DWIN32 -D_WIN32 -DLUA_VERSION_NUM=501 -DTEST -DCURL_STATICLIB \
-	-Wl,--no-whole-archive -static-libgcc -static-libstdc++ -lcurl-x64 -lws2_32 -lwldap32 -lluajit-x64 \
+	$PROJECT_SRC_PATH/Agent/HTTPRequest.cpp \
+	$PROJECT_SRC_PATH/Agent/HTTPDemo.cpp \
+	-o x86/${MODULE_NAME}.exe -std=c++11 \
+	-DWIN32 -D_WIN32 -DLUA_VERSION_NUM=501 -DCURL_STATICLIB \
+	-Wl,--no-whole-archive -static-libgcc -static-libstdc++ -lcurl-x86 -lws2_32 -lwldap32 -lluajit-x86 \
 	-fpermissive -fkeep-inline-functions
 
 
-echo "$HOST_CC - $MODULE_NAME build end."
+echo "build end."
 
-# -lsupc++ -lstdc++
 
-cp x64/${MODULE_NAME}.dll ../${MODULE_NAME}.dll
 
-#-Wl,--whole-archive libagent-x64.a \
+
+#-Wl,--whole-archive libagent-x86.a \
 
 

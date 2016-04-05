@@ -46,7 +46,7 @@ _pbcV_encode(uint64_t number, uint8_t buffer[10])
 	buffer[i] = (uint8_t)number;
 	return i+1;
 }
-
+#include <Windows.h>
 int
 _pbcV_decode(uint8_t buffer[10], struct longlong *result) {
 	if (!(buffer[0] & 0x80)) {

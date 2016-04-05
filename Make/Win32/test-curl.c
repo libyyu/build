@@ -62,7 +62,7 @@ _FCFunBegin
 
 _FCFunEnd
 #ifdef TEST
-int main(void)
+int main(int argc, char *argv[])
 {
   test_curl_url("http://www.baidu.com");
   return 0;

@@ -55,8 +55,10 @@
 class HttpLock;
 
 #ifndef _WIN32
-typedef void* HANDLE;
+#include <Windows.h>
 #endif
+
+typedef void* HANDLE;
 
 class HttpRequest
 {

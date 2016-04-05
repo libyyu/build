@@ -34,7 +34,7 @@
 #include <list>
 #include <regex>
 #include <sstream>
-
+#include <exception>
 
 #ifndef _WIN32
 typedef unsigned long DWORD;
@@ -1206,8 +1206,10 @@ int HttpDownloader::DownloadHelper::Perform()
 
     FILE *fp = nullptr;
 #ifdef _WIN32
-    DeleteFileA(out_file_name.c_str());
-    fopen_s(&fp, out_file_name.c_str(), "wb");
+    //DeleteFileA(out_file_name.c_str());
+    //fopen_s(&fp, out_file_name.c_str(), "wb");
+    remove(out_file_name.c_str());
+    fp = fopen(out_file_name.c_str(), "wb");
 #else
     unlink(out_file_name.c_str());
     fp = fopen(out_file_name.c_str(), "wb");
@@ -1295,7 +1297,8 @@ int HttpDownloader::DownloadHelper::Perform()
     else
     {
 #ifdef _WIN32
-        DeleteFileA(out_file_name.c_str());
+        //DeleteFileA(out_file_name.c_str());
+        remove(out_file_name.c_str());
 #else
         unlink(out_file_name.c_str());
 #endif
@@ -1377,9 +1380,16 @@ double HttpDownloader::DownloadHelper::GetDownloadFileSize()
             {
                 curl_easy_getinfo(handle, CURLINFO_CONTENT_LENGTH_DOWNLOAD, &down_file_length);
 
-                //匹配"Content-Range: bytes 2-1449/26620" 则证明支持多线程下载
-                std::regex pattern("CONTENT-RANGE\\s*:\\s*\\w+\\s*(\\d+)-(\\d*)/(\\d+)", std::regex::icase);
-                m_multi_download = std::regex_search(m_receive_header, pattern);
+                try
+                {
+                    //匹配"Content-Range: bytes 2-1449/26620" 则证明支持多线程下载
+                    std::regex pattern("CONTENT-RANGE\\s*:\\s*\\w+\\s*(\\d+)-(\\d*)/(\\d+)", std::regex::icase);
+                    m_multi_download = std::regex_search(m_receive_header, pattern);
+                }
+                catch(std::exception e)
+                {
+                    printf("[exception]%s\n", e.what());
+                }
             }
             else
             {
@@ -1536,5 +1546,3 @@ void HttpDownloader::DownloadHelper::Reset()
     m_receive_header = "";
     m_error_string = "";
 }
-
-HttpRequest.cpp
