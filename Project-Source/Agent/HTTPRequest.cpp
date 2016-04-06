@@ -1,28 +1,7 @@
-//  [5/11/2015 Carbon]
-/*
-                                              _ooOoo_
-                                          o888888888o              
-                                         888    " . "   888
-                                         (|        -_-       |)                  
-                                       O\          =         /O      
-                                    ____/`     ---   '\____    
-                                  .'  \\|                     |//  `.              
-                              /  \\|||          :          |||//  \             
-                           /  _|||||        -:-         |||||-  \           
-                         |   | \\\              -               /// |   |         
-                         | \_|             ''\---/''              |_/ |        
-                          \  .-\__             `-`              __/-. /        
-                     _____`. .'           /--.--\            `. . _____        
-                  ."" '<  `.___\_        <|>          _/___.'  >' "".     
-                 | | :  `- \`.;`             \ _ /              `;.`/ - ` : | |     
-                  \  \ `-.              \_ __\ /__ _/              .-` /  /   
-    ========`-.____`-.___\_____/___.-`____.-'========   
-                                                `=---='
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                       佛祖保佑       永无BUG
-*/   
+  
 #include <stdio.h>                       
 #ifdef _WIN32
+#include <Windows.h>
 #else
 #include <pthread.h>
 #include <unistd.h>
@@ -42,6 +21,15 @@ typedef unsigned long DWORD;
 #define TRUE    1
 #define FALSE   0
 #endif  //#ifndef _WIN32
+
+void h_Sleep(unsigned long dt)
+{
+#ifdef _WIN32
+	::Sleep(dt);
+#else
+	usleep(dt * 1000);
+#endif
+}
 
 class HttpLock
 {
@@ -133,11 +121,8 @@ public:
     static void* RequestThread(void* param)
 #endif
     {
-#ifdef _WIN32
-        Sleep(10);
-#else
-        usleep(10 * 1000);
-#endif
+
+		h_Sleep(10);
 
         std::shared_ptr<HttpRequest::RequestHelper>* request = reinterpret_cast<std::shared_ptr<HttpRequest::RequestHelper>*>(param);
 
@@ -159,7 +144,7 @@ public:
 #endif
     }
 
-    static size_t RetriveHeaderFunction(char *buffer, size_t size, size_t nitems, void *userdata)
+    static size_t RetriveHeaderFunction(void *buffer, size_t size, size_t nitems, void *userdata)
     {
         std::string* receive_header = reinterpret_cast<std::string*>(userdata);
         if (receive_header && buffer)
@@ -170,7 +155,7 @@ public:
         return nitems * size;
     }
 
-    static size_t RetriveContentFunction(char *ptr, size_t size, size_t nmemb, void *userdata)
+    static size_t RetriveContentFunction(void *ptr, size_t size, size_t nmemb, void *userdata)
     {
         std::string* receive_content = reinterpret_cast<std::string*>(userdata);
         if (receive_content && ptr)
@@ -187,11 +172,8 @@ public:
     static void* DownloadThread(void* param)
 #endif
     {
-#ifdef _WIN32
-        Sleep(10);
-#else
-        usleep(10 * 1000);
-#endif
+
+		h_Sleep(10);
 
         std::shared_ptr<HttpDownloader::DownloadHelper>* request = reinterpret_cast<std::shared_ptr<HttpDownloader::DownloadHelper>*>(param);
 
@@ -319,6 +301,16 @@ int HttpRequest::SetRequestId(int id)
     }
 
     return REQUEST_INIT_ERROR;
+}
+
+int HttpRequest::GetRequestId()
+{
+	if (m_request_handle)
+	{
+		return m_request_handle->m_id;
+	}
+
+	return -1;
 }
 
 int HttpRequest::SetRequestTimeout(long time_out)
@@ -457,7 +449,7 @@ int HttpRequest::SetResultCallback(ResultCallback rc)
     return REQUEST_INIT_ERROR;
 }
 
-void HttpRequest::Close(HANDLE request_handle)
+void HttpRequest::Close(H_HTTPHANDLE request_handle)
 {
     std::shared_ptr<RequestHelper>* request = (reinterpret_cast<std::shared_ptr<RequestHelper> *>(request_handle));
     if (request == INVALID_HANDLE_VALUE || request == nullptr)
@@ -495,7 +487,7 @@ void HttpRequest::Close(HANDLE request_handle)
     }
 }
 
-HANDLE HttpRequest::PerformRequest(RequestType request_type)
+H_HTTPHANDLE HttpRequest::PerformRequest(RequestType request_type)
 {
     if (m_request_handle)
     {
@@ -519,7 +511,7 @@ HANDLE HttpRequest::PerformRequest(RequestType request_type)
 
 #ifdef _WIN32
             DWORD thread_id;
-            HANDLE async_thread = CreateThread(NULL, 0, HttpHelper::RequestThread, &request, 0, &thread_id);
+            H_HTTPHANDLE async_thread = (H_HTTPHANDLE)CreateThread(NULL, 0, HttpHelper::RequestThread, &request, 0, &thread_id);
             request->m_perform_thread = async_thread;
 #else
             pthread_create(&(request->m_perform_thread), NULL, HttpHelper::RequestThread, &request);
@@ -534,7 +526,7 @@ HANDLE HttpRequest::PerformRequest(RequestType request_type)
     return nullptr;
 }
 
-bool HttpRequest::GetHttpCode(HANDLE request_handle, long* http_code)
+bool HttpRequest::GetHttpCode(H_HTTPHANDLE request_handle, long* http_code)
 {
     std::shared_ptr<RequestHelper>* request = reinterpret_cast<std::shared_ptr<RequestHelper>*>(request_handle);
     if (request && http_code)
@@ -546,7 +538,7 @@ bool HttpRequest::GetHttpCode(HANDLE request_handle, long* http_code)
     return false;
 }
 
-bool HttpRequest::GetReceiveHeader(HANDLE request_handle, std::string* header)
+bool HttpRequest::GetReceiveHeader(H_HTTPHANDLE request_handle, std::string* header)
 {
     std::shared_ptr<RequestHelper>* request = reinterpret_cast<std::shared_ptr<RequestHelper>*>(request_handle);
     if (request)
@@ -557,7 +549,7 @@ bool HttpRequest::GetReceiveHeader(HANDLE request_handle, std::string* header)
     return false;
 }
 
-bool HttpRequest::GetReceiveContent(HANDLE request_handle, std::string* receive)
+bool HttpRequest::GetReceiveContent(H_HTTPHANDLE request_handle, std::string* receive)
 {
     std::shared_ptr<RequestHelper>* request = reinterpret_cast<std::shared_ptr<RequestHelper>*>(request_handle);
     if (request)
@@ -568,7 +560,7 @@ bool HttpRequest::GetReceiveContent(HANDLE request_handle, std::string* receive)
     return false;
 }
 
-bool HttpRequest::GetErrorString(HANDLE request_handle, std::string* error_string)
+bool HttpRequest::GetErrorString(H_HTTPHANDLE request_handle, std::string* error_string)
 {
     std::shared_ptr<RequestHelper>* request = reinterpret_cast<std::shared_ptr<RequestHelper>*>(request_handle);
     if (request)
@@ -931,6 +923,16 @@ int HttpDownloader::SetRequestId(int id)
     return HttpRequest::REQUEST_INIT_ERROR;
 }
 
+int HttpDownloader::GetRequestId()
+{
+	if (m_request_handle)
+	{
+		return m_request_handle->GetRequestId();
+	}
+
+	return -1;
+}
+
 int HttpDownloader::SetProgressCallback(ProgressCallback pc)
 {
     if (m_request_handle)
@@ -966,7 +968,7 @@ int HttpDownloader::DownloadFile(const std::string& file_name, int thread_count 
     return HttpRequest::REQUEST_INIT_ERROR;
 }
 
-HANDLE HttpDownloader::StartDownload(DownType down_type)
+H_HTTPHANDLE HttpDownloader::StartDownload(DownType down_type)
 {
     if (m_request_handle)
     {
@@ -991,7 +993,7 @@ HANDLE HttpDownloader::StartDownload(DownType down_type)
 
 #ifdef _WIN32
             DWORD thread_id;
-            HANDLE async_thread = CreateThread(NULL, 0, HttpHelper::DownloadThread, &request, 0, &thread_id);
+            H_HTTPHANDLE async_thread = (H_HTTPHANDLE)CreateThread(NULL, 0, HttpHelper::DownloadThread, &request, 0, &thread_id);
             request->m_perform_thread = async_thread;
 #else
             pthread_create(&(request->m_perform_thread), NULL, HttpHelper::DownloadThread, &request);
@@ -1006,7 +1008,7 @@ HANDLE HttpDownloader::StartDownload(DownType down_type)
     return nullptr;
 }
 
-void HttpDownloader::Close(HANDLE handle)
+void HttpDownloader::Close(H_HTTPHANDLE handle)
 {
     std::shared_ptr<DownloadHelper>* request = (reinterpret_cast<std::shared_ptr<DownloadHelper> *>(handle));
     if (request == INVALID_HANDLE_VALUE || request == nullptr)
@@ -1045,7 +1047,7 @@ void HttpDownloader::Close(HANDLE handle)
     }
 }
 
-bool HttpDownloader::CancelDownload(HANDLE handle)
+bool HttpDownloader::CancelDownload(H_HTTPHANDLE handle)
 {
     std::shared_ptr<DownloadHelper>* request = (reinterpret_cast<std::shared_ptr<DownloadHelper> *>(handle));
     if (request == INVALID_HANDLE_VALUE || request == nullptr)
@@ -1058,7 +1060,7 @@ bool HttpDownloader::CancelDownload(HANDLE handle)
     return true;
 }
 
-bool HttpDownloader::GetHttpCode(HANDLE handle, long* http_code)
+bool HttpDownloader::GetHttpCode(H_HTTPHANDLE handle, long* http_code)
 {
     std::shared_ptr<DownloadHelper>* request = reinterpret_cast<std::shared_ptr<DownloadHelper>*>(handle);
     if (request && http_code)
@@ -1070,7 +1072,7 @@ bool HttpDownloader::GetHttpCode(HANDLE handle, long* http_code)
     return false;
 }
 
-bool HttpDownloader::GetErrorString(HANDLE handle, std::string* error_string)
+bool HttpDownloader::GetErrorString(H_HTTPHANDLE handle, std::string* error_string)
 {
     std::shared_ptr<DownloadHelper>* request = reinterpret_cast<std::shared_ptr<DownloadHelper>*>(handle);
     if (request)
@@ -1081,7 +1083,7 @@ bool HttpDownloader::GetErrorString(HANDLE handle, std::string* error_string)
     return false;
 }
 
-bool HttpDownloader::GetReceiveHeader(HANDLE handle, std::string* header)
+bool HttpDownloader::GetReceiveHeader(H_HTTPHANDLE handle, std::string* header)
 {
     std::shared_ptr<DownloadHelper>* request = reinterpret_cast<std::shared_ptr<DownloadHelper>*>(handle);
     if (request)
@@ -1092,7 +1094,7 @@ bool HttpDownloader::GetReceiveHeader(HANDLE handle, std::string* header)
     return false;
 }
 
-void* HttpDownloader::GetUserData(HANDLE handle)
+void* HttpDownloader::GetUserData(H_HTTPHANDLE handle)
 {
 
     std::shared_ptr<DownloadHelper>* request = reinterpret_cast<std::shared_ptr<DownloadHelper>*>(handle);
@@ -1228,7 +1230,7 @@ int HttpDownloader::DownloadHelper::Perform()
     {
         long gap = static_cast<long>(m_total_size) / m_thread_count;
 #ifdef _WIN32
-        std::vector<HANDLE> threads;
+        std::vector<H_HTTPHANDLE> threads;
 #else
         std::vector<pthread_t> threads;
 #endif
@@ -1252,7 +1254,7 @@ int HttpDownloader::DownloadHelper::Perform()
 
 #ifdef _WIN32
             DWORD thread_id;
-            HANDLE hThread = CreateThread(NULL, 0, HttpHelper::DownloadWork, thread_chunk, 0, &(thread_id));
+            H_HTTPHANDLE hThread = (H_HTTPHANDLE)CreateThread(NULL, 0, HttpHelper::DownloadWork, thread_chunk, 0, &(thread_id));
 #else
             pthread_t hThread;
             pthread_create(&hThread, NULL, HttpHelper::DownloadWork, thread_chunk);
@@ -1262,7 +1264,7 @@ int HttpDownloader::DownloadHelper::Perform()
 
 #ifdef _WIN32
         WaitForMultipleObjects(threads.size(), &threads[0], TRUE, INFINITE);
-        for (HANDLE handle : threads)
+        for (H_HTTPHANDLE handle : threads)
         {
             CloseHandle(handle);
         }

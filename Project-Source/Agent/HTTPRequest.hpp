@@ -8,57 +8,12 @@
 #include <functional>
 #include <vector>
 
-//************************************
-// Usage:    
-// class MyResultClass
-// {
-// public:
-//     MyResultClass() : m_request_finished(false) { }
-//     ~MyResultClass() { }
-// 
-// public:
-//     void MyRequestResultCallback(int id, bool success, const std::string& data)
-//     {
-//       if (success)
-//       {
-//        std::ofstream outfile;
-//        outfile.open("baidu.html", std::ios_base::binary | std::ios_base::trunc);
-//        if (outfile.good()) outfile.write(data.c_str(), data.size());
-//       }
-//       m_request_finished = true;
-//     }
-//     bool IsRequestFinish(void) { return m_request_finished; }
-// private:
-//     bool m_request_finished;
-// };
-//
-// MyResultClass mc;
-// HttpRequest request;
-// request.SetRequestUrl("http://www.baidu.com");
-// request.SetResultCallback(std::bind(&MyResultClass::MyRequestResultCallback, &mc, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3));
-// request.SetRequestHeader("User-Agent:Mozilla/4.04[en](Win95;I;Nav)");
-// HANDLE hRequest = request.PerformRequest(HttpRequest::REQUEST_ASYNC);
-// if (hRequest)
-// {
-//     while (mc.IsRequestFinish() == false) Sleep(300);
-//     long http_code;
-//     if (request.GetHttpCode(hRequest, &http_code))
-//       std::cout << "http code: " << http_code << std::endl;
-//     std::string header;
-//     if (request.GetReceiveHeader(hRequest, &header))
-//       std::cout << header << std::endl;
-//     HttpRequest::Close(hRequest);
-// }
-// /*recommended HttpRequest::Close(hRequest) while doing async request job and dont need request handle anymore*/
-//************************************
-
+//////////////////////////////////////////////////////////////////////////////////////////////
 class HttpLock;
 
-#ifndef _WIN32
-#include <Windows.h>
-#endif
+typedef void* H_HTTPHANDLE;
 
-typedef void* HANDLE;
+void h_Sleep(unsigned long);
 
 class HttpRequest
 {
@@ -89,6 +44,7 @@ public:
     
     int SetRetryTimes(int retry_times = s_kRetryCount);
     int SetRequestId(int id);
+	int GetRequestId();
     int SetRequestTimeout(long time_out = 0);
     int SetRequestUrl(const std::string& url);
 
@@ -122,13 +78,13 @@ public:
 
     int SetResultCallback(ResultCallback rc);
 
-    HANDLE PerformRequest(RequestType request_type);
-    static void Close(HANDLE request_handle);
+    H_HTTPHANDLE PerformRequest(RequestType request_type);
+    static void Close(H_HTTPHANDLE request_handle);
 
-    static bool GetHttpCode(HANDLE request_handle, long* http_code);
-    static bool GetReceiveHeader(HANDLE request_handle, std::string* header);
-    static bool GetReceiveContent(HANDLE request_handle, std::string* receive);
-    static bool GetErrorString(HANDLE request_handle, std::string* error_string);
+    static bool GetHttpCode(H_HTTPHANDLE request_handle, long* http_code);
+    static bool GetReceiveHeader(H_HTTPHANDLE request_handle, std::string* header);
+    static bool GetReceiveContent(H_HTTPHANDLE request_handle, std::string* receive);
+    static bool GetErrorString(H_HTTPHANDLE request_handle, std::string* error_string);
 
 protected:
 
@@ -164,10 +120,10 @@ protected:
         void    ReqeustResultDefault(int id, bool success, const std::string& data);
 
     private:
-        HANDLE       m_curl_handle;
-        HANDLE       m_http_headers;
+        H_HTTPHANDLE       m_curl_handle;
+        H_HTTPHANDLE       m_http_headers;
 #ifdef _WIN32
-        HANDLE       m_perform_thread;
+        H_HTTPHANDLE       m_perform_thread;
 #else
         pthread_t    m_perform_thread;
 #endif
@@ -191,46 +147,7 @@ private:
     static const int               s_kRetryCount = 3;
 };
 
-//************************************
-// Usage:    HttpDownloader
-// class DownCallbackClass
-// {
-// public:
-//     DownCallbackClass() :m_down_finished(false) {}
-//     ~DownCallbackClass() {}
-// public:
-//     void DownResultCallback(int id, bool success, const std::string& data)
-//     {
-//       m_down_finished = true;
-//     }
-//     int down_callback(double total_size, double downloaded_size, void* userdata)
-//     {
-//       long tmp = static_cast<long>(downloaded_size / total_size * 100);
-//      printf("\r下载进度%d", tmp);
-//      return 0;
-//     }
-//     bool IsDownFinished(void) { return m_down_finished; }
-// private:
-//     bool m_down_finished;
-// };
-// HttpDownloader download;
-// DownCallbackClass dc;
-// const char* down_url = "http://dlsw.baidu.com/sw-search-sp/soft/71/10998/OfflineBaiduPlayer_151_V4.1.2.263.1432003947.exe";
-// const char* down_file = "BaiduPlayer.exe";
-// 
-// download.SetDownloadUrl(down_url);
-// download.SetProgressCallback(std::bind(&DownCallbackClass::down_callback, &dc, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3));
-// download.SetResultCallback(std::bind(&DownCallbackClass::DownResultCallback, &dc, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3));
-// download.DownloadFile(down_file);
-// HANDLE hDownload = download.StartDownload(HttpDownloader::DOWN_ASYNC);
-// if (hDownload)
-// {
-//     while (dc.IsDownFinished() == false) Sleep(300); 
-//     //to do download finish clean up
-//     HttpDownloader::Close(hDownload);
-// }
-//************************************
-
+////////////////////////////////////////////////////////////////////////////
 class HttpDownloader
 {
 public:
@@ -257,18 +174,19 @@ public:
     int         SetDownloadUrl(const std::string& url);
     int         SetUserData(void* userdata);
     int         SetRequestId(int id);
+	int			GetRequestId();
     int         SetProgressCallback(ProgressCallback pc);
     int         SetResultCallback(ResultCallback rc);
 
     int         DownloadFile(const std::string& file_name, int thread_count = 5);
-    HANDLE      StartDownload(DownType down_type);
-    static bool CancelDownload(HANDLE handle);
-    static void Close(HANDLE handle);
+    H_HTTPHANDLE      StartDownload(DownType down_type);
+    static bool CancelDownload(H_HTTPHANDLE handle);
+    static void Close(H_HTTPHANDLE handle);
 
-    static bool        GetHttpCode(HANDLE handle, long* http_code);
-    static bool        GetReceiveHeader(HANDLE handle, std::string* header);
-    static bool        GetErrorString(HANDLE handle, std::string* error_string);
-    static void*       GetUserData(HANDLE handle);
+    static bool        GetHttpCode(H_HTTPHANDLE handle, long* http_code);
+    static bool        GetReceiveHeader(H_HTTPHANDLE handle, std::string* header);
+    static bool        GetErrorString(H_HTTPHANDLE handle, std::string* error_string);
+    static void*       GetUserData(H_HTTPHANDLE handle);
 
 protected:
 
@@ -291,7 +209,8 @@ protected:
         friend ThreadChunk;
 
         void     SetRetryTimes(int retry_times) { m_retry_times = retry_times; }
-        void      SetRequestId(int id) { m_id = id;  }
+        void     SetRequestId(int id) { m_id = id;  }
+		int      GetRequestId() { return m_id; }
         int      SetTimeout(long time_out = 0);
         int      SetRequestUrl(const std::string& url);
         int      SetRequestProxy(const std::string& proxy, long proxy_port);
@@ -320,7 +239,7 @@ protected:
 
     private:
 #ifdef _WIN32
-        HANDLE        m_perform_thread;
+        H_HTTPHANDLE        m_perform_thread;
 #else
         pthread_t     m_perform_thread;
 #endif

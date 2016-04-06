@@ -38,11 +38,11 @@ void ILog::LogFormatInner(LOG_TYPE logType, const char* format, va_list va)
 {
 	if (format)
 	{
-		char buff[1025] = { 0 };
+		char buff[2049] = { 0 };
 #ifdef _WIN32
-		_vsnprintf(buff, 1024, format, va);
+		_vsnprintf(buff, 2048, format, va);
 #else
-		vsnprintf(buff, 1024, format, va);
+		vsnprintf(buff, 2048, format, va);
 #endif
 
 		LogImpl(logType, buff);

@@ -36,6 +36,7 @@ g++ \
 	$PROJECT_SRC_PATH/FLuaExport.cpp \
 	$PROJECT_SRC_PATH/Agent/src/TestAgent.cpp \
 	$PROJECT_SRC_PATH/Agent/HTTPRequest.cpp \
+	$PROJECT_SRC_PATH/Agent/exp_HTTPRequest.cpp \
 	-Wl,--output-def=build/${MODULE_NAME}_x86.def \
 	-Wl,--out-implib=build/${MODULE_NAME}_x86.lib \
 	-Wl,--dll \
@@ -60,6 +61,7 @@ g++ \
 	$PROJECT_SRC_PATH/FLuaExport.cpp \
 	$PROJECT_SRC_PATH/Agent/src/TestAgent.cpp \
 	$PROJECT_SRC_PATH/Agent/HTTPRequest.cpp \
+	$PROJECT_SRC_PATH/Agent/exp_HTTPRequest.cpp \
 	$PROJECT_SRC_PATH/Agent/HTTPDemo.cpp \
 	-o x86/${MODULE_NAME}.exe -std=c++11 \
 	-DWIN32 -D_WIN32 -DLUA_VERSION_NUM=501 -DCURL_STATICLIB \
