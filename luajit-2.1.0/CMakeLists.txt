@@ -33,24 +33,6 @@ set ( RELVER 2 )
 set ( ABIVER 5.1 )
 set ( NODOTABIVER 51 )
 
-option ( LUA_SOCKET "link socket" ON )
-option ( LUA_JSON "link cjson" ON )
-option ( LUA_PEG "link lpeg" ON )
-option ( LUA_PB "link protobuf" ON )
-
-if( LUA_SOCKET )
-	set ( LUA_SOCKET_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../luasocket-2.0.2" )
-endif()
-if ( LUA_JSON )
-  set ( LUA_JSON_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../lua-cjson-2.1.0" )
-endif()
-if ( LUA_PEG )
-  set ( LUA_PEG_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../lpeg" )
-endif()
-if ( LUA_PB )
-  set ( LUA_PB_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../pbc-win" )
-endif()
-
 # Extra flags
 option ( LUAJIT_DISABLE_FFI "Permanently disable the FFI extension to reduce the size of the LuaJIT executable. But please consider that the FFI library is compiled-in, but NOT loaded by default. It only allocates any memory, if you actually make use of it." OFF )
 option ( LUAJIT_ENABLE_LUA52COMPAT "Features from Lua 5.2 that are unlikely to break existing code are enabled by default. Some other features that *might* break some existing code (e.g. __pairs or os.execute() return values) can be enabled here. Note: this does not provide full compatibility with Lua 5.2 at this time." ON )
@@ -92,18 +74,10 @@ set ( LUA_CPATH_DEFAULT "./?${LUA_MODULE_SUFFIX};${LUA_DIR}${LUA_CDIR}/?${LUA_MO
 
 if ( WIN32 AND NOT CYGWIN )
   # Windows systems
-  add_definitions ( -DLUA_BUILD_AS_DLL -DLUAJIT_OS=LUAJIT_OS_WINDOWS )
-  if ( LUA_SOCKET )
-  	add_definitions ( -DLIB_SOCKET )
-  endif()
-  if ( LUA_JSON )
-    add_definitions ( -DLIB_CJSON )
-  endif()
-  if ( LUA_PEG )
-    add_definitions ( -DLIB_LPEG )
-  endif()
-  if ( LUA_PB )
-    add_definitions ( -DLIB_LPB )
+  if ( BUILD_SHARED_LIBS )
+    add_definitions ( -DLUA_BUILD_AS_DLL -DLUAJIT_OS=LUAJIT_OS_WINDOWS )
+  else()
+    add_definitions ( -DLUAJIT_OS=LUAJIT_OS_WINDOWS )
   endif()
   
   option ( LUA_BUILD_WLUA "Build wluajit interpreter for no-console applications." ON )
@@ -331,6 +305,9 @@ set ( LJCORE_C
   src/lj_cparse.c
   src/lj_lib.c
   src/lj_alloc.c
+  src/lj_strfmt.c
+  src/lj_buf.c
+  src/lj_profile.c
   src/lib_aux.c
   src/lib_init.c
   ${LJLIB_C}
@@ -345,170 +322,8 @@ set ( LUA_LIB_C
 )
 
 
-if ( LUA_SOCKET )
-	message(STATUS "LUA_SOCKET_PATH: ${LUA_SOCKET_PATH}" )
-	include_directories( ${LUA_SOCKET_PATH}/src )
-  if ( WIN32 AND NOT CYGWIN )
-		SET( L_SOCKET_BASE_H
-			${LUA_SOCKET_PATH}/src/wsocket.h
-		)
-	else()
-		SET( L_SOCKET_BASE_H 
-			${LUA_SOCKET_PATH}/src/unix.h
-			${LUA_SOCKET_PATH}/src/usocket.h
-		)
-	endif()
-
-	SET ( L_SOCKET_H
-		${L_SOCKET_BASE_H}
-		${LUA_SOCKET_PATH}/src/auxiliar.h
-		${LUA_SOCKET_PATH}/src/buffer.h
-		${LUA_SOCKET_PATH}/src/except.h
-		${LUA_SOCKET_PATH}/src/inet.h
-		${LUA_SOCKET_PATH}/src/io.h
-		${LUA_SOCKET_PATH}/src/options.h
-		${LUA_SOCKET_PATH}/src/select.h
-		${LUA_SOCKET_PATH}/src/tcp.h
-		${LUA_SOCKET_PATH}/src/timeout.h
-		${LUA_SOCKET_PATH}/src/udp.h
-		${LUA_SOCKET_PATH}/src/luasocket.h
-	)
-	SET ( L_SOCKET_BASE_C
-		${LUA_SOCKET_PATH}/src/auxiliar.c
-		${LUA_SOCKET_PATH}/src/buffer.c
-		${LUA_SOCKET_PATH}/src/except.c
-		${LUA_SOCKET_PATH}/src/inet.c
-		${LUA_SOCKET_PATH}/src/io.c
-		${LUA_SOCKET_PATH}/src/options.c
-		${LUA_SOCKET_PATH}/src/select.c
-		${LUA_SOCKET_PATH}/src/tcp.c
-		${LUA_SOCKET_PATH}/src/timeout.c
-		${LUA_SOCKET_PATH}/src/udp.c
-		${LUA_SOCKET_PATH}/src/luasocket.c
-	)
-
-	if ( WIN32 AND NOT CYGWIN )
-		SET( L_SOCKET_IMPL
-			${LUA_SOCKET_PATH}/src/wsocket.c
-		)
-	else()
-		SET( L_SOCKET_IMPL
-			${LUA_SOCKET_PATH}/src/usocket.c
-			${LUA_SOCKET_PATH}/src/unix.c
-		)
-	endif()
-
-	SET ( L_SOCKET_C 
-		${L_SOCKET_BASE_C}
-		${L_SOCKET_IMPL}
-	)
-
-  SET ( LUA_LIB_H 
-    ${LUA_LIB_H}
-    ${L_SOCKET_H}
-  )
-
-  SET ( LUA_LIB_C 
-    ${LUA_LIB_C}
-    ${L_SOCKET_C}
-  )
-endif()
-
-if ( LUA_JSON )
-  message(STATUS "LUA_JSON_PATH: ${LUA_JSON_PATH}" )
-  include_directories( ${LUA_JSON_PATH} )
-  SET( L_JSON_H 
-    ${LUA_JSON_PATH}/strbuf.h
-    ${LUA_JSON_PATH}/fpconv.h
-  )
-  SET(L_JSON_C
-    ${LUA_JSON_PATH}/strbuf.c
-    ${LUA_JSON_PATH}/fpconv.c
-    ${LUA_JSON_PATH}/lua_cjson.c
-  )
-
-  SET ( LUA_LIB_H 
-    ${LUA_LIB_H}
-    ${L_JSON_H}
-  )
-
-  SET ( LUA_LIB_C 
-    ${LUA_LIB_C}
-    ${L_JSON_C}
-  )
-endif()
-
-if ( LUA_PEG )
-  message(STATUS "LUA_PEG_PATH: ${LUA_PEG_PATH}" )
-  include_directories( ${LUA_PEG_PATH} )
-  SET( L_PEG_H 
-    ${LUA_PEG_PATH}/lpeg.h
-  )
-  SET(L_PEG_C
-    ${LUA_PEG_PATH}/lpeg.c
-  )
-
-  SET ( LUA_LIB_H 
-    ${LUA_LIB_H}
-    ${L_PEG_H}
-  )
-
-  SET ( LUA_LIB_C 
-    ${LUA_LIB_C}
-    ${L_PEG_C}
-  )
-endif()
-
-if ( LUA_PB )
-  message(STATUS "LUA_PB_PATH: ${LUA_PB_PATH}" )
-  include_directories( ${LUA_PB_PATH} )
-  include_directories( ${LUA_PB_PATH}/src )
-  SET( LUA_PB_H 
-    ${LUA_PB_PATH}/pbc.h
-    ${LUA_PB_PATH}/src/stringpool.h
-    ${LUA_PB_PATH}/src/varint.h
-    ${LUA_PB_PATH}/src/map.h
-    ${LUA_PB_PATH}/src/pattern.h
-    ${LUA_PB_PATH}/src/proto.h
-    ${LUA_PB_PATH}/src/array.h
-    ${LUA_PB_PATH}/src/bootstrap.h
-    ${LUA_PB_PATH}/src/context.h
-    ${LUA_PB_PATH}/src/descriptor.pbc.h
-    ${LUA_PB_PATH}/src/alloc.h
-  )
-  SET(LUA_PB_C
-    ${CMAKE_CURRENT_SOURCE_DIR}/../pb.c
-    ${LUA_PB_PATH}/binding/lua/pbc-lua.c
-#   ${LUA_PB_PATH}/binding/lua53/pbc-lua53.c
-    ${LUA_PB_PATH}/src/stringpool.c
-    ${LUA_PB_PATH}/src/varint.c
-    ${LUA_PB_PATH}/src/wmessage.c
-    ${LUA_PB_PATH}/src/pattern.c
-    ${LUA_PB_PATH}/src/proto.c
-    ${LUA_PB_PATH}/src/register.c
-    ${LUA_PB_PATH}/src/rmessage.c
-    ${LUA_PB_PATH}/src/bootstrap.c
-    ${LUA_PB_PATH}/src/context.c
-    ${LUA_PB_PATH}/src/decode.c
-    ${LUA_PB_PATH}/src/map.c
-    ${LUA_PB_PATH}/src/array.c
-    ${LUA_PB_PATH}/src/alloc.c
-  )
-
-  SET ( LUA_LIB_H 
-    ${LUA_LIB_H}
-    ${LUA_PB_H}
-  )
-
-  SET ( LUA_LIB_C 
-    ${LUA_LIB_C}
-    ${LUA_PB_C}
-  )
-endif()
-
 SET (LUA_LIB_C
   ${LUA_LIB_C}
-  "${CMAKE_CURRENT_SOURCE_DIR}/../slua.c"
 )
 
 
@@ -537,18 +352,16 @@ endmacro(GROUP_FILES)
 
 GROUP_FILES(ALL_FILES)
 
-# add_library ( liblua SHARED ${HEADER_FILES} ${SOURCE_FILES} )
-add_library ( liblua SHARED ${LUA_LIB_H} ${LUA_LIB_C} )
+# add_library 
+if (BUILD_SHARED_LIBS)
+  add_library ( liblua SHARED ${LUA_LIB_H} ${LUA_LIB_C} )
+else()
+  add_library ( liblua STATIC ${LUA_LIB_H} ${LUA_LIB_C} )
+endif()
 
 target_link_libraries ( liblua ${LIBS} )
 
-if ( LUA_SOCKET )
-	if ( WIN32 AND NOT CYGWIN )
-		target_link_libraries ( liblua ws2_32.lib )
-	endif()
-endif()
-
-set_target_properties ( liblua PROPERTIES OUTPUT_NAME slua CLEAN_DIRECT_OUTPUT 1 )
+set_target_properties ( liblua PROPERTIES OUTPUT_NAME libluajit CLEAN_DIRECT_OUTPUT 1 )
 
 ## LuaJIT Executable
 add_executable ( luajit src/luajit.c src/luajit.rc )
