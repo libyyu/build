@@ -1,8 +1,8 @@
 @echo off
 
-set target=%1
+set local_module=%1
+set target=%2
 
-set local_module=FengEngine
  
 mkdir build
 
