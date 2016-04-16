@@ -2,7 +2,7 @@
 echo ""
 echo "Compiling NativeCode..."
 
-@set out_name=FengEngine
+@set out_name=%1
 
 ndk-build.cmd  NDK_PROJECT_PATH=. NDK_APPLICATION_MK=Application.mk OUT_MODULE_NAME=%out_name%
 @rem #mv libs/armeabi/libAutoPF.so ./AutoPF.so
@@ -14,11 +14,3 @@ echo "Cleaning up / removing build folders..."  #optional..
 
 echo ""
 echo "Done!"
-
-
-cp ./libs/armeabi-v7a/lib%out_name%.so ../../../LuaGame/ProjectUnity/Assets/Plugins/Android/libs/armeabi-v7a/lib%out_name%.so
-
-cp ./libs/x86/lib%out_name%.so ../../../LuaGame/ProjectUnity/Assets/Plugins/Android/libs/x86/lib%out_name%.so
-
-
-pause
