@@ -371,6 +371,7 @@ copy %Pdb_Name% %PROJECT_PATH%\$(TargetName).pdb /y
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\bit.c" />
     <ClCompile Include="..\..\lpeg\lpeg.c" />
     <ClCompile Include="..\..\lua-cjson-2.1.0\fpconv.c" />
     <ClCompile Include="..\..\lua-cjson-2.1.0\lua_cjson.c" />

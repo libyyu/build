@@ -57,7 +57,13 @@ LUALIB_API int luaopen_socket_core(lua_State* L);
 //extern int luaopen_lsqlite3(lua_State* L);
 LUALIB_API int luaopen_protobuf_c(lua_State *L);
 LUALIB_API int luaopen_sproto_core(lua_State* L);
+#ifdef _USE_NATIVE_LUA
+LUALIB_API int luaopen_bit(lua_State *L);
+#endif//_USE_NATIVE_LUA
 static const luaL_Reg s_lib_preload[] = {
+#ifdef _USE_NATIVE_LUA
+	{ "bit", luaopen_bit},
+#endif
 	{ "lpeg", luaopen_lpeg },
 	{ "pb",    luaopen_pb }, 
 	{ "cjson",    luaopen_cjson },
