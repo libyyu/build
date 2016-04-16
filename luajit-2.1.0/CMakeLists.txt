@@ -6,8 +6,13 @@
 
 # NOTE: This build is currently only supporting x86 targets, for other targets use the original makefile. Please do not submit bugs to the LuaJIT author in case this build fails, instead use http://github.com/LuaDist/luajit
 
+set (LOCAL_PATH "${CMAKE_CURRENT_SOURCE_DIR}/..")
+
+#set (CMAKE_CURRENT_BINARY_DIR "${LOCAL_PATH}/vsproject")
+
 message (STATUS "CMAKE_CURRENT_SOURCE_DIR: ${CMAKE_CURRENT_SOURCE_DIR}")
-set (LOCAL_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../")
+message (STATUS "CMAKE_CURRENT_BINARY_DIR: ${CMAKE_CURRENT_BINARY_DIR}")
+
 project ( luajit C ASM)
 cmake_minimum_required ( VERSION 2.8 )
 include ( cmake/dist.cmake )
@@ -18,6 +23,8 @@ include ( lua )
 set ( LUA_PATH "LUA_PATH" CACHE STRING "Environment variable to use as package.path." )
 set ( LUA_CPATH "LUA_CPATH" CACHE STRING "Environment variable to use as package.cpath." )
 set ( LUA_INIT "LUA_INIT" CACHE STRING "Environment variable for initial script." )
+
+option ( LUAJIT_BUILD_STATIC "Build luajit as static library." ON )
 
 option ( LUA_ANSI "Use only ansi features." OFF )
 option ( LUA_USE_RELATIVE_LOADLIB "Use modified loadlib.c with support for relative paths on posix systems." ON)
@@ -74,12 +81,8 @@ set ( LUA_CPATH_DEFAULT "./?${LUA_MODULE_SUFFIX};${LUA_DIR}${LUA_CDIR}/?${LUA_MO
 
 if ( WIN32 AND NOT CYGWIN )
   # Windows systems
-  if ( BUILD_SHARED_LIBS )
-    add_definitions ( -DLUA_BUILD_AS_DLL -DLUAJIT_OS=LUAJIT_OS_WINDOWS )
-  else()
-    add_definitions ( -DLUAJIT_OS=LUAJIT_OS_WINDOWS )
-  endif()
-  
+  add_definitions ( -DLUA_BUILD_AS_DLL -DWIN32 -D_WIN32 -DLUAJIT_OS=LUAJIT_OS_WINDOWS )
+ 
   option ( LUA_BUILD_WLUA "Build wluajit interpreter for no-console applications." ON )
   set ( LJVM_MODE peobj )
   # Paths (Double escapes needed)
@@ -305,8 +308,9 @@ set ( LJCORE_C
   src/lj_cparse.c
   src/lj_lib.c
   src/lj_alloc.c
-  src/lj_strfmt.c
   src/lj_buf.c
+  src/lj_strfmt.c
+  src/lj_strfmt_num.c
   src/lj_profile.c
   src/lib_aux.c
   src/lib_init.c
@@ -321,11 +325,9 @@ set ( LUA_LIB_C
   ${LJCORE_C}
 )
 
-
 SET (LUA_LIB_C
   ${LUA_LIB_C}
 )
-
 
 # file(GLOB_RECURSE HEADER_FILES *.h *.inl)
 # file(GLOB_RECURSE SOURCE_FILES *.cpp *.cc *.c)
@@ -345,15 +347,14 @@ macro(GROUP_FILES src_files)
             if(sgbd_nogroup)
                 set(sgbd_group_name "Include")
             endif(sgbd_nogroup)
-      
+     
             source_group(${sgbd_group_name} FILES ${group_files})
         endforeach(group_files)
 endmacro(GROUP_FILES)
 
 GROUP_FILES(ALL_FILES)
 
-# add_library 
-if (BUILD_SHARED_LIBS)
+if( NOT LUAJIT_BUILD_STATIC )
   add_library ( liblua SHARED ${LUA_LIB_H} ${LUA_LIB_C} )
 else()
   add_library ( liblua STATIC ${LUA_LIB_H} ${LUA_LIB_C} )
@@ -362,6 +363,9 @@ endif()
 target_link_libraries ( liblua ${LIBS} )
 
 set_target_properties ( liblua PROPERTIES OUTPUT_NAME libluajit CLEAN_DIRECT_OUTPUT 1 )
+
+#set (EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
+#set (LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib)
 
 ## LuaJIT Executable
 add_executable ( luajit src/luajit.c src/luajit.rc )

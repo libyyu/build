@@ -11,6 +11,7 @@
 #include <string.h>
 
 #define luajit_c
+#define LUA_LIB
 
 #include "lua.h"
 #include "lauxlib.h"

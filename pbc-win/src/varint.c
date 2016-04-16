@@ -93,6 +93,10 @@ _pbcV_zigzag(int64_t n, uint8_t buffer[10])
 	return _pbcV_encode(n,buffer);
 }
 
+#if defined( _MSC_VER ) && defined(_WIN32)
+#pragma warning(disable:4146)
+#endif
+
 void
 _pbcV_dezigzag64(struct longlong *r)
 {

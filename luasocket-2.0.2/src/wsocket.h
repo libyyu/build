@@ -4,7 +4,9 @@
 * Socket compatibilization module for Win32
 * LuaSocket toolkit
 \*=========================================================================*/
-
+#if defined(_WIN32)
+#define _WINSOCK_DEPRECATED_NO_WARNINGS
+#endif
 /*=========================================================================*\
 * WinSock include files
 \*=========================================================================*/

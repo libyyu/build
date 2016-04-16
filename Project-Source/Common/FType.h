@@ -16,7 +16,7 @@
 #include <assert.h>
 #include <stdarg.h>
 
-#ifdef	WIN32
+#if defined(WIN32) || defined(_WIN32)
   #define WIN32_LEAN_AND_MEAN             //  从 Windows 头文件中排除极少使用的信息
   #include <windows.h>
   #include <float.h>
@@ -115,7 +115,7 @@
 #define _FStdEnd    _FNameSpaceEnd
 
 
-#if defined(F_BUILD_AS_DLL)
+#if defined(API_BUILD_AS_DLL)
   #if defined(_F_DLL_)
     #define F_DLL_API __declspec(dllexport)
   #else

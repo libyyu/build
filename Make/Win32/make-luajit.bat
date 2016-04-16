@@ -18,6 +18,7 @@ cd luajit-2.0.4
 mingw32-make clean
 mingw32-make BUILDMODE=static CC="gcc -m64"
 copy src\libluajit.a %CUR_DIR%\libluajit-x64.a /y
+copy src\luajit.exe %CUR_DIR%\x64\luajit.exe /y
 ::还原到工作目录
 cd %CUR_DIR%
 PATH=%OLD_PATH%
@@ -36,6 +37,7 @@ cd luajit-2.0.4
 mingw32-make clean
 mingw32-make BUILDMODE=static CC="gcc -m32"
 copy src\libluajit.a %CUR_DIR%\libluajit-x86.a /y
+copy src\luajit.exe %CUR_DIR%\x86\luajit.exe /y
 ::还原到工作目录
 cd %CUR_DIR%
 PATH=%OLD_PATH%

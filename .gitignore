@@ -17,3 +17,8 @@ obj/
 /Plugins
 /libs
 /obj
+/Project-Source/VSProject/Debug
+/Project-Source/VSProject/Release
+/Project-Source/VSProject/.vs
+/Project-Source/VSProject/x64
+/Project-Source/VSProject/*.sdf

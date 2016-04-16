@@ -1,6 +1,6 @@
 /*
 ** FFI library.
-** Copyright (C) 2005-2015 Mike Pall. See Copyright Notice in luajit.h
+** Copyright (C) 2005-2016 Mike Pall. See Copyright Notice in luajit.h
 */
 
 #define lib_ffi_c
@@ -182,8 +182,8 @@ LJLIB_CF(ffi_meta___newindex)	LJLIB_REC(cdata_index 1)
 /* Common handler for cdata arithmetic. */
 static int ffi_arith(lua_State *L)
 {
-  MMS mm = (MMS)(curr_func(L)->c.ffid - (int)FF_ffi_meta___eq + (int)MM_eq);
-  return lj_carith_op(L, mm);
+   MMS mm = (MMS)(curr_func(L)->c.ffid - (int)FF_ffi_meta___eq + (int)MM_eq);
+   return lj_carith_op(L, mm);
 }
 
 /* The following functions must be in contiguous ORDER MM. */
@@ -505,10 +505,7 @@ LJLIB_CF(ffi_new)	LJLIB_REC(.)
   }
   if (sz == CTSIZE_INVALID)
     lj_err_arg(L, 1, LJ_ERR_FFI_INVSIZE);
-  if (!(info & CTF_VLA) && ctype_align(info) <= CT_MEMALIGN)
-    cd = lj_cdata_new(cts, id, sz);
-  else
-    cd = lj_cdata_newv(L, id, sz, ctype_align(info));
+  cd = lj_cdata_newx(cts, id, sz, info);
   setcdataV(L, o-1, cd);  /* Anchor the uninitialized cdata. */
   lj_cconv_ct_init(cts, ct, sz, cdataptr(cd),
 		   o, (MSize)(L->top - o));  /* Initialize cdata. */

@@ -1,4 +1,4 @@
-#define _F_DLL_
+﻿#define _F_DLL_
 #include "FAssist.h"
 #if !defined(WIN32) && !defined(_WIN32)
 #include <dirent.h>

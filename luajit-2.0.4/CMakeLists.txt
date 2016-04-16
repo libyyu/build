@@ -242,11 +242,11 @@ add_buildvm_target ( jit/vmdef.lua  libvm  ${LJLIB_C} )
 
 SET ( DEPS
   ${LJ_VM_SRC}
-  ${CMAKE_CURRENT_SOURCE_DIR}/src/lj_ffdef.h
-  ${CMAKE_CURRENT_SOURCE_DIR}/src/lj_bcdef.h
-  ${CMAKE_CURRENT_SOURCE_DIR}/src/lj_libdef.h
-  ${CMAKE_CURRENT_SOURCE_DIR}/src/lj_recdef.h
-  ${CMAKE_CURRENT_SOURCE_DIR}/src/lj_folddef.h
+  ${CMAKE_CURRENT_BINARY_DIR}/lj_ffdef.h
+  ${CMAKE_CURRENT_BINARY_DIR}/lj_bcdef.h
+  ${CMAKE_CURRENT_BINARY_DIR}/lj_libdef.h
+  ${CMAKE_CURRENT_BINARY_DIR}/lj_recdef.h
+  ${CMAKE_CURRENT_BINARY_DIR}/lj_folddef.h
 )
 
 ## LuaJIT Library
@@ -346,10 +346,10 @@ endmacro(GROUP_FILES)
 GROUP_FILES(ALL_FILES)
 
 # add_library 
-if ( BUILD_SHARED_LIBS )
-	add_library ( liblua SHARED ${LUA_LIB_H} ${LUA_LIB_C} )
+if (BUILD_SHARED_LIBS)
+  add_library ( liblua SHARED ${LUA_LIB_H} ${LUA_LIB_C} )
 else()
-	add_library ( liblua STATIC ${LUA_LIB_H} ${LUA_LIB_C} )
+  add_library ( liblua STATIC ${LUA_LIB_H} ${LUA_LIB_C} )
 endif()
 
 target_link_libraries ( liblua ${LIBS} )

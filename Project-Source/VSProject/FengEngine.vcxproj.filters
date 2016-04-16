@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{4ac2bd12-d871-4da0-bd1b-4421afb04c5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rd">
+      <UniqueIdentifier>{b00b2de0-023d-4e50-b4ef-09ce8a79d807}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rd\pb">
+      <UniqueIdentifier>{7fda4fd9-cd33-4b8a-9d1f-26558c516fbd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rd\lpeg">
+      <UniqueIdentifier>{efae1447-3861-407a-b9bd-d4034f857ee8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rd\slua">
+      <UniqueIdentifier>{3283cf01-f596-47d5-80a0-eb06e364596d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rd\cjson">
+      <UniqueIdentifier>{afd69e6b-1c4b-401f-9093-3416dbe4d0b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rd\luasocket">
+      <UniqueIdentifier>{bea073c2-78f8-4ef2-8b9f-bcb658590747}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rd\protobuf_c">
+      <UniqueIdentifier>{42428cbc-1e36-4c52-bbba-17392b9f46c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rd\sproto">
+      <UniqueIdentifier>{a4693a51-6211-4f4c-a141-ecb8a773b4bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rd\sqlite3">
+      <UniqueIdentifier>{6f043a9f-9994-4159-b994-9b06c1d4ff6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AnyLog">
+      <UniqueIdentifier>{2ef3341a-4e0a-4cbe-b29a-71d024770552}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Patcher">
+      <UniqueIdentifier>{f1b30d98-bc24-4ea4-ac7a-380d9715a049}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rd\zlib">
+      <UniqueIdentifier>{5503b2d2-1345-48b6-96d7-429568bd2825}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Win32DllMain.cpp" />
+    <ClCompile Include="..\..\pb.c">
+      <Filter>3rd\pb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lpeg\lpeg.c">
+      <Filter>3rd\lpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\slua.c">
+      <Filter>3rd\slua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lua-cjson-2.1.0\fpconv.c">
+      <Filter>3rd\cjson</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lua-cjson-2.1.0\lua_cjson.c">
+      <Filter>3rd\cjson</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lua-cjson-2.1.0\strbuf.c">
+      <Filter>3rd\cjson</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\luasocket-2.0.2\src\auxiliar.c">
+      <Filter>3rd\luasocket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\luasocket-2.0.2\src\buffer.c">
+      <Filter>3rd\luasocket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\luasocket-2.0.2\src\compat.c">
+      <Filter>3rd\luasocket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\luasocket-2.0.2\src\except.c">
+      <Filter>3rd\luasocket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\luasocket-2.0.2\src\inet.c">
+      <Filter>3rd\luasocket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\luasocket-2.0.2\src\io.c">
+      <Filter>3rd\luasocket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\luasocket-2.0.2\src\luasocket.c">
+      <Filter>3rd\luasocket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\luasocket-2.0.2\src\mime.c">
+      <Filter>3rd\luasocket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\luasocket-2.0.2\src\options.c">
+      <Filter>3rd\luasocket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\luasocket-2.0.2\src\select.c">
+      <Filter>3rd\luasocket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\luasocket-2.0.2\src\tcp.c">
+      <Filter>3rd\luasocket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\luasocket-2.0.2\src\timeout.c">
+      <Filter>3rd\luasocket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\luasocket-2.0.2\src\udp.c">
+      <Filter>3rd\luasocket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\luasocket-2.0.2\src\wsocket.c">
+      <Filter>3rd\luasocket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pbc-win\src\alloc.c">
+      <Filter>3rd\protobuf_c</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pbc-win\src\array.c">
+      <Filter>3rd\protobuf_c</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pbc-win\src\bootstrap.c">
+      <Filter>3rd\protobuf_c</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pbc-win\src\context.c">
+      <Filter>3rd\protobuf_c</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pbc-win\src\decode.c">
+      <Filter>3rd\protobuf_c</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pbc-win\src\map.c">
+      <Filter>3rd\protobuf_c</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pbc-win\src\pattern.c">
+      <Filter>3rd\protobuf_c</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pbc-win\src\proto.c">
+      <Filter>3rd\protobuf_c</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pbc-win\src\register.c">
+      <Filter>3rd\protobuf_c</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pbc-win\src\rmessage.c">
+      <Filter>3rd\protobuf_c</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pbc-win\src\stringpool.c">
+      <Filter>3rd\protobuf_c</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pbc-win\src\varint.c">
+      <Filter>3rd\protobuf_c</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pbc-win\src\wmessage.c">
+      <Filter>3rd\protobuf_c</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\sproto-master\lsproto.c">
+      <Filter>3rd\sproto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\sproto-master\sproto.c">
+      <Filter>3rd\sproto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pbc-win\binding\lua\pbc-lua.c">
+      <Filter>3rd\protobuf_c</Filter>
+    </ClCompile>
+    <ClCompile Include="..\AnyLog\ILog.cpp">
+      <Filter>AnyLog</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\FAssist.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FLuaExport.cpp" />
+    <ClCompile Include="..\VersionMan\VersionMan.cpp">
+      <Filter>Patcher</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Common\FType.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AnyLog\ILog.h">
+      <Filter>AnyLog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\FAssist.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\VersionMan\VersionMan.hpp">
+      <Filter>Patcher</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

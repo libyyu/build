@@ -275,6 +275,16 @@ static const uint8_t lj_lib_init_jit[] = {
 };
 #endif
 
+#ifdef LJLIB_MODULE_jit_opt
+#undef LJLIB_MODULE_jit_opt
+static const lua_CFunction lj_lib_cf_jit_opt[] = {
+  lj_cf_jit_opt_start
+};
+static const uint8_t lj_lib_init_jit_opt[] = {
+147,57,1,5,115,116,97,114,116,255
+};
+#endif
+
 #ifdef LJLIB_MODULE_jit_util
 #undef LJLIB_MODULE_jit_util
 static const lua_CFunction lj_lib_cf_jit_util[] = {
@@ -288,16 +298,14 @@ static const lua_CFunction lj_lib_cf_jit_util[] = {
   lj_cf_jit_util_tracesnap,
   lj_cf_jit_util_tracemc,
   lj_cf_jit_util_traceexitstub,
-  lj_cf_jit_util_ircalladdr,
-  lj_cf_jit_opt_start
+  lj_cf_jit_util_ircalladdr
 };
 static const uint8_t lj_lib_init_jit_util[] = {
-147,57,12,8,102,117,110,99,105,110,102,111,6,102,117,110,99,98,99,5,102,117,
+148,57,11,8,102,117,110,99,105,110,102,111,6,102,117,110,99,98,99,5,102,117,
 110,99,107,10,102,117,110,99,117,118,110,97,109,101,9,116,114,97,99,101,105,
 110,102,111,7,116,114,97,99,101,105,114,6,116,114,97,99,101,107,9,116,114,97,
 99,101,115,110,97,112,7,116,114,97,99,101,109,99,13,116,114,97,99,101,101,120,
-105,116,115,116,117,98,10,105,114,99,97,108,108,97,100,100,114,13,106,105,116,
-95,111,112,116,95,115,116,97,114,116,255
+105,116,115,116,117,98,10,105,114,99,97,108,108,97,100,100,114,255
 };
 #endif
 
@@ -311,16 +319,6 @@ static const lua_CFunction lj_lib_cf_jit_profile[] = {
 static const uint8_t lj_lib_init_jit_profile[] = {
 159,57,3,5,115,116,97,114,116,4,115,116,111,112,9,100,117,109,112,115,116,97,
 99,107,255
-};
-#endif
-
-#ifdef LJLIB_MODULE_jit_opt
-#undef LJLIB_MODULE_jit_opt
-static const lua_CFunction lj_lib_cf_jit_opt[] = {
-  (lua_CFunction)0
-};
-static const uint8_t lj_lib_init_jit_opt[] = {
-162,57,0,255
 };
 #endif
 

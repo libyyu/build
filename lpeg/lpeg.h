@@ -8,7 +8,7 @@
 #ifndef lpeg_h
 #define lpeg_h
 
-#include "lua.hpp"
+#include "lua.h"
 
 #define KEYNEWPATT	"lpeg.newpf"
 

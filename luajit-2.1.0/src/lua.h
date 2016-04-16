@@ -169,6 +169,7 @@ LUA_API void  (lua_pushcclosure) (lua_State *L, lua_CFunction fn, int n);
 LUA_API void  (lua_pushboolean) (lua_State *L, int b);
 LUA_API void  (lua_pushlightuserdata) (lua_State *L, void *p);
 LUA_API int   (lua_pushthread) (lua_State *L);
+LUA_API void  (lua_pushstdcallcfunction) (lua_State *L, void * func);
 
 
 /*
@@ -226,6 +227,7 @@ LUA_API int  (lua_status) (lua_State *L);
 #define LUA_GCSTEP		5
 #define LUA_GCSETPAUSE		6
 #define LUA_GCSETSTEPMUL	7
+#define LUA_GCISRUNNING		9
 
 LUA_API int (lua_gc) (lua_State *L, int what, int data);
 

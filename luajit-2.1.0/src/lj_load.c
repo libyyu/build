@@ -1,6 +1,6 @@
 /*
 ** Load and dump code.
-** Copyright (C) 2005-2015 Mike Pall. See Copyright Notice in luajit.h
+** Copyright (C) 2005-2016 Mike Pall. See Copyright Notice in luajit.h
 */
 
 #include <errno.h>
@@ -152,6 +152,12 @@ LUALIB_API int luaL_loadbuffer(lua_State *L, const char *buf, size_t size,
 LUALIB_API int luaL_loadstring(lua_State *L, const char *s)
 {
   return luaL_loadbuffer(L, s, strlen(s), s);
+}
+
+LUALIB_API int luaL_loadbufferPtr (lua_State *L, const char *buff, size_t size,
+	const char *name)
+{
+	return luaL_loadbuffer(L, buff, size, name);
 }
 
 /* -- Dump bytecode ------------------------------------------------------- */
