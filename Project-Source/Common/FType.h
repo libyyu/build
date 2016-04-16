@@ -101,8 +101,11 @@
 //////////////////////////////////////////////////////////////////////////
 
 #ifdef   __cplusplus
-      #define  _FCFunBegin   extern "C" {
-      #define  _FCFunEnd     }
+    #define  _FCFunBegin   extern "C" {
+    #define  _FCFunEnd     }
+#else
+	#define  _FCFunBegin
+	#define  _FCFunEnd
 #endif//__cplusplus
 
 

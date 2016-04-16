@@ -13,7 +13,7 @@
 #else
 #endif
 
-#define MODULE_NAME "slua"
+#define MODULE_NAME "FengEngine"
 #define MODULE_VERSION "1.0.1"
 
 AnyLog::ILog* g_GetAnyLog();
@@ -55,6 +55,7 @@ if(g_GetAnyLog() != NULL) \
 	g_GetAnyLog()->LogException(fmt,##__VA_ARGS__);  \
 }
 
+#define LUAOPEN_MODULE(name)  LUALIB_API int luaopen_##name(lua_State* L)
 
 //频率较高的工具函数
 void MBS2WCS(const char* str, wchar_t* &out,int* len);

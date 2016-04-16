@@ -26,7 +26,7 @@ _FCFunBegin
 LUALIB_API void luaL_openlibs(lua_State *L);
 LUA_API void luaS_openextlibs(lua_State *L);
 
-F_LIB_API int luaopen_FengEngine(lua_State *L)
+LUAOPEN_MODULE(MODULE_NAME)
 {
 	luaL_openlibs(L);
 	luaS_openextlibs(L);
