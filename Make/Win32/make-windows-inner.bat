@@ -2,7 +2,7 @@
 
 set target=%1
 
-set local_module=slua
+set local_module=FengEngine
  
 mkdir build
 
@@ -13,7 +13,7 @@ if "%target%" == "x64" (
 	@set linkluajit=libluajit-x64.a
 	@set linkcurllib=libcurl-x64.a
 	@set outmodule=x64\%local_module%.dll
-	@set movepath=..\..\LuaGame\ProjectUnity\Assets\Plugins\x64\%local_module%.dll
+	@set movepath=..\..\..\LuaGame\ProjectUnity\Assets\Plugins\x64\%local_module%.dll
 ) else ( 
 	mkdir x86
 	@set extname=x86
@@ -21,7 +21,7 @@ if "%target%" == "x64" (
 	@set linkluajit=libluajit-x86.a
 	@set linkcurllib=libcurl-x86.a
 	@set outmodule=x86\%local_module%.dll
-	@set movepath=..\..\LuaGame\ProjectUnity\Assets\Plugins\x86\%local_module%.dll
+	@set movepath=..\..\..\LuaGame\ProjectUnity\Assets\Plugins\x86\%local_module%.dll
 )
 @echo "cleanup previous cached files"
 @echo " "

@@ -64,6 +64,7 @@ buildvm -m vmdef -o jit\vmdef.lua %ALL_LIB%
 buildvm -m folddef -o lj_folddef.h lj_opt_fold.c
 @if errorlevel 1 goto :BAD
 
+
 @if "%1" neq "debug" goto :NODEBUG
 @set LJDLLNAME=luajit51_d.dll
 @set LJLIBNAME=luajit51_d.lib

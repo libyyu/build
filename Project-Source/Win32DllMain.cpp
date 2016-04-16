@@ -1,4 +1,9 @@
 // dllmain : Defines the entry point for the DLL application.
+#define _F_DLL_
+#define LUA_LIB
+
+#include "FAssist.h"
+
 #include <Windows.h>
 
 BOOL APIENTRY DllMain( HMODULE hModule,
@@ -17,3 +22,18 @@ BOOL APIENTRY DllMain( HMODULE hModule,
 	return TRUE;
 }
 
+_FCFunBegin
+LUALIB_API void luaL_openlibs(lua_State *L);
+LUA_API void luaS_openextlibs(lua_State *L);
+
+F_LIB_API int luaopen_FengEngine(lua_State *L)
+{
+	luaL_openlibs(L);
+	luaS_openextlibs(L);
+
+	printf("FengEngine attach.\n");
+
+	return 0;
+}
+
+_FCFunEnd

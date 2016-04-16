@@ -37,17 +37,4 @@ F_LIB_API void L_Exit()
 	L_UnEstablishAnyLog();
 }
 
-LUALIB_API void luaL_openlibs(lua_State *L);
-LUA_API void luaS_openextlibs(lua_State *L);
-
-F_LIB_API int luaopen_FengEngine(lua_State *L)
-{
-	luaL_openlibs(L);
-	luaS_openextlibs(L);
-	
-	log_info("FengEngine attach.\n");
-
-	return 0;
-}
-
 _FCFunEnd

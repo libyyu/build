@@ -2,7 +2,7 @@
 
 @set OLD_PATH=%PATH%
 @set MinGW=E:\UnityWorks\WorkHere\UnityLuaGame\MinGW\MinGW
-
+@set LUAJIT_PATH=luajit-2.0.4
 ::保存当前工作目录
 @set CUR_DIR=%cd%
 
@@ -13,7 +13,7 @@ PATH=%MinGW%\x64\bin;%OLD_PATH%
 ::进入主工程目录
 cd ..\..
 ::进入LuaJIT目录
-cd luajit-2.0.4
+cd %LUAJIT_PATH%
 @del src\*.o src\host\*.o src\*.obj src\*.manifest src\libluajit.a src\host\minilua.exe src\host\buildvm.exe src\luajit.exe
 mingw32-make clean
 mingw32-make BUILDMODE=static CC="gcc -m64"
@@ -32,7 +32,7 @@ PATH=%MinGW%\x86\bin;%OLD_PATH%
 ::进入主工程目录
 cd ..\..
 ::进入LuaJIT目录
-cd luajit-2.0.4
+cd %LUAJIT_PATH%
 @del src\*.o src\host\*.o src\*.obj src\*.manifest src\libluajit.a src\host\minilua.exe src\host\buildvm.exe src\luajit.exe
 mingw32-make clean
 mingw32-make BUILDMODE=static CC="gcc -m32"

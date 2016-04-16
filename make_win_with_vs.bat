@@ -46,7 +46,7 @@ copy /Y luajit.exe ..\..\Project-Source\bin\x86\Debug\luajit.exe
 
 echo build luajit release static x86
 call msvcbuild.bat static
-copy /Y luajit.lib ..\..\Project-Source\lib\x86\Release\libluajit.lib
+copy /Y lua51.lib ..\..\Project-Source\lib\x86\Release\libluajit.lib
 copy /Y luajit.exe ..\..\Project-Source\bin\x86\Release\luajit.exe
 cd ..\..
 
@@ -61,7 +61,7 @@ copy /Y luajit.exe ..\..\Project-Source\bin\x64\Debug\luajit.exe
 
 echo build luajit release static x64
 call msvcbuild.bat static
-copy /Y luajit.lib ..\..\Project-Source\lib\x64\Release\libluajit.lib
+copy /Y lua51.lib ..\..\Project-Source\lib\x64\Release\libluajit.lib
 copy /Y luajit.exe ..\..\Project-Source\bin\x64\Release\luajit.exe
 cd ..\..
 

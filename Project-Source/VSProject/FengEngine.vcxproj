@@ -146,6 +146,14 @@
       <OutputFile>..\bin\x86\Release\$(TargetName)$(TargetExt)</OutputFile>
       <ProgramDatabaseFile>..\bin\x86\Release\$(TargetName).pdb</ProgramDatabaseFile>
     </Link>
+    <PreBuildEvent>
+      <Command>echo "Pre-Build Release x86"</Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>set PROJECT_PATH=..\..\..\LuaGame\ProjectUnity\Assets\Plugins\x86
+set Plugin_Name=..\bin\x86\Release\$(TargetName)$(TargetExt)
+copy %Plugin_Name% %PROJECT_PATH%\$(TargetName)$(TargetExt) /y</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -169,6 +177,14 @@
       <ProgramDatabaseFile>..\bin\x64\Release\$(TargetName).pdb</ProgramDatabaseFile>
       <AdditionalDependencies>libluajit.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PreBuildEvent>
+      <Command>echo "Pre-Build Release x64"</Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>set PROJECT_PATH=..\..\..\LuaGame\ProjectUnity\Assets\Plugins\x64
+set Plugin_Name=..\bin\x64\Release\$(TargetName)$(TargetExt)
+copy %Plugin_Name% %PROJECT_PATH%\$(TargetName)$(TargetExt) /y</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />

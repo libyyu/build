@@ -3,7 +3,7 @@ echo ""
 mkdir -p x86
 mkdir -p build
 
-MODULE_NAME=slua
+MODULE_NAME=FengEngine
 
 echo "clear all"
 echo ""
@@ -22,8 +22,11 @@ SOCKET_PATH=../../luasocket-2.0.2
 SPROTO_PATH=../../sproto-master
 PROJECT_SRC_PATH=../../Project-Source
 
+Plugin_Path=../../../LuaGame/ProjectUnity/Assets/Plugins
 
-g++ \
+HOST_CC=g++
+
+$HOST_CC \
 	-I./ \
 	-I$LOCAL_PATH \
 	-I$LUAJIT_PATH \
@@ -86,7 +89,9 @@ g++ \
 	-Wl,--no-whole-archive -lws2_32 -lwldap32 -static-libgcc -static-libstdc++ \
 	-fpermissive -fkeep-inline-functions
 
-echo "build end."
+echo "$HOST_CC $MODULE_NAME build end."
+
+cp x86/${MODULE_NAME}.dll $Plugin_Path/x86/${MODULE_NAME}.dll
 
 #-Wl,--whole-archive libluajit-x86.a \
 
