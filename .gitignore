@@ -22,3 +22,4 @@ obj/
 /Project-Source/VSProject/.vs
 /Project-Source/VSProject/x64
 /Project-Source/VSProject/*.sdf
+/lua-5.1.5/vsproject/*.sdf
