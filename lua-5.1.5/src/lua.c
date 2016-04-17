@@ -11,6 +11,7 @@
 #include <string.h>
 
 #define lua_c
+#define LUA_LIB
 
 #include "lua.h"
 
