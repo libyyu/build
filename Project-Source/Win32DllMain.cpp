@@ -31,7 +31,7 @@ LUAOPEN_MODULE(MODULE_NAME)
 	luaL_openlibs(L);
 	luaS_openextlibs(L);
 
-	printf("FengEngine attach.\n");
+	printf("%s attach.\n", MODULE_NAME);
 
 	return 0;
 }
