@@ -261,7 +261,7 @@
     <PostBuildEvent>
       <Command>set PROJECT_PATH=..\..\..\LuaGame\ProjectUnity\Assets\Plugins\x86
 set Plugin_Name=..\bin\x86\Release\$(TargetName)$(TargetExt)
-set Pdb_Name=..\bin\x64\Release\$(TargetName).pdb
+set Pdb_Name=..\bin\x86\Release\$(TargetName).pdb
 copy %Plugin_Name% %PROJECT_PATH%\$(TargetName)$(TargetExt) /y
 copy %Pdb_Name% %PROJECT_PATH%\$(TargetName).pdb /y</Command>
     </PostBuildEvent>
@@ -294,7 +294,7 @@ copy %Pdb_Name% %PROJECT_PATH%\$(TargetName).pdb /y</Command>
     <PostBuildEvent>
       <Command>set PROJECT_PATH=..\..\..\LuaGame\ProjectUnity\Assets\Plugins\x86
 set Plugin_Name=..\bin\x86\Release\$(TargetName)$(TargetExt)
-set Pdb_Name=..\bin\x64\Release\$(TargetName).pdb
+set Pdb_Name=..\bin\x86\Release\$(TargetName).pdb
 copy %Plugin_Name% %PROJECT_PATH%\$(TargetName)$(TargetExt) /y
 copy %Pdb_Name% %PROJECT_PATH%\$(TargetName).pdb /y</Command>
     </PostBuildEvent>
@@ -329,8 +329,7 @@ copy %Pdb_Name% %PROJECT_PATH%\$(TargetName).pdb /y</Command>
 set Plugin_Name=..\bin\x64\Release\$(TargetName)$(TargetExt)
 set Pdb_Name=..\bin\x64\Release\$(TargetName).pdb
 copy %Plugin_Name% %PROJECT_PATH%\$(TargetName)$(TargetExt) /y
-copy %Pdb_Name% %PROJECT_PATH%\$(TargetName).pdb /y
-</Command>
+copy %Pdb_Name% %PROJECT_PATH%\$(TargetName).pdb /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_Native|x64'">
