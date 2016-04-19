@@ -56,9 +56,9 @@ else (goto missing)
 :build
 echo "build begin...%1"
 
-@set CUR_DIR=%cd%
-@set PROJECT_PATH=%cd%\Project-Source
-@set LUAJIT=luajit-2.1.0
+@set CUR_DIR=%~dp0
+@set PROJECT_PATH=%CUR_DIR%Project-Source
+@set LUAJIT=%CUR_DIR%luajit-2.1.0
 
 echo Use %VCVARS%
 

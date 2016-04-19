@@ -56,10 +56,10 @@ else (goto missing)
 :build
 echo "build begin...%1"
 
-@set CUR_DIR=%cd%
+@set CUR_DIR=%~dp0
 
-@set PROJECT_PATH=%cd%\Project-Source
-@set LUAPATH=lua-5.1.5
+@set PROJECT_PATH=%CUR_DIR%Project-Source
+@set LUAPATH=%CUR_DIR%lua-5.1.5
 
 echo Use %VCVARS%
 

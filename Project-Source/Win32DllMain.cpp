@@ -23,17 +23,25 @@ BOOL APIENTRY DllMain(HMODULE hModule,
 }
 
 _FCFunBegin
-LUALIB_API void luaL_openlibs(lua_State *L);
+//LUALIB_API void luaL_openlibs(lua_State *L);
 LUA_API void luaS_openextlibs(lua_State *L);
 
 LUAOPEN_MODULE(FengEngine)
 {
-	luaL_openlibs(L);
+	int nTop = lua_gettop(L);
+	//luaL_openlibs(L);
 	luaS_openextlibs(L);
+	lua_settop(L, nTop);
 
-	printf("%s attach.\n", MODULE_NAME);
+	printf("%s %s attach.\n", MODULE_NAME, MODULE_VERSION);
 
-	return 0;
+	lua_newtable(L);
+	///* make version string available to scripts */
+	lua_pushstring(L, "_VERSION");
+	lua_pushstring(L, MODULE_VERSION);
+	lua_settable(L, -3);
+
+	return 1;
 }
 
 _FCFunEnd
