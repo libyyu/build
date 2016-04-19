@@ -23,13 +23,11 @@ BOOL APIENTRY DllMain(HMODULE hModule,
 }
 
 _FCFunBegin
-//LUALIB_API void luaL_openlibs(lua_State *L);
 LUA_API void luaS_openextlibs(lua_State *L);
 
 LUAOPEN_MODULE(FengEngine)
 {
 	int nTop = lua_gettop(L);
-	//luaL_openlibs(L);
 	luaS_openextlibs(L);
 	lua_settop(L, nTop);
 
@@ -42,6 +40,14 @@ LUAOPEN_MODULE(FengEngine)
 	lua_settable(L, -3);
 
 	return 1;
+}
+
+//avoid msvc not export luaL_openlibs
+LUA_API void luaL_openlibs(lua_State *L);
+LUA_API void luaS_openlibs(lua_State* L)
+{
+	luaL_openlibs(L);
+	luaS_openextlibs(L);
 }
 
 _FCFunEnd

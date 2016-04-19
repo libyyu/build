@@ -47,6 +47,9 @@
     <Filter Include="3rd\bit">
       <UniqueIdentifier>{47ee48e0-d7c0-4f10-9bd1-4c612a723563}</UniqueIdentifier>
     </Filter>
+    <Filter Include="3rd\lfs">
+      <UniqueIdentifier>{8d1dd6ab-fb1b-4992-bffe-560bd95b1056}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -173,6 +176,9 @@
     </ClCompile>
     <ClCompile Include="..\..\bit.c">
       <Filter>3rd\bit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lfs.c">
+      <Filter>3rd\lfs</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

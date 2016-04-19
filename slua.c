@@ -60,6 +60,7 @@ LUALIB_API int luaopen_sproto_core(lua_State* L);
 #ifdef _USE_NATIVE_LUA
 LUALIB_API int luaopen_bit(lua_State *L);
 #endif//_USE_NATIVE_LUA
+LUALIB_API int luaopen_lfs(lua_State *L);
 static const luaL_Reg s_lib_preload[] = {
 #ifdef _USE_NATIVE_LUA
 	{ "bit", luaopen_bit},
@@ -73,7 +74,8 @@ static const luaL_Reg s_lib_preload[] = {
 #endif
 	//{ "sqlite3",    luaopen_lsqlite3 },
 	{ "protobuf.c",    luaopen_protobuf_c },
-	{ "sproto.core",    luaopen_sproto_core }, // any 3rd lualibs added here
+	{ "sproto.core",    luaopen_sproto_core },
+	{ "lfs",  luaopen_lfs },// any 3rd lualibs added here
 	{ NULL, NULL }
 };
 __CFunEnd
