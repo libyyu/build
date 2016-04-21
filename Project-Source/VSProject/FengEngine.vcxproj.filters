@@ -41,9 +41,6 @@
     <Filter Include="Patcher">
       <UniqueIdentifier>{f1b30d98-bc24-4ea4-ac7a-380d9715a049}</UniqueIdentifier>
     </Filter>
-    <Filter Include="3rd\zlib">
-      <UniqueIdentifier>{5503b2d2-1345-48b6-96d7-429568bd2825}</UniqueIdentifier>
-    </Filter>
     <Filter Include="3rd\bit">
       <UniqueIdentifier>{47ee48e0-d7c0-4f10-9bd1-4c612a723563}</UniqueIdentifier>
     </Filter>

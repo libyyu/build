@@ -441,12 +441,61 @@ static int make_link(lua_State *L)
 */
 static int make_dir (lua_State *L) {
         const char *path = luaL_checkstring (L, 1);
+		int resv = lua_toboolean(L, 2);
         int fail;
 #ifdef _WIN32
-        fail = _mkdir (path);
+		if(!resv && 0 !=  _access(path,0))
+			fail = _mkdir (path);
+		else
+		{
+			char* pszDir = _strdup(path);
+			int iLen = strlen(path);
+			for (int i = 0; i < iLen; ++i)
+			{
+				if (pszDir[i] == '\\' || pszDir[i] == '/')
+				{
+					pszDir[i] = '\0';
+					if (0 != _access(pszDir, 0))
+					{
+						fail = _mkdir(pszDir);
+						if(0 != fail)
+							break;
+					}
+					//支持linux,将所有\换成/  
+					pszDir[i] = '/';
+				}
+			}
+			fail = _mkdir(pszDir);
+			free(pszDir);
+		}
 #else
-        fail =  mkdir (path, S_IRUSR | S_IWUSR | S_IXUSR | S_IRGRP |
+		if(!resv && 0 != access(path,0))
+			fail =  mkdir (path, S_IRUSR | S_IWUSR | S_IXUSR | S_IRGRP |
                              S_IWGRP | S_IXGRP | S_IROTH | S_IXOTH );
+		else
+		{
+			char* pszDir = strdup(path);
+			int iLen = strlen(path);
+			for (int i = 0; i < iLen; ++i)
+			{
+				if (pszDir[i] == '\\' || pszDir[i] == '/')
+				{
+					pszDir[i] = '\0';
+					if (0 != access(pszDir, 0))
+					{
+						fail = mkdir(pszDir, S_IRUSR | S_IWUSR | S_IXUSR | S_IRGRP |
+							S_IWGRP | S_IXGRP | S_IROTH | S_IXOTH);
+						if (0 != fail)
+							break;
+					}
+					//支持linux,将所有\换成/  
+					pszDir[i] = '/';
+				}
+			}
+			fail = mkdir(pszDir, S_IRUSR | S_IWUSR | S_IXUSR | S_IRGRP |
+				S_IWGRP | S_IXGRP | S_IROTH | S_IXOTH);
+			free(pszDir);
+		}
 #endif
         if (fail) {
                 lua_pushnil (L);
@@ -466,7 +515,7 @@ static int remove_dir (lua_State *L) {
         int fail;
 
         fail = rmdir (path);
-
+		
         if (fail) {
                 lua_pushnil (L);
                 lua_pushfstring (L, "%s", strerror(errno));

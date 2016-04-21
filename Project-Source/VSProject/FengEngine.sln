@@ -8,20 +8,44 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3rd", "3rd", "{2EDD18BC-00CD-47ED-8AEC-BAAF49C83858}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pb", "3rd\pb\pb.vcxproj", "{CD674353-5348-4155-9B8E-637F1A035F2E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C9C216A1-84C4-4056-9956-24ABD9BA9058} = {C9C216A1-84C4-4056-9956-24ABD9BA9058}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "socket.core", "3rd\socket.core\socket.core.vcxproj", "{398BC53A-6408-4F9C-9F65-83E1ACF3BFB6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C9C216A1-84C4-4056-9956-24ABD9BA9058} = {C9C216A1-84C4-4056-9956-24ABD9BA9058}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lpeg", "3rd\lpeg\lpeg.vcxproj", "{65F1EF6F-239F-47A6-B5DE-19CB5153A5C6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C9C216A1-84C4-4056-9956-24ABD9BA9058} = {C9C216A1-84C4-4056-9956-24ABD9BA9058}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cjson", "3rd\cjson\cjson.vcxproj", "{6E681639-B8A4-4926-9669-A0BEF84AFC5A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C9C216A1-84C4-4056-9956-24ABD9BA9058} = {C9C216A1-84C4-4056-9956-24ABD9BA9058}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "protobuf.c", "3rd\protobuf.c\protobuf.c.vcxproj", "{AEAD9706-24E2-4E79-8E27-E046B4B84601}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C9C216A1-84C4-4056-9956-24ABD9BA9058} = {C9C216A1-84C4-4056-9956-24ABD9BA9058}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sproto.core", "3rd\sproto.core\sproto.core.vcxproj", "{A278081E-98EB-4565-B060-05FBFDB08E51}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C9C216A1-84C4-4056-9956-24ABD9BA9058} = {C9C216A1-84C4-4056-9956-24ABD9BA9058}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cjson.safe", "3rd\cjson.safe\cjson.safe.vcxproj", "{91B1588B-66FF-4D8F-9B29-A754C063E704}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C9C216A1-84C4-4056-9956-24ABD9BA9058} = {C9C216A1-84C4-4056-9956-24ABD9BA9058}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lfs", "3rd\lfs\lfs.vcxproj", "{D222EBED-A103-43FA-B718-09669B3444AB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C9C216A1-84C4-4056-9956-24ABD9BA9058} = {C9C216A1-84C4-4056-9956-24ABD9BA9058}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

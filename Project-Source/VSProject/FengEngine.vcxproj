@@ -125,29 +125,35 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <OutDir>..\bin\x86\Debug\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Native|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <OutDir>..\bin\native\x86\Debug\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <OutDir>..\bin\x64\Debug\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Native|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <OutDir>..\bin\native\x64\Debug\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <OutDir>..\bin\x86\Release\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_Native|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <OutDir>..\bin\native\x86\Release\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <OutDir>..\bin\x64\Release\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_Native|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <OutDir>..\bin\native\x64\Release\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -157,7 +163,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;FENGENGINE_EXPORTS;_WIN32;LUA_BUILD_AS_DLL;API_BUILD_AS_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>.\;..\;..\..\;..\..\luajit-2.1.0\src;..\..\pbc-win;..\Common;..\AnyLog;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\;..\;..\..\;..\..\luajit-2.1.0\src;..\..\pbc-win;..\Common;..\AnyLog;..\..\zlib-1.2.5;..\..\zlib-1.2.5\contrib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
     <Link>
@@ -171,6 +177,15 @@
     <ProjectReference>
       <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
     </ProjectReference>
+    <PreBuildEvent>
+      <Command>echo "Pre-Build-LuaJit Debug x86"
+set LibPath=..\lib\x86\Debug
+set LinkFile=%LibPath%\libluajit.lib
+set BuildFilePath=..\..
+if not exist "%LinkFile%" ( 
+call "%BuildFilePath%\make_luajit_with_vs.bat" vs2015
+)</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Native|Win32'">
     <ClCompile>
@@ -180,7 +195,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;FENGENGINE_EXPORTS;_WIN32;LUA_BUILD_AS_DLL;API_BUILD_AS_DLL;_USE_NATIVE_LUA;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>.\;..\;..\..\;..\..\lua-5.1.5\src;..\..\pbc-win;..\Common;..\AnyLog;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\;..\;..\..\;..\..\lua-5.1.5\src;..\..\pbc-win;..\Common;..\AnyLog;..\..\zlib-1.2.5;..\..\zlib-1.2.5\contrib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
     <Link>
@@ -194,6 +209,15 @@
     <ProjectReference>
       <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
     </ProjectReference>
+    <PreBuildEvent>
+      <Command>echo "Pre-Build-Lua Debug x86"
+set LibPath=..\lib\x86\Debug
+set LinkFile=%LibPath%\liblua.lib
+set BuildFilePath=..\..
+if not exist "%LinkFile%" ( 
+call "%BuildFilePath%\make_nativelua_with_vs.bat" vs2015
+)</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -203,7 +227,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;FENGENGINE_EXPORTS;_WIN32;WIN32;LUA_BUILD_AS_DLL;API_BUILD_AS_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>.\;..\;..\..\;..\..\luajit-2.1.0\src;..\..\pbc-win;..\Common;..\AnyLog;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\;..\;..\..\;..\..\luajit-2.1.0\src;..\..\pbc-win;..\Common;..\AnyLog;..\..\zlib-1.2.5;..\..\zlib-1.2.5\contrib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -213,6 +237,15 @@
       <AdditionalDependencies>libluajit.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ProgramDatabaseFile>..\bin\x64\Debug\$(TargetName).pdb</ProgramDatabaseFile>
     </Link>
+    <PreBuildEvent>
+      <Command>echo "Pre-Build-LuaJit Debug x64"
+set LibPath=..\lib\x64\Debug
+set LinkFile=%LibPath%\libluajit.lib
+set BuildFilePath=..\..
+if not exist "%LinkFile%" ( 
+call "%BuildFilePath%\make_luajit_with_vs.bat" vs2015
+)</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Native|x64'">
     <ClCompile>
@@ -222,7 +255,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;FENGENGINE_EXPORTS;_WIN32;WIN32;LUA_BUILD_AS_DLL;API_BUILD_AS_DLL;_USE_NATIVE_LUA;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>.\;..\;..\..\;..\..\lua-5.1.5\src;..\..\pbc-win;..\Common;..\AnyLog;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\;..\;..\..\;..\..\lua-5.1.5\src;..\..\pbc-win;..\Common;..\AnyLog;..\..\zlib-1.2.5;..\..\zlib-1.2.5\contrib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -232,6 +265,15 @@
       <AdditionalDependencies>liblua.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ProgramDatabaseFile>..\bin\native\x64\Debug\$(TargetName).pdb</ProgramDatabaseFile>
     </Link>
+    <PreBuildEvent>
+      <Command>echo "Pre-Build-Lua Debug x64"
+set LibPath=..\lib\x64\Debug
+set LinkFile=%LibPath%\liblua.lib
+set BuildFilePath=..\..
+if not exist "%LinkFile%" ( 
+call "%BuildFilePath%\make_nativelua_with_vs.bat" vs2015
+)</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -243,7 +285,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;FENGENGINE_EXPORTS;_WIN32;LUA_BUILD_AS_DLL;API_BUILD_AS_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>.\;..\;..\..\;..\..\luajit-2.1.0\src;..\..\pbc-win;..\Common;..\AnyLog;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\;..\;..\..\;..\..\luajit-2.1.0\src;..\..\pbc-win;..\Common;..\AnyLog;..\..\zlib-1.2.5;..\..\zlib-1.2.5\contrib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -256,7 +298,13 @@
       <ProgramDatabaseFile>..\bin\x86\Release\$(TargetName).pdb</ProgramDatabaseFile>
     </Link>
     <PreBuildEvent>
-      <Command>echo "Pre-Build Release x86"</Command>
+      <Command>echo "Pre-Build-LuaJit Release x86"
+set LibPath=..\lib\x86\Release
+set LinkFile=%LibPath%\libluajit.lib
+set BuildFilePath=..\..
+if not exist "%LinkFile%" ( 
+call "%BuildFilePath%\make_luajit_with_vs.bat" vs2015
+)</Command>
     </PreBuildEvent>
     <PostBuildEvent>
       <Command>set PROJECT_PATH=..\..\..\LuaGame\ProjectUnity\Assets\Plugins\x86
@@ -276,7 +324,7 @@ copy %Pdb_Name% %PROJECT_PATH%\$(TargetName).pdb /y</Command>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;FENGENGINE_EXPORTS;_WIN32;LUA_BUILD_AS_DLL;API_BUILD_AS_DLL;_USE_NATIVE_LUA;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>.\;..\;..\..\;..\..\lua-5.1.5\src;..\..\pbc-win;..\Common;..\AnyLog;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\;..\;..\..\;..\..\lua-5.1.5\src;..\..\pbc-win;..\Common;..\AnyLog;..\..\zlib-1.2.5;..\..\zlib-1.2.5\contrib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -289,7 +337,13 @@ copy %Pdb_Name% %PROJECT_PATH%\$(TargetName).pdb /y</Command>
       <ProgramDatabaseFile>..\bin\native\x86\Release\$(TargetName).pdb</ProgramDatabaseFile>
     </Link>
     <PreBuildEvent>
-      <Command>echo "Pre-Build Release x86"</Command>
+      <Command>echo "Pre-Build-Lua Release x86"
+set LibPath=..\lib\x86\Release
+set LinkFile=%LibPath%\liblua.lib
+set BuildFilePath=..\..
+if not exist "%LinkFile%" ( 
+call "%BuildFilePath%\make_nativelua_with_vs.bat" vs2015
+)</Command>
     </PreBuildEvent>
     <PostBuildEvent>
       <Command>set PROJECT_PATH=..\..\..\LuaGame\ProjectUnity\Assets\Plugins\x86
@@ -309,7 +363,7 @@ copy %Pdb_Name% %PROJECT_PATH%\$(TargetName).pdb /y</Command>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;FENGENGINE_EXPORTS;_WIN32;WIN32;LUA_BUILD_AS_DLL;API_BUILD_AS_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>.\;..\;..\..\;..\..\luajit-2.1.0\src;..\..\pbc-win;..\Common;..\AnyLog;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\;..\;..\..\;..\..\luajit-2.1.0\src;..\..\pbc-win;..\Common;..\AnyLog;..\..\zlib-1.2.5;..\..\zlib-1.2.5\contrib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -322,7 +376,13 @@ copy %Pdb_Name% %PROJECT_PATH%\$(TargetName).pdb /y</Command>
       <AdditionalDependencies>libluajit.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
-      <Command>echo "Pre-Build Release x64"</Command>
+      <Command>echo "Pre-Build-LuaJit Release x64"
+set LibPath=..\lib\x64\Release
+set LinkFile=%LibPath%\libluajit.lib
+set BuildFilePath=..\..
+if not exist "%LinkFile%" ( 
+call "%BuildFilePath%\make_luajit_with_vs.bat" vs2015
+)</Command>
     </PreBuildEvent>
     <PostBuildEvent>
       <Command>set PROJECT_PATH=..\..\..\LuaGame\ProjectUnity\Assets\Plugins\x64
@@ -342,7 +402,7 @@ copy %Pdb_Name% %PROJECT_PATH%\$(TargetName).pdb /y</Command>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;FENGENGINE_EXPORTS;_WIN32;WIN32;LUA_BUILD_AS_DLL;API_BUILD_AS_DLL;_USE_NATIVE_LUA;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>.\;..\;..\..\;..\..\lua-5.1.5\src;..\..\pbc-win;..\Common;..\AnyLog;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\;..\;..\..\;..\..\lua-5.1.5\src;..\..\pbc-win;..\Common;..\AnyLog;..\..\zlib-1.2.5;..\..\zlib-1.2.5\contrib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -355,7 +415,13 @@ copy %Pdb_Name% %PROJECT_PATH%\$(TargetName).pdb /y</Command>
       <AdditionalDependencies>liblua.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
-      <Command>echo "Pre-Build Release x64"</Command>
+      <Command>echo "Pre-Build-Lua Release x64"
+set LibPath=..\lib\x64\Release
+set LinkFile=%LibPath%\liblua.lib
+set BuildFilePath=..\..
+if not exist "%LinkFile%" ( 
+call "%BuildFilePath%\make_nativelua_with_vs.bat" vs2015
+)</Command>
     </PreBuildEvent>
     <PostBuildEvent>
       <Command>set PROJECT_PATH=..\..\..\LuaGame\ProjectUnity\Assets\Plugins\x64
