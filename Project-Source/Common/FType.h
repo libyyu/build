@@ -22,12 +22,7 @@
   #include <float.h>
   #include <io.h>
   #include <stdlib.h>
-#ifndef isnan
-  #define isnan     _isnan
-#endif
-#ifndef snprintf
-	#define snprintf     _snprintf
-#endif
+
   #define STD_CALL  __stdcall
   #define CALLBACK  __stdcall
   #define WINAPI    __stdcall
@@ -35,7 +30,7 @@
   #undef _T
   #endif  
 
-  #ifdef UNICODE
+  #if defined( UNICODE ) || defined( _UNICODE )
 	#define  _T(type)  L##type
 	#define  _W(fun)   w##fun
   
@@ -54,6 +49,7 @@
 	#define Fvfprintf           vfwprintf
 	#define Fvsnprintf		    _vsnwprintf_s 
 	#define Fsprintf	        swprintf
+	#define Fsnprintf          _snwprintf
   #else
      #define _T(type)            type
      #define _W(fun)             fun
@@ -72,6 +68,7 @@
      #define Fvfprintf           vfprintf
 	 #define Fvsnprintf			 vsnprintf 
 	 #define Fsprintf	         sprintf
+	 #define Fsnprintf           snprintf
   #endif //UNICODE  
   #ifdef _STL
       #define  Fcout            _W(cout)
@@ -86,10 +83,53 @@
       //#define  Fsprintf         _W(sprintf) 
       #define  Fprintf          _W(printf)
   #endif//_STL
-#else  //not win32
-  #define STD_CALL
-  #define CALLBACK
-  #define WINAPI
+#elif defined ( ANDROID ) || defined( _ANDROID ) || defined( IOS ) || defined( _IOS )
+	#define STD_CALL
+	#define CALLBACK
+	#define WINAPI
+	#ifdef _T
+	#undef _T
+	#endif  
+	#if defined( UNICODE ) || defined( _UNICODE )
+		#define  _T(type)  L##type
+		#define  _W(fun)   w##fun
+
+		#define Fchar               wchar_t
+		#define Fstring				std::wstring
+		#define Fstrftime           wcsftime
+		#define Fstrcat             wcscat      
+		#define Ffopen              _wfopen
+
+		#define Ffprintf            fwprintf
+		#define Fstrrchr            wcsrchr
+		#define Fstrncpy            wcsncpy   
+		#define Fstrlen             wcslen
+		#define Fstrcmp             wcscmp
+		#define Fstrcpy             lstrcpy
+		#define Fvfprintf           vfwprintf
+		#define Fvsnprintf		    _vsnwprintf_s 
+		#define Fsprintf	        swprintf
+		#define Fsnprintf          _snwprintf
+	#else
+		#define _T(type)            type
+		#define _W(fun)             fun
+		#define Fchar               char
+		#define Fstring			    std::string
+		#define Fstrftime           strftime
+		#define Fstrcat             strcat
+		#define Ffopen              fopen
+
+		#define Ffprintf            fprintf
+		#define Fstrrchr            strrchr
+		#define Fstrncpy            strncpy
+		#define Fstrlen             strlen
+		#define Fstrcmp             strcmp
+		#define Fstrcpy             strcpy
+		#define Fvfprintf           vfprintf
+		#define Fvsnprintf			vsnprintf 
+		#define Fsprintf	        sprintf
+		#define Fsnprintf           snprintf
+	#endif
 #endif //WIN32 
 
 #ifdef  _DEBUG

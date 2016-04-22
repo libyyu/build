@@ -36,7 +36,6 @@
 
 #if _WIN32
 #include <float.h>
-#define snprintf _snprintf
 #else
 #include <math.h>
 #endif
@@ -199,7 +198,11 @@ __CFunEnd
 
 static void getmetatable(lua_State *L, const char* key) {
 	char ns[256];
+#if defined(WIN32) || defined(_WIN32)
+	_snprintf(ns, 256, "UnityEngine.%s.Instance", key);
+#else
 	snprintf(ns, 256, "UnityEngine.%s.Instance", key);
+#endif
 
 	lua_getglobal(L, ns);
 }

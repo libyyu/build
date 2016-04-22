@@ -65,6 +65,7 @@ LOCAL_C_INCLUDES += $(PROJECT_SRC_PATH)/AnyLog
 LOCAL_SRC_FILES := \
 $(PROJECT_PATH)/slua.c \
 $(PROJECT_PATH)/pb.c \
+$(PROJECT_PATH)/lfs.c \
 $(JSON_PATH)/fpconv.c \
 $(JSON_PATH)/strbuf.c \
 $(JSON_PATH)/lua_cjson.c \

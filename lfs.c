@@ -476,7 +476,8 @@ static int make_dir (lua_State *L) {
 		{
 			char* pszDir = strdup(path);
 			int iLen = strlen(path);
-			for (int i = 0; i < iLen; ++i)
+			int i = 0;
+			for (; i < iLen; ++i)
 			{
 				if (pszDir[i] == '\\' || pszDir[i] == '/')
 				{
