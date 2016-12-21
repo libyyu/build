@@ -3,10 +3,10 @@
 * LuaSocket toolkit
 \*=========================================================================*/
 #include <string.h>
-
+#define LUA_LIB
 #include "lua.h"
 #include "lauxlib.h"
-
+#include "luasocket.h"
 #include "auxiliar.h"
 #include "socket.h"
 #include "options.h"

@@ -1,4 +1,4 @@
-LUAJIT=../../luajit-2.1.0
+LUAJIT=../../luajit-2.0.4
 BUILD_DIR=$LUAJIT/build
 
 rm -rf $BUILD_DIR
@@ -13,7 +13,7 @@ STRIP="xcrun -sdk iphoneos strip"
 
 IXCODE=`xcode-select -print-path`
 ISDK=$IXCODE/Platforms/iPhoneOS.platform/Developer
-ISDKVER=iPhoneOS9.1.sdk
+ISDKVER=iPhoneOS10.2.sdk
 ISDKP=$IXCODE/usr/bin/
 ISDKD=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/
 echo build luajit-ios
@@ -32,14 +32,17 @@ fi
 
 echo =================================================
 
+echo —————armv7————————
 make clean
 ISDKF="-arch armv7 -isysroot $ISDK/SDKs/$ISDKVER"
 make HOST_CC="gcc -m32 -std=c99" CROSS="$ISDKP" TARGET_FLAGS="$ISDKF" TARGET=armv7 TARGET_SYS=iOS LUAJIT_A=libluajitv7.a
 
+echo —————armv7s————————
 make clean
 ISDKF="-arch armv7s -isysroot $ISDK/SDKs/$ISDKVER"
 make HOST_CC="gcc -m32 -std=c99" CROSS="$ISDKP" TARGET_FLAGS="$ISDKF" TARGET=armv7s TARGET_SYS=iOS LUAJIT_A=libluajitv7s.a
 
+echo —————arm64————————
 make clean
 ISDKF="-arch arm64 -isysroot $ISDK/SDKs/$ISDKVER"
 make HOST_CC="gcc -m64 -std=c99" CROSS="$ISDKP" TARGET_FLAGS="$ISDKF" TARGET=arm64 TARGET_SYS=iOS LUAJIT_A=libluajit64.a
