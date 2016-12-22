@@ -31,58 +31,6 @@
 #define api_checknelems(L, n)		api_check(L, (n) <= (L->top - L->base))
 #define api_checkvalidindex(L, i)	api_check(L, (i) != niltv(L))
 
-//wym
-#ifdef WIN32
-#include <stdio.h>
-#include <assert.h>
-#define snprintf _snprintf
-#define STDCALL __stdcall
-#else
-#define STDCALL
-#endif
-
-#if defined( WIN32 ) && !defined(__MINGW32__)
-static int first_exception = 1;
-#endif
-
-typedef int (STDCALL *lua_StdCallCFunction) (lua_State *L);
-int registry_stdcallcfunction(lua_State *L)
-{
-#if defined( WIN32 ) && !defined(__MINGW32__)
-  const char * sz;
-  char reason[16];
-
-	__try
-#endif
-	{
-	lua_StdCallCFunction* buffer = (lua_StdCallCFunction*)lua_touserdata(L, lua_upvalueindex(1));
-	lua_StdCallCFunction func = *buffer;
-	return func(L);
-	}
-#if defined( WIN32 ) && !defined(__MINGW32__)
-	__except(EXCEPTION_CONTINUE_SEARCH)
-	{
-		if (first_exception == 0)
-		{
-			//MessageBoxA(0, "lua vm is crash", "error", MB_OK);
-			return 0;
-		}
-
-		snprintf(reason, 16, "%d", (int)GetExceptionCode());
-		first_exception = 0;
-		lua_getglobal(L,"debug");
-		lua_getfield(L,-1,"traceback");
-		lua_pushstring(L, reason);
-		lua_pushnumber(L,1);
-		lua_call (L,2,1);
-		sz = lua_tostring(L, -1);
-		//MessageBoxA(0, sz, "registry_stdcallcfunction", MB_OK);
-
-		return 0;
-	}
-#endif
-}
-
 static TValue *index2adr(lua_State *L, int idx)
 {
   if (idx > 0) {
@@ -718,16 +666,6 @@ LUA_API int lua_pushthread(lua_State *L)
   setthreadV(L, L->top, L);
   incr_top(L);
   return (mainthread(G(L)) == L);
-}
-
-LUA_API void lua_pushstdcallcfunction (lua_State *L, void * func) 
-{
-
-	//lua_StdCallCFunction stdcallfunc = (lua_StdCallCFunction)func;
-	unsigned char* buffer = (unsigned char*)lua_newuserdata(L, sizeof(func));
-	memcpy(buffer, &func, sizeof(func));
-
-	lua_pushcclosure(L, registry_stdcallcfunction, 1);
 }
 
 LUA_API lua_State *lua_newthread(lua_State *L)

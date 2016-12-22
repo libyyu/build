@@ -1,6 +1,6 @@
 #include "varint.h"
 
-#include "../pbc.h"
+#include "pbc.h"
 
 #include <stdint.h>
 

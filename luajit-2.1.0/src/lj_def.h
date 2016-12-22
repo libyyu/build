@@ -44,6 +44,7 @@ typedef unsigned int uintptr_t;
 /* Needed everywhere. */
 #include <string.h>
 #include <stdlib.h>
+#include <assert.h>
 
 /* Various VM limits. */
 #define LJ_MAX_MEM32	0x7fffff00	/* Max. 32 bit memory allocation. */

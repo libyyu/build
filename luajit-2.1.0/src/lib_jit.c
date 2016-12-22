@@ -148,106 +148,6 @@ LJLIB_PUSH(top-2) LJLIB_SET(version)
 
 #include "lj_libdef.h"
 
-/* -- jit.opt module ------------------------------------------------------ */
-
-#if LJ_HASJIT
-
-#define LJLIB_MODULE_jit_opt
-
-/* Parse optimization level. */
-static int jitopt_level(jit_State *J, const char *str)
-{
-	if (str[0] >= '0' && str[0] <= '9' && str[1] == '\0') {
-		uint32_t flags;
-		if (str[0] == '0') flags = JIT_F_OPT_0;
-		else if (str[0] == '1') flags = JIT_F_OPT_1;
-		else if (str[0] == '2') flags = JIT_F_OPT_2;
-		else flags = JIT_F_OPT_3;
-		J->flags = (J->flags & ~JIT_F_OPT_MASK) | flags;
-		return 1;  /* Ok. */
-	}
-	return 0;  /* No match. */
-}
-
-/* Parse optimization flag. */
-static int jitopt_flag(jit_State *J, const char *str)
-{
-	const char *lst = JIT_F_OPTSTRING;
-	uint32_t opt;
-	int set = 1;
-	if (str[0] == '+') {
-		str++;
-	}
-	else if (str[0] == '-') {
-		str++;
-		set = 0;
-	}
-	else if (str[0] == 'n' && str[1] == 'o') {
-		str += str[2] == '-' ? 3 : 2;
-		set = 0;
-	}
-	for (opt = JIT_F_OPT_FIRST; ; opt <<= 1) {
-		size_t len = *(const uint8_t *)lst;
-		if (len == 0)
-			break;
-		if (strncmp(str, lst + 1, len) == 0 && str[len] == '\0') {
-			if (set) J->flags |= opt; else J->flags &= ~opt;
-			return 1;  /* Ok. */
-		}
-		lst += 1 + len;
-	}
-	return 0;  /* No match. */
-}
-
-/* Parse optimization parameter. */
-static int jitopt_param(jit_State *J, const char *str)
-{
-	const char *lst = JIT_P_STRING;
-	int i;
-	for (i = 0; i < JIT_P__MAX; i++) {
-		size_t len = *(const uint8_t *)lst;
-		lua_assert(len != 0);
-		if (strncmp(str, lst + 1, len) == 0 && str[len] == '=') {
-			int32_t n = 0;
-			const char *p = &str[len + 1];
-			while (*p >= '0' && *p <= '9')
-				n = n * 10 + (*p++ - '0');
-			if (*p) return 0;  /* Malformed number. */
-			J->param[i] = n;
-			if (i == JIT_P_hotloop)
-				lj_dispatch_init_hotcount(J2G(J));
-			return 1;  /* Ok. */
-		}
-		lst += 1 + len;
-	}
-	return 0;  /* No match. */
-}
-
-/* jit.opt.start(flags...) */
-LJLIB_CF(jit_opt_start)
-{
-	jit_State *J = L2J(L);
-	int nargs = (int)(L->top - L->base);
-	if (nargs == 0) {
-		J->flags = (J->flags & ~JIT_F_OPT_MASK) | JIT_F_OPT_DEFAULT;
-	}
-	else {
-		int i;
-		for (i = 1; i <= nargs; i++) {
-			const char *str = strdata(lj_lib_checkstr(L, i));
-			if (!jitopt_level(J, str) &&
-				!jitopt_flag(J, str) &&
-				!jitopt_param(J, str))
-				lj_err_callerv(L, LJ_ERR_JITOPT, str);
-		}
-	}
-	return 0;
-}
-
-#include "lj_libdef.h"
-
-#endif
-
 /* -- jit.util.* functions ------------------------------------------------ */
 
 #define LJLIB_MODULE_jit_util
@@ -533,6 +433,103 @@ static int luaopen_jit_util(lua_State *L)
   LJ_LIB_REG(L, NULL, jit_util);
   return 1;
 }
+
+/* -- jit.opt module ------------------------------------------------------ */
+
+#if LJ_HASJIT
+
+#define LJLIB_MODULE_jit_opt
+
+/* Parse optimization level. */
+static int jitopt_level(jit_State *J, const char *str)
+{
+  if (str[0] >= '0' && str[0] <= '9' && str[1] == '\0') {
+    uint32_t flags;
+    if (str[0] == '0') flags = JIT_F_OPT_0;
+    else if (str[0] == '1') flags = JIT_F_OPT_1;
+    else if (str[0] == '2') flags = JIT_F_OPT_2;
+    else flags = JIT_F_OPT_3;
+    J->flags = (J->flags & ~JIT_F_OPT_MASK) | flags;
+    return 1;  /* Ok. */
+  }
+  return 0;  /* No match. */
+}
+
+/* Parse optimization flag. */
+static int jitopt_flag(jit_State *J, const char *str)
+{
+  const char *lst = JIT_F_OPTSTRING;
+  uint32_t opt;
+  int set = 1;
+  if (str[0] == '+') {
+    str++;
+  } else if (str[0] == '-') {
+    str++;
+    set = 0;
+  } else if (str[0] == 'n' && str[1] == 'o') {
+    str += str[2] == '-' ? 3 : 2;
+    set = 0;
+  }
+  for (opt = JIT_F_OPT_FIRST; ; opt <<= 1) {
+    size_t len = *(const uint8_t *)lst;
+    if (len == 0)
+      break;
+    if (strncmp(str, lst+1, len) == 0 && str[len] == '\0') {
+      if (set) J->flags |= opt; else J->flags &= ~opt;
+      return 1;  /* Ok. */
+    }
+    lst += 1+len;
+  }
+  return 0;  /* No match. */
+}
+
+/* Parse optimization parameter. */
+static int jitopt_param(jit_State *J, const char *str)
+{
+  const char *lst = JIT_P_STRING;
+  int i;
+  for (i = 0; i < JIT_P__MAX; i++) {
+    size_t len = *(const uint8_t *)lst;
+    lua_assert(len != 0);
+    if (strncmp(str, lst+1, len) == 0 && str[len] == '=') {
+      int32_t n = 0;
+      const char *p = &str[len+1];
+      while (*p >= '0' && *p <= '9')
+	n = n*10 + (*p++ - '0');
+      if (*p) return 0;  /* Malformed number. */
+      J->param[i] = n;
+      if (i == JIT_P_hotloop)
+	lj_dispatch_init_hotcount(J2G(J));
+      return 1;  /* Ok. */
+    }
+    lst += 1+len;
+  }
+  return 0;  /* No match. */
+}
+
+/* jit.opt.start(flags...) */
+LJLIB_CF(jit_opt_start)
+{
+  jit_State *J = L2J(L);
+  int nargs = (int)(L->top - L->base);
+  if (nargs == 0) {
+    J->flags = (J->flags & ~JIT_F_OPT_MASK) | JIT_F_OPT_DEFAULT;
+  } else {
+    int i;
+    for (i = 1; i <= nargs; i++) {
+      const char *str = strdata(lj_lib_checkstr(L, i));
+      if (!jitopt_level(J, str) &&
+	  !jitopt_flag(J, str) &&
+	  !jitopt_param(J, str))
+	lj_err_callerv(L, LJ_ERR_JITOPT, str);
+    }
+  }
+  return 0;
+}
+
+#include "lj_libdef.h"
+
+#endif
 
 /* -- jit.profile module -------------------------------------------------- */
 

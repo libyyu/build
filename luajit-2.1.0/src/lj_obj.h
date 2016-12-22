@@ -696,7 +696,7 @@ LJ_STATIC_ASSERT(offsetof(GChead, env) == offsetof(GCudata, env));
 
 /* The metatable field MUST be at the same offset for all GC objects. */
 LJ_STATIC_ASSERT(offsetof(GChead, metatable) == offsetof(GCtab, metatable));
-LJ_STATIC_ASSERT(offsetof(GChead, metatable) == offsetof(GCudata, metatable));
+//LJ_STATIC_ASSERT(offsetof(GChead, metatable) == offsetof(GCudata, metatable));
 
 /* The gclist field MUST be at the same offset for all GC objects. */
 LJ_STATIC_ASSERT(offsetof(GChead, gclist) == offsetof(lua_State, gclist));

@@ -154,12 +154,6 @@ LUALIB_API int luaL_loadstring(lua_State *L, const char *s)
   return luaL_loadbuffer(L, s, strlen(s), s);
 }
 
-LUALIB_API int luaL_loadbufferPtr (lua_State *L, const char *buff, size_t size,
-	const char *name)
-{
-	return luaL_loadbuffer(L, buff, size, name);
-}
-
 /* -- Dump bytecode ------------------------------------------------------- */
 
 LUA_API int lua_dump(lua_State *L, lua_Writer writer, void *data)

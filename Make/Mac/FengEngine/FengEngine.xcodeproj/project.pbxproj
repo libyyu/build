@@ -589,6 +589,7 @@
 					"$(PROJECT_DIR)/../../../",
 					"$(PROJECT_DIR)/../../../luajit-2.0.4/src",
 					"$(PROJECT_DIR)/../../../Project-Source",
+					"$(PROJECT_DIR)/../../../pbc-master",
 				);
 				INFOPLIST_FILE = FengEngine/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
@@ -609,6 +610,7 @@
 					"$(PROJECT_DIR)/../../../",
 					"$(PROJECT_DIR)/../../../luajit-2.0.4/src",
 					"$(PROJECT_DIR)/../../../Project-Source",
+					"$(PROJECT_DIR)/../../../pbc-master",
 				);
 				INFOPLIST_FILE = FengEngine/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
@@ -639,6 +641,7 @@
 				74F0CDC21E057CEE007E16AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

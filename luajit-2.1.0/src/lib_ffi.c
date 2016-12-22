@@ -182,8 +182,8 @@ LJLIB_CF(ffi_meta___newindex)	LJLIB_REC(cdata_index 1)
 /* Common handler for cdata arithmetic. */
 static int ffi_arith(lua_State *L)
 {
-   MMS mm = (MMS)(curr_func(L)->c.ffid - (int)FF_ffi_meta___eq + (int)MM_eq);
-   return lj_carith_op(L, mm);
+  MMS mm = (MMS)(curr_func(L)->c.ffid - (int)FF_ffi_meta___eq + (int)MM_eq);
+  return lj_carith_op(L, mm);
 }
 
 /* The following functions must be in contiguous ORDER MM. */

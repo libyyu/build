@@ -86,10 +86,11 @@
 		74B2C98A1E08260800F09257 /* ILog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C9881E08260800F09257 /* ILog.cpp */; };
 		74B2C98B1E08260800F09257 /* ILog.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B2C9891E08260800F09257 /* ILog.h */; };
 		74B2C98D1E08261100F09257 /* FLuaExport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C98C1E08261100F09257 /* FLuaExport.cpp */; };
+		74FA691F1E0C304A00F94A6D /* libluajit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 74FA691E1E0C304A00F94A6D /* libluajit.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		74B2C8D41E0823C400F09257 /* libFengEngine.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libFengEngine.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		74B2C8D41E0823C400F09257 /* libFengEngine.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libFengEngine.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		74B2C8E21E08240B00F09257 /* slua.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = slua.c; path = ../../../slua.c; sourceTree = "<group>"; };
 		74B2C8E71E08245100F09257 /* lfs.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = lfs.c; path = ../../../lfs.c; sourceTree = "<group>"; };
 		74B2C8EA1E08246B00F09257 /* pb.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pb.c; path = ../../../pb.c; sourceTree = "<group>"; };
@@ -169,6 +170,7 @@
 		74B2C9881E08260800F09257 /* ILog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ILog.cpp; path = "../../../Project-Source/AnyLog/ILog.cpp"; sourceTree = "<group>"; };
 		74B2C9891E08260800F09257 /* ILog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ILog.h; path = "../../../Project-Source/AnyLog/ILog.h"; sourceTree = "<group>"; };
 		74B2C98C1E08261100F09257 /* FLuaExport.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FLuaExport.cpp; path = "../../../Project-Source/FLuaExport.cpp"; sourceTree = "<group>"; };
+		74FA691E1E0C304A00F94A6D /* libluajit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libluajit.a; path = ../libluajit.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +178,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74FA691F1E0C304A00F94A6D /* libluajit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,7 +197,7 @@
 		74B2C8D51E0823C400F09257 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				74B2C8D41E0823C400F09257 /* libFengEngine.dylib */,
+				74B2C8D41E0823C400F09257 /* libFengEngine.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 				74B2C9801E0825DD00F09257 /* Common */,
 				74B2C8E51E08242D00F09257 /* 3rd */,
 				74B2C8E21E08240B00F09257 /* slua.c */,
+				74FA691E1E0C304A00F94A6D /* libluajit.a */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -458,7 +462,7 @@
 			);
 			name = FengEngine;
 			productName = FengEngine;
-			productReference = 74B2C8D41E0823C400F09257 /* libFengEngine.dylib */;
+			productReference = 74B2C8D41E0823C400F09257 /* libFengEngine.a */;
 			productType = "com.apple.product-type.library.dynamic";
 		};
 /* End PBXNativeTarget section */
@@ -638,26 +642,61 @@
 		74B2C8E01E0823C400F09257 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "";
+				EXECUTABLE_EXTENSION = a;
 				EXECUTABLE_PREFIX = lib;
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
 				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"_IOS=1",
+				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/../../../",
+					"$(PROJECT_DIR)/../../../luajit-2.1.0/src",
+					"$(PROJECT_DIR)/../../../Project-Source",
+					"$(PROJECT_DIR)/../../../pbc-master",
+				);
+				LD_DYLIB_INSTALL_NAME = "";
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/../";
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos10.2;
+				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
 		74B2C8E11E0823C400F09257 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "";
+				EXECUTABLE_EXTENSION = a;
 				EXECUTABLE_PREFIX = lib;
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
 				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "_IOS=1";
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/../../../",
+					"$(PROJECT_DIR)/../../../luajit-2.1.0/src",
+					"$(PROJECT_DIR)/../../../Project-Source",
+					"$(PROJECT_DIR)/../../../pbc-master",
+				);
+				LD_DYLIB_INSTALL_NAME = "";
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/../";
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos10.2;
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
@@ -680,6 +719,7 @@
 				74B2C8E11E0823C400F09257 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

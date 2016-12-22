@@ -12,10 +12,10 @@ extern "C" {
 
 
 #ifdef   __cplusplus
-#define  __CFunBegin   extern "C" {
-#define  __CFunEnd     }
+    #define  __CFunBegin   extern "C" {
+    #define  __CFunEnd     }
 #else
-#define  __CFunBegin
-#define  __CFunEnd
+	#define  __CFunBegin
+	#define  __CFunEnd
 #endif//__cplusplus
 

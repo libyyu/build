@@ -64,11 +64,7 @@ buildvm -m vmdef -o jit\vmdef.lua %ALL_LIB%
 buildvm -m folddef -o lj_folddef.h lj_opt_fold.c
 @if errorlevel 1 goto :BAD
 
-@if exist lib_package_rel.obj ( @del lib_package.obj )
-
 @if "%1" neq "debug" goto :NODEBUG
-@set LJDLLNAME=luajit51_d.dll
-@set LJLIBNAME=luajit51_d.lib
 @shift
 @set LJCOMPILE=%LJCOMPILE% /Zi
 @set LJLINK=%LJLINK% /debug
@@ -81,7 +77,7 @@ buildvm -m folddef -o lj_folddef.h lj_opt_fold.c
 @if errorlevel 1 goto :BAD
 @goto :MTDLL
 :STATIC
-%LJCOMPILE% /DLUA_BUILD_AS_DLL lj_*.c lib_*.c
+%LJCOMPILE% lj_*.c lib_*.c
 @if errorlevel 1 goto :BAD
 %LJLIB% /OUT:%LJLIBNAME% lj_*.obj lib_*.obj
 @if errorlevel 1 goto :BAD

@@ -324,8 +324,7 @@ pbc_register(struct pbc_env * p, struct pbc_slice *slice) {
 		}
 	}
 
-	int r;
-	r = n;
+	int r = n;
 	do {
 		int rr = _register_no_dependency(p,files , n);
 		if (rr == r) {
