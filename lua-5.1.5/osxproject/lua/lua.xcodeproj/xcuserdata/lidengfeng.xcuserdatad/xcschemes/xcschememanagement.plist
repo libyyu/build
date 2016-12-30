@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>slua.xcscheme</key>
+		<key>lua.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,7 +12,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>E80919D31B745519008FED27</key>
+		<key>74A003021E16A3B20087AA91</key>
 		<dict>
 			<key>primary</key>
 			<true/>

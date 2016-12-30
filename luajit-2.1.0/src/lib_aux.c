@@ -320,6 +320,7 @@ static void *mem_alloc(void *ud, void *ptr, size_t osize, size_t nsize)
 
 LUALIB_API lua_State *luaL_newstate(void)
 {
+  printf("%s\n", "LUAJIT_USE_SYSMALLOC");
   lua_State *L = lua_newstate(mem_alloc, NULL);
   if (L) G(L)->panic = panic;
   return L;
@@ -331,13 +332,17 @@ LUALIB_API lua_State *luaL_newstate(void)
 
 LUALIB_API lua_State *luaL_newstate(void)
 {
+  fputs("luaL_newstate", stderr);
+  fflush(stderr);
   lua_State *L;
   void *ud = lj_alloc_create();
   if (ud == NULL) return NULL;
 #if LJ_64
   L = lj_state_newstate(lj_alloc_f, ud);
+  printf("%s\n", "lj_state_newstate");
 #else
   L = lua_newstate(lj_alloc_f, ud);
+  printf("%s\n", "lua_newstate");
 #endif
   if (L) G(L)->panic = panic;
   return L;

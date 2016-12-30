@@ -37,4 +37,10 @@ F_LIB_API void L_Exit()
 	L_UnEstablishAnyLog();
 }
 
+F_LIB_API void L_newstate()
+{
+    lua_State* l = luaL_newstate();
+    log_info("L_newstate. %d", l == NULL ? 0 : 1);
+}
+
 _FCFunEnd

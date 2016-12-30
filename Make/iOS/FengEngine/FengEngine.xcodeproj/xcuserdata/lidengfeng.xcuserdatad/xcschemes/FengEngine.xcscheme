@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "74B2C8D31E0823C400F09257"
-               BuildableName = "libFengEngine.dylib"
+               BuildableName = "libFengEngine.a"
                BlueprintName = "FengEngine"
                ReferencedContainer = "container:FengEngine.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "74B2C8D31E0823C400F09257"
-            BuildableName = "libFengEngine.dylib"
+            BuildableName = "libFengEngine.a"
             BlueprintName = "FengEngine"
             ReferencedContainer = "container:FengEngine.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "74B2C8D31E0823C400F09257"
-            BuildableName = "libFengEngine.dylib"
+            BuildableName = "libFengEngine.a"
             BlueprintName = "FengEngine"
             ReferencedContainer = "container:FengEngine.xcodeproj">
          </BuildableReference>
