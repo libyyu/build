@@ -7,6 +7,88 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		747C52241E72E13E00A59AC7 /* udp.c in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C9421E08252900F09257 /* udp.c */; };
+		747C52251E72E13E00A59AC7 /* FAssist.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C9811E0825F200F09257 /* FAssist.cpp */; };
+		747C52261E72E13E00A59AC7 /* register.c in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C9061E0824C100F09257 /* register.c */; };
+		747C52271E72E13E00A59AC7 /* timeout.c in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C9401E08252900F09257 /* timeout.c */; };
+		747C52281E72E13E00A59AC7 /* map.c in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C9001E0824C100F09257 /* map.c */; };
+		747C52291E72E13E00A59AC7 /* except.c in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C92D1E08252900F09257 /* except.c */; };
+		747C522A1E72E13E00A59AC7 /* context.c in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C8FC1E0824C100F09257 /* context.c */; };
+		747C522B1E72E13E00A59AC7 /* pb.c in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C8EA1E08246B00F09257 /* pb.c */; };
+		747C522C1E72E13E00A59AC7 /* lua_cjson.c in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C9731E0825A900F09257 /* lua_cjson.c */; };
+		747C522D1E72E13E00A59AC7 /* ILog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C9881E08260800F09257 /* ILog.cpp */; };
+		747C522E1E72E13E00A59AC7 /* lsproto.c in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C8ED1E08248D00F09257 /* lsproto.c */; };
+		747C522F1E72E13E00A59AC7 /* decode.c in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C8FE1E0824C100F09257 /* decode.c */; };
+		747C52301E72E13E00A59AC7 /* unix.c in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C9441E08252900F09257 /* unix.c */; };
+		747C52311E72E13E00A59AC7 /* mime.c in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C9351E08252900F09257 /* mime.c */; };
+		747C52321E72E13E00A59AC7 /* auxiliar.c in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C9271E08252900F09257 /* auxiliar.c */; };
+		747C52331E72E13E00A59AC7 /* buffer.c in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C9291E08252900F09257 /* buffer.c */; };
+		747C52341E72E13E00A59AC7 /* fpconv.c in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C9711E0825A900F09257 /* fpconv.c */; };
+		747C52351E72E13E00A59AC7 /* bootstrap.c in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C8FA1E0824C100F09257 /* bootstrap.c */; };
+		747C52361E72E13E00A59AC7 /* slua.c in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C8E21E08240B00F09257 /* slua.c */; };
+		747C52371E72E13E00A59AC7 /* lsqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C96E1E08257600F09257 /* lsqlite3.c */; };
+		747C52381E72E13E00A59AC7 /* varint.c in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C90A1E0824C100F09257 /* varint.c */; };
+		747C52391E72E13E00A59AC7 /* proto.c in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C9041E0824C100F09257 /* proto.c */; };
+		747C523A1E72E13E00A59AC7 /* alloc.c in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C8F61E0824C100F09257 /* alloc.c */; };
+		747C523B1E72E13E00A59AC7 /* compat.c in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C92B1E08252900F09257 /* compat.c */; };
+		747C523C1E72E13E00A59AC7 /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C96A1E08256100F09257 /* sqlite3.c */; };
+		747C523D1E72E13E00A59AC7 /* FLuaExport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C98C1E08261100F09257 /* FLuaExport.cpp */; };
+		747C523E1E72E13E00A59AC7 /* strbuf.c in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C9741E0825A900F09257 /* strbuf.c */; };
+		747C523F1E72E13E00A59AC7 /* lpeg.c in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C97C1E0825D000F09257 /* lpeg.c */; };
+		747C52401E72E13E00A59AC7 /* io.c in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C9311E08252900F09257 /* io.c */; };
+		747C52411E72E13E00A59AC7 /* pattern.c in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C9021E0824C100F09257 /* pattern.c */; };
+		747C52421E72E13E00A59AC7 /* options.c in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C9371E08252900F09257 /* options.c */; };
+		747C52431E72E13E00A59AC7 /* lfs.c in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C8E71E08245100F09257 /* lfs.c */; };
+		747C52441E72E13E00A59AC7 /* pbc-lua.c in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C9241E0824DC00F09257 /* pbc-lua.c */; };
+		747C52451E72E13E00A59AC7 /* serial.c in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C93C1E08252900F09257 /* serial.c */; };
+		747C52461E72E13E00A59AC7 /* tcp.c in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C93E1E08252900F09257 /* tcp.c */; };
+		747C52471E72E13E00A59AC7 /* luasocket.c in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C9331E08252900F09257 /* luasocket.c */; };
+		747C52481E72E13E00A59AC7 /* array.c in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C8F81E0824C100F09257 /* array.c */; };
+		747C52491E72E13E00A59AC7 /* sproto.c in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C8EE1E08248D00F09257 /* sproto.c */; };
+		747C524A1E72E13E00A59AC7 /* select.c in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C93A1E08252900F09257 /* select.c */; };
+		747C524B1E72E13E00A59AC7 /* stringpool.c in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C9081E0824C100F09257 /* stringpool.c */; };
+		747C524C1E72E13E00A59AC7 /* usocket.c in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C9461E08252900F09257 /* usocket.c */; };
+		747C524D1E72E13E00A59AC7 /* rmessage.c in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C9071E0824C100F09257 /* rmessage.c */; };
+		747C524E1E72E13E00A59AC7 /* wmessage.c in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C90C1E0824C100F09257 /* wmessage.c */; };
+		747C524F1E72E13E00A59AC7 /* inet.c in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C92F1E08252900F09257 /* inet.c */; };
+		747C52531E72E13E00A59AC7 /* timeout.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B2C9411E08252900F09257 /* timeout.h */; };
+		747C52541E72E13E00A59AC7 /* io.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B2C9321E08252900F09257 /* io.h */; };
+		747C52551E72E13E00A59AC7 /* proto.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B2C9051E0824C100F09257 /* proto.h */; };
+		747C52561E72E13E00A59AC7 /* socket.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B2C93D1E08252900F09257 /* socket.h */; };
+		747C52571E72E13E00A59AC7 /* lpeg.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B2C97D1E0825D000F09257 /* lpeg.h */; };
+		747C52581E72E13E00A59AC7 /* ILog.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B2C9891E08260800F09257 /* ILog.h */; };
+		747C52591E72E13E00A59AC7 /* fpconv.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B2C9721E0825A900F09257 /* fpconv.h */; };
+		747C525A1E72E13E00A59AC7 /* varint.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B2C90B1E0824C100F09257 /* varint.h */; };
+		747C525B1E72E13E00A59AC7 /* FType.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B2C9831E0825F200F09257 /* FType.h */; };
+		747C525C1E72E13E00A59AC7 /* stringpool.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B2C9091E0824C100F09257 /* stringpool.h */; };
+		747C525D1E72E13E00A59AC7 /* luasocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B2C9341E08252900F09257 /* luasocket.h */; };
+		747C525E1E72E13E00A59AC7 /* strbuf.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B2C9751E0825A900F09257 /* strbuf.h */; };
+		747C525F1E72E13E00A59AC7 /* array.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B2C8F91E0824C100F09257 /* array.h */; };
+		747C52601E72E13E00A59AC7 /* compat.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B2C92C1E08252900F09257 /* compat.h */; };
+		747C52611E72E13E00A59AC7 /* except.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B2C92E1E08252900F09257 /* except.h */; };
+		747C52621E72E13E00A59AC7 /* buffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B2C92A1E08252900F09257 /* buffer.h */; };
+		747C52631E72E13E00A59AC7 /* FAssist.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B2C9821E0825F200F09257 /* FAssist.h */; };
+		747C52641E72E13E00A59AC7 /* context.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B2C8FD1E0824C100F09257 /* context.h */; };
+		747C52651E72E13E00A59AC7 /* unix.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B2C9451E08252900F09257 /* unix.h */; };
+		747C52661E72E13E00A59AC7 /* usocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B2C9471E08252900F09257 /* usocket.h */; };
+		747C52671E72E13E00A59AC7 /* map.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B2C9011E0824C100F09257 /* map.h */; };
+		747C52681E72E13E00A59AC7 /* options.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B2C9381E08252900F09257 /* options.h */; };
+		747C52691E72E13E00A59AC7 /* udp.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B2C9431E08252900F09257 /* udp.h */; };
+		747C526A1E72E13E00A59AC7 /* sqlite3.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B2C96B1E08256100F09257 /* sqlite3.h */; };
+		747C526B1E72E13E00A59AC7 /* alloc.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B2C8F71E0824C100F09257 /* alloc.h */; };
+		747C526C1E72E13E00A59AC7 /* auxiliar.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B2C9281E08252900F09257 /* auxiliar.h */; };
+		747C526D1E72E13E00A59AC7 /* sproto.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B2C8EF1E08248D00F09257 /* sproto.h */; };
+		747C526E1E72E13E00A59AC7 /* inet.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B2C9301E08252900F09257 /* inet.h */; };
+		747C526F1E72E13E00A59AC7 /* mime.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B2C9361E08252900F09257 /* mime.h */; };
+		747C52701E72E13E00A59AC7 /* tcp.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B2C93F1E08252900F09257 /* tcp.h */; };
+		747C52711E72E13E00A59AC7 /* pierror.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B2C9391E08252900F09257 /* pierror.h */; };
+		747C52721E72E13E00A59AC7 /* pattern.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B2C9031E0824C100F09257 /* pattern.h */; };
+		747C52731E72E13E00A59AC7 /* descriptor.pbc.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B2C8FF1E0824C100F09257 /* descriptor.pbc.h */; };
+		747C52741E72E13E00A59AC7 /* select.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B2C93B1E08252900F09257 /* select.h */; };
+		747C52751E72E13E00A59AC7 /* bootstrap.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B2C8FB1E0824C100F09257 /* bootstrap.h */; };
+		747C527B1E72E15B00A59AC7 /* liblua.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 747C527A1E72E15B00A59AC7 /* liblua.a */; };
+		747C52811E72E2A100A59AC7 /* libFengEngine_nojit.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 747C52791E72E13E00A59AC7 /* libFengEngine_nojit.a */; };
+		747C52831E72E2B600A59AC7 /* libFengEngine.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 74B2C8D41E0823C400F09257 /* libFengEngine.a */; };
 		74B2C8E31E08240B00F09257 /* slua.c in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C8E21E08240B00F09257 /* slua.c */; };
 		74B2C8E81E08245100F09257 /* lfs.c in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C8E71E08245100F09257 /* lfs.c */; };
 		74B2C8EB1E08246B00F09257 /* pb.c in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C8EA1E08246B00F09257 /* pb.c */; };
@@ -89,7 +171,32 @@
 		74FA691F1E0C304A00F94A6D /* libluajit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 74FA691E1E0C304A00F94A6D /* libluajit.a */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		747C52801E72E27700A59AC7 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(SRCROOT)/..";
+			dstSubfolderSpec = 0;
+			files = (
+				747C52811E72E2A100A59AC7 /* libFengEngine_nojit.a in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		747C52821E72E2AE00A59AC7 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(SRCROOT)/..";
+			dstSubfolderSpec = 0;
+			files = (
+				747C52831E72E2B600A59AC7 /* libFengEngine.a in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		747C52791E72E13E00A59AC7 /* libFengEngine_nojit.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libFengEngine_nojit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		747C527A1E72E15B00A59AC7 /* liblua.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblua.a; path = ../liblua.a; sourceTree = "<group>"; };
 		74B2C8D41E0823C400F09257 /* libFengEngine.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libFengEngine.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		74B2C8E21E08240B00F09257 /* slua.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = slua.c; path = ../../../slua.c; sourceTree = "<group>"; };
 		74B2C8E71E08245100F09257 /* lfs.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = lfs.c; path = ../../../lfs.c; sourceTree = "<group>"; };
@@ -174,6 +281,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		747C52501E72E13E00A59AC7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				747C527B1E72E15B00A59AC7 /* liblua.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		74B2C8D11E0823C400F09257 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -198,6 +313,7 @@
 			isa = PBXGroup;
 			children = (
 				74B2C8D41E0823C400F09257 /* libFengEngine.a */,
+				747C52791E72E13E00A59AC7 /* libFengEngine_nojit.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -218,6 +334,7 @@
 				74B2C8E51E08242D00F09257 /* 3rd */,
 				74B2C8E21E08240B00F09257 /* slua.c */,
 				74FA691E1E0C304A00F94A6D /* libluajit.a */,
+				747C527A1E72E15B00A59AC7 /* liblua.a */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -403,6 +520,48 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		747C52521E72E13E00A59AC7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				747C52531E72E13E00A59AC7 /* timeout.h in Headers */,
+				747C52541E72E13E00A59AC7 /* io.h in Headers */,
+				747C52551E72E13E00A59AC7 /* proto.h in Headers */,
+				747C52561E72E13E00A59AC7 /* socket.h in Headers */,
+				747C52571E72E13E00A59AC7 /* lpeg.h in Headers */,
+				747C52581E72E13E00A59AC7 /* ILog.h in Headers */,
+				747C52591E72E13E00A59AC7 /* fpconv.h in Headers */,
+				747C525A1E72E13E00A59AC7 /* varint.h in Headers */,
+				747C525B1E72E13E00A59AC7 /* FType.h in Headers */,
+				747C525C1E72E13E00A59AC7 /* stringpool.h in Headers */,
+				747C525D1E72E13E00A59AC7 /* luasocket.h in Headers */,
+				747C525E1E72E13E00A59AC7 /* strbuf.h in Headers */,
+				747C525F1E72E13E00A59AC7 /* array.h in Headers */,
+				747C52601E72E13E00A59AC7 /* compat.h in Headers */,
+				747C52611E72E13E00A59AC7 /* except.h in Headers */,
+				747C52621E72E13E00A59AC7 /* buffer.h in Headers */,
+				747C52631E72E13E00A59AC7 /* FAssist.h in Headers */,
+				747C52641E72E13E00A59AC7 /* context.h in Headers */,
+				747C52651E72E13E00A59AC7 /* unix.h in Headers */,
+				747C52661E72E13E00A59AC7 /* usocket.h in Headers */,
+				747C52671E72E13E00A59AC7 /* map.h in Headers */,
+				747C52681E72E13E00A59AC7 /* options.h in Headers */,
+				747C52691E72E13E00A59AC7 /* udp.h in Headers */,
+				747C526A1E72E13E00A59AC7 /* sqlite3.h in Headers */,
+				747C526B1E72E13E00A59AC7 /* alloc.h in Headers */,
+				747C526C1E72E13E00A59AC7 /* auxiliar.h in Headers */,
+				747C526D1E72E13E00A59AC7 /* sproto.h in Headers */,
+				747C526E1E72E13E00A59AC7 /* inet.h in Headers */,
+				747C526F1E72E13E00A59AC7 /* mime.h in Headers */,
+				747C52701E72E13E00A59AC7 /* tcp.h in Headers */,
+				747C52711E72E13E00A59AC7 /* pierror.h in Headers */,
+				747C52721E72E13E00A59AC7 /* pattern.h in Headers */,
+				747C52731E72E13E00A59AC7 /* descriptor.pbc.h in Headers */,
+				747C52741E72E13E00A59AC7 /* select.h in Headers */,
+				747C52751E72E13E00A59AC7 /* bootstrap.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		74B2C8D21E0823C400F09257 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -448,6 +607,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		747C52221E72E13E00A59AC7 /* FengEngine_nojit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 747C52761E72E13E00A59AC7 /* Build configuration list for PBXNativeTarget "FengEngine_nojit" */;
+			buildPhases = (
+				747C52231E72E13E00A59AC7 /* Sources */,
+				747C52501E72E13E00A59AC7 /* Frameworks */,
+				747C52521E72E13E00A59AC7 /* Headers */,
+				747C52801E72E27700A59AC7 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FengEngine_nojit;
+			productName = FengEngine;
+			productReference = 747C52791E72E13E00A59AC7 /* libFengEngine_nojit.a */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
 		74B2C8D31E0823C400F09257 /* FengEngine */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 74B2C8DF1E0823C400F09257 /* Build configuration list for PBXNativeTarget "FengEngine" */;
@@ -455,6 +632,7 @@
 				74B2C8D01E0823C400F09257 /* Sources */,
 				74B2C8D11E0823C400F09257 /* Frameworks */,
 				74B2C8D21E0823C400F09257 /* Headers */,
+				747C52821E72E2AE00A59AC7 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -474,6 +652,10 @@
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Dengfeng Li";
 				TargetAttributes = {
+					747C52221E72E13E00A59AC7 = {
+						DevelopmentTeam = 3FJM7FZD7H;
+						ProvisioningStyle = Manual;
+					};
 					74B2C8D31E0823C400F09257 = {
 						CreatedOnToolsVersion = 8.2;
 						DevelopmentTeam = 3FJM7FZD7H;
@@ -494,11 +676,63 @@
 			projectRoot = "";
 			targets = (
 				74B2C8D31E0823C400F09257 /* FengEngine */,
+				747C52221E72E13E00A59AC7 /* FengEngine_nojit */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		747C52231E72E13E00A59AC7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				747C52241E72E13E00A59AC7 /* udp.c in Sources */,
+				747C52251E72E13E00A59AC7 /* FAssist.cpp in Sources */,
+				747C52261E72E13E00A59AC7 /* register.c in Sources */,
+				747C52271E72E13E00A59AC7 /* timeout.c in Sources */,
+				747C52281E72E13E00A59AC7 /* map.c in Sources */,
+				747C52291E72E13E00A59AC7 /* except.c in Sources */,
+				747C522A1E72E13E00A59AC7 /* context.c in Sources */,
+				747C522B1E72E13E00A59AC7 /* pb.c in Sources */,
+				747C522C1E72E13E00A59AC7 /* lua_cjson.c in Sources */,
+				747C522D1E72E13E00A59AC7 /* ILog.cpp in Sources */,
+				747C522E1E72E13E00A59AC7 /* lsproto.c in Sources */,
+				747C522F1E72E13E00A59AC7 /* decode.c in Sources */,
+				747C52301E72E13E00A59AC7 /* unix.c in Sources */,
+				747C52311E72E13E00A59AC7 /* mime.c in Sources */,
+				747C52321E72E13E00A59AC7 /* auxiliar.c in Sources */,
+				747C52331E72E13E00A59AC7 /* buffer.c in Sources */,
+				747C52341E72E13E00A59AC7 /* fpconv.c in Sources */,
+				747C52351E72E13E00A59AC7 /* bootstrap.c in Sources */,
+				747C52361E72E13E00A59AC7 /* slua.c in Sources */,
+				747C52371E72E13E00A59AC7 /* lsqlite3.c in Sources */,
+				747C52381E72E13E00A59AC7 /* varint.c in Sources */,
+				747C52391E72E13E00A59AC7 /* proto.c in Sources */,
+				747C523A1E72E13E00A59AC7 /* alloc.c in Sources */,
+				747C523B1E72E13E00A59AC7 /* compat.c in Sources */,
+				747C523C1E72E13E00A59AC7 /* sqlite3.c in Sources */,
+				747C523D1E72E13E00A59AC7 /* FLuaExport.cpp in Sources */,
+				747C523E1E72E13E00A59AC7 /* strbuf.c in Sources */,
+				747C523F1E72E13E00A59AC7 /* lpeg.c in Sources */,
+				747C52401E72E13E00A59AC7 /* io.c in Sources */,
+				747C52411E72E13E00A59AC7 /* pattern.c in Sources */,
+				747C52421E72E13E00A59AC7 /* options.c in Sources */,
+				747C52431E72E13E00A59AC7 /* lfs.c in Sources */,
+				747C52441E72E13E00A59AC7 /* pbc-lua.c in Sources */,
+				747C52451E72E13E00A59AC7 /* serial.c in Sources */,
+				747C52461E72E13E00A59AC7 /* tcp.c in Sources */,
+				747C52471E72E13E00A59AC7 /* luasocket.c in Sources */,
+				747C52481E72E13E00A59AC7 /* array.c in Sources */,
+				747C52491E72E13E00A59AC7 /* sproto.c in Sources */,
+				747C524A1E72E13E00A59AC7 /* select.c in Sources */,
+				747C524B1E72E13E00A59AC7 /* stringpool.c in Sources */,
+				747C524C1E72E13E00A59AC7 /* usocket.c in Sources */,
+				747C524D1E72E13E00A59AC7 /* rmessage.c in Sources */,
+				747C524E1E72E13E00A59AC7 /* wmessage.c in Sources */,
+				747C524F1E72E13E00A59AC7 /* inet.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		74B2C8D01E0823C400F09257 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -553,6 +787,73 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		747C52771E72E13E00A59AC7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 3FJM7FZD7H;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "";
+				EXECUTABLE_EXTENSION = a;
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"_IOS=1",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/../../../",
+					"$(PROJECT_DIR)/../../../lua-5.1.5/src",
+					"$(PROJECT_DIR)/../../../Project-Source",
+					"$(PROJECT_DIR)/../../../pbc-master",
+				);
+				LD_DYLIB_INSTALL_NAME = "";
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/../";
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		747C52781E72E13E00A59AC7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 3FJM7FZD7H;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "";
+				EXECUTABLE_EXTENSION = a;
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "_IOS=1";
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/../../../",
+					"$(PROJECT_DIR)/../../../lua-5.1.5/src",
+					"$(PROJECT_DIR)/../../../Project-Source",
+					"$(PROJECT_DIR)/../../../pbc-master",
+				);
+				LD_DYLIB_INSTALL_NAME = "";
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/../";
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		74B2C8DD1E0823C400F09257 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -710,6 +1011,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		747C52761E72E13E00A59AC7 /* Build configuration list for PBXNativeTarget "FengEngine_nojit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				747C52771E72E13E00A59AC7 /* Debug */,
+				747C52781E72E13E00A59AC7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		74B2C8CF1E0823C400F09257 /* Build configuration list for PBXProject "FengEngine" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
