@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		74A003821E16AA310087AA91 /* bit.c in Sources */ = {isa = PBXBuildFile; fileRef = 74A003811E16AA310087AA91 /* bit.c */; };
 		74A003851E16AB730087AA91 /* liblua.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 74A003831E16AB320087AA91 /* liblua.a */; };
+		74C2014E1E7305C00064B60E /* i64lib.c in Sources */ = {isa = PBXBuildFile; fileRef = 74C2014D1E7305C00064B60E /* i64lib.c */; };
+		74C201511E7307730064B60E /* lgbk.c in Sources */ = {isa = PBXBuildFile; fileRef = 74C201501E7307730064B60E /* lgbk.c */; };
+		74C201531E73077B0064B60E /* lpinyin.c in Sources */ = {isa = PBXBuildFile; fileRef = 74C201521E73077B0064B60E /* lpinyin.c */; };
 		74F0CDC41E057D2E007E16AC /* slua.c in Sources */ = {isa = PBXBuildFile; fileRef = 74F0CDC31E057D2E007E16AC /* slua.c */; };
 		74F0CDCA1E057E06007E16AC /* lpeg.c in Sources */ = {isa = PBXBuildFile; fileRef = 74F0CDC81E057E06007E16AC /* lpeg.c */; };
 		74F0CDD11E057E66007E16AC /* fpconv.c in Sources */ = {isa = PBXBuildFile; fileRef = 74F0CDCC1E057E66007E16AC /* fpconv.c */; };
@@ -58,6 +61,10 @@
 /* Begin PBXFileReference section */
 		74A003811E16AA310087AA91 /* bit.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = bit.c; path = ../../../bit.c; sourceTree = "<group>"; };
 		74A003831E16AB320087AA91 /* liblua.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblua.a; path = ../../liblua.a; sourceTree = "<group>"; };
+		74C2014C1E7305B80064B60E /* i64lib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = i64lib.h; path = ../../../i64lib.h; sourceTree = "<group>"; };
+		74C2014D1E7305C00064B60E /* i64lib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = i64lib.c; path = ../../../i64lib.c; sourceTree = "<group>"; };
+		74C201501E7307730064B60E /* lgbk.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = lgbk.c; path = "../../../lua-gbk/lgbk.c"; sourceTree = "<group>"; };
+		74C201521E73077B0064B60E /* lpinyin.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = lpinyin.c; path = "../../../lua-gbk/lpinyin.c"; sourceTree = "<group>"; };
 		74F0CDBA1E057CEE007E16AC /* FengEngine.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FengEngine.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		74F0CDBD1E057CEE007E16AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74F0CDC31E057D2E007E16AC /* slua.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = slua.c; path = ../../../slua.c; sourceTree = "<group>"; };
@@ -154,6 +161,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		74C2014B1E73059E0064B60E /* i64 */ = {
+			isa = PBXGroup;
+			children = (
+				74C2014D1E7305C00064B60E /* i64lib.c */,
+				74C2014C1E7305B80064B60E /* i64lib.h */,
+			);
+			name = i64;
+			sourceTree = "<group>";
+		};
+		74C2014F1E7307670064B60E /* gbk */ = {
+			isa = PBXGroup;
+			children = (
+				74C201521E73077B0064B60E /* lpinyin.c */,
+				74C201501E7307730064B60E /* lgbk.c */,
+			);
+			name = gbk;
+			sourceTree = "<group>";
+		};
 		74F0CDB11E057CEE007E16AC = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +220,8 @@
 		74F0CDC61E057D62007E16AC /* 3rd */ = {
 			isa = PBXGroup;
 			children = (
+				74C2014F1E7307670064B60E /* gbk */,
+				74C2014B1E73059E0064B60E /* i64 */,
 				74A003811E16AA310087AA91 /* bit.c */,
 				74F0CE4F1E05861E007E16AC /* lfs */,
 				74F0CE471E0580DA007E16AC /* pb */,
@@ -452,6 +479,8 @@
 				74F0CDFC1E057F56007E16AC /* auxiliar.c in Sources */,
 				74F0CE061E057F56007E16AC /* serial.c in Sources */,
 				74F0CE511E05862E007E16AC /* lfs.c in Sources */,
+				74C201531E73077B0064B60E /* lpinyin.c in Sources */,
+				74C2014E1E7305C00064B60E /* i64lib.c in Sources */,
 				74F0CE311E057FC3007E16AC /* varint.c in Sources */,
 				74F0CDD81E057EEA007E16AC /* lsqlite3.c in Sources */,
 				74F0CE081E057F56007E16AC /* timeout.c in Sources */,
@@ -460,6 +489,7 @@
 				74F0CE301E057FC3007E16AC /* stringpool.c in Sources */,
 				74F0CE041E057F56007E16AC /* options.c in Sources */,
 				74F0CDC41E057D2E007E16AC /* slua.c in Sources */,
+				74C201511E7307730064B60E /* lgbk.c in Sources */,
 				74F0CE021E057F56007E16AC /* luasocket.c in Sources */,
 				74F0CE2C1E057FC3007E16AC /* pattern.c in Sources */,
 				74F0CE0B1E057F56007E16AC /* usocket.c in Sources */,
@@ -593,6 +623,8 @@
 					"$(PROJECT_DIR)/../../../lua-5.1.5/src",
 					"$(PROJECT_DIR)/../../../Project-Source",
 					"$(PROJECT_DIR)/../../../pbc-master",
+					"$(PROJECT_DIR)/../../../lua-reader/include/protobuf-2.6.1",
+					"$(PROJECT_DIR)/../../../lua-reader/include/boost-1.60.0",
 				);
 				INFOPLIST_FILE = FengEngine/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
@@ -621,6 +653,8 @@
 					"$(PROJECT_DIR)/../../../lua-5.1.5/src",
 					"$(PROJECT_DIR)/../../../Project-Source",
 					"$(PROJECT_DIR)/../../../pbc-master",
+					"$(PROJECT_DIR)/../../../lua-reader/include/protobuf-2.6.1",
+					"$(PROJECT_DIR)/../../../lua-reader/include/boost-1.60.0",
 				);
 				INFOPLIST_FILE = FengEngine/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
