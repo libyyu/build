@@ -178,13 +178,8 @@
       <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
     </ProjectReference>
     <PreBuildEvent>
-      <Command>echo "Pre-Build-LuaJit Debug x86"
-set LibPath=..\lib\x86\Debug
-set LinkFile=%LibPath%\libluajit.lib
-set BuildFilePath=..\..
-if not exist "%LinkFile%" ( 
-call "%BuildFilePath%\make_luajit_with_vs.bat" vs2015
-)</Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Native|Win32'">
@@ -210,13 +205,8 @@ call "%BuildFilePath%\make_luajit_with_vs.bat" vs2015
       <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
     </ProjectReference>
     <PreBuildEvent>
-      <Command>echo "Pre-Build-Lua Debug x86"
-set LibPath=..\lib\x86\Debug
-set LinkFile=%LibPath%\liblua.lib
-set BuildFilePath=..\..
-if not exist "%LinkFile%" ( 
-call "%BuildFilePath%\make_nativelua_with_vs.bat" vs2015
-)</Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -238,13 +228,8 @@ call "%BuildFilePath%\make_nativelua_with_vs.bat" vs2015
       <ProgramDatabaseFile>..\bin\x64\Debug\$(TargetName).pdb</ProgramDatabaseFile>
     </Link>
     <PreBuildEvent>
-      <Command>echo "Pre-Build-LuaJit Debug x64"
-set LibPath=..\lib\x64\Debug
-set LinkFile=%LibPath%\libluajit.lib
-set BuildFilePath=..\..
-if not exist "%LinkFile%" ( 
-call "%BuildFilePath%\make_luajit_with_vs.bat" vs2015
-)</Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Native|x64'">
@@ -266,13 +251,8 @@ call "%BuildFilePath%\make_luajit_with_vs.bat" vs2015
       <ProgramDatabaseFile>..\bin\native\x64\Debug\$(TargetName).pdb</ProgramDatabaseFile>
     </Link>
     <PreBuildEvent>
-      <Command>echo "Pre-Build-Lua Debug x64"
-set LibPath=..\lib\x64\Debug
-set LinkFile=%LibPath%\liblua.lib
-set BuildFilePath=..\..
-if not exist "%LinkFile%" ( 
-call "%BuildFilePath%\make_nativelua_with_vs.bat" vs2015
-)</Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -298,13 +278,8 @@ call "%BuildFilePath%\make_nativelua_with_vs.bat" vs2015
       <ProgramDatabaseFile>..\bin\x86\Release\$(TargetName).pdb</ProgramDatabaseFile>
     </Link>
     <PreBuildEvent>
-      <Command>echo "Pre-Build-LuaJit Release x86"
-set LibPath=..\lib\x86\Release
-set LinkFile=%LibPath%\libluajit.lib
-set BuildFilePath=..\..
-if not exist "%LinkFile%" ( 
-call "%BuildFilePath%\make_luajit_with_vs.bat" vs2015
-)</Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
     <PostBuildEvent>
       <Command>set PROJECT_PATH=..\..\..\LuaGame\ProjectUnity\Assets\Plugins\x86
@@ -337,13 +312,8 @@ copy %Pdb_Name% %PROJECT_PATH%\$(TargetName).pdb /y</Command>
       <ProgramDatabaseFile>..\bin\native\x86\Release\$(TargetName).pdb</ProgramDatabaseFile>
     </Link>
     <PreBuildEvent>
-      <Command>echo "Pre-Build-Lua Release x86"
-set LibPath=..\lib\x86\Release
-set LinkFile=%LibPath%\liblua.lib
-set BuildFilePath=..\..
-if not exist "%LinkFile%" ( 
-call "%BuildFilePath%\make_nativelua_with_vs.bat" vs2015
-)</Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
     <PostBuildEvent>
       <Command>set PROJECT_PATH=..\..\..\LuaGame\ProjectUnity\Assets\Plugins\x86
@@ -376,13 +346,8 @@ copy %Pdb_Name% %PROJECT_PATH%\$(TargetName).pdb /y</Command>
       <AdditionalDependencies>libluajit.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
-      <Command>echo "Pre-Build-LuaJit Release x64"
-set LibPath=..\lib\x64\Release
-set LinkFile=%LibPath%\libluajit.lib
-set BuildFilePath=..\..
-if not exist "%LinkFile%" ( 
-call "%BuildFilePath%\make_luajit_with_vs.bat" vs2015
-)</Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
     <PostBuildEvent>
       <Command>set PROJECT_PATH=..\..\..\LuaGame\ProjectUnity\Assets\Plugins\x64
@@ -415,13 +380,8 @@ copy %Pdb_Name% %PROJECT_PATH%\$(TargetName).pdb /y</Command>
       <AdditionalDependencies>liblua.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
-      <Command>echo "Pre-Build-Lua Release x64"
-set LibPath=..\lib\x64\Release
-set LinkFile=%LibPath%\liblua.lib
-set BuildFilePath=..\..
-if not exist "%LinkFile%" ( 
-call "%BuildFilePath%\make_nativelua_with_vs.bat" vs2015
-)</Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
     <PostBuildEvent>
       <Command>set PROJECT_PATH=..\..\..\LuaGame\ProjectUnity\Assets\Plugins\x64
@@ -472,39 +432,6 @@ copy %Pdb_Name% %PROJECT_PATH%\$(TargetName).pdb /y
     <ClCompile Include="..\..\pbc-win\src\stringpool.c" />
     <ClCompile Include="..\..\pbc-win\src\varint.c" />
     <ClCompile Include="..\..\pbc-win\src\wmessage.c" />
-    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\compiler\importer.cc" />
-    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\compiler\parser.cc" />
-    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\descriptor.cc" />
-    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\descriptor.pb.cc" />
-    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\descriptor_database.cc" />
-    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\dynamic_message.cc" />
-    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\extension_set.cc" />
-    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\extension_set_heavy.cc" />
-    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\generated_message_reflection.cc" />
-    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\generated_message_util.cc" />
-    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\io\coded_stream.cc" />
-    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\io\gzip_stream.cc" />
-    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\io\printer.cc" />
-    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\io\tokenizer.cc" />
-    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\io\zero_copy_stream.cc" />
-    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\io\zero_copy_stream_impl.cc" />
-    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\io\zero_copy_stream_impl_lite.cc" />
-    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\message.cc" />
-    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\message_lite.cc" />
-    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\reflection_ops.cc" />
-    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\repeated_field.cc" />
-    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\service.cc" />
-    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\stubs\atomicops_internals_x86_msvc.cc" />
-    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\stubs\common.cc" />
-    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\stubs\once.cc" />
-    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\stubs\stringprintf.cc" />
-    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\stubs\structurally_valid.cc" />
-    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\stubs\strutil.cc" />
-    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\stubs\substitute.cc" />
-    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\text_format.cc" />
-    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\unknown_field_set.cc" />
-    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\wire_format.cc" />
-    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\wire_format_lite.cc" />
     <ClCompile Include="..\..\slua.c" />
     <ClCompile Include="..\..\sproto-master\lsproto.c" />
     <ClCompile Include="..\..\sproto-master\sproto.c" />
