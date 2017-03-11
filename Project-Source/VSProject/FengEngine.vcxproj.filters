@@ -47,6 +47,21 @@
     <Filter Include="3rd\lfs">
       <UniqueIdentifier>{8d1dd6ab-fb1b-4992-bffe-560bd95b1056}</UniqueIdentifier>
     </Filter>
+    <Filter Include="3rd\i64lib">
+      <UniqueIdentifier>{7e94ef44-e550-401e-a6a7-b09695bd761b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rd\protobuf">
+      <UniqueIdentifier>{adf24f1e-afa6-491f-994b-806182b8383d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rd\protobuf\compiler">
+      <UniqueIdentifier>{899f4b43-d1a3-411a-a5a5-bd442de0fa1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rd\protobuf\io">
+      <UniqueIdentifier>{45c0b09b-5983-48c1-a1a6-165a4134e258}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rd\protobuf\stubs">
+      <UniqueIdentifier>{3d04bb3c-e624-4a85-bcdf-7929990df00c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -177,6 +192,108 @@
     <ClCompile Include="..\..\lfs.c">
       <Filter>3rd\lfs</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\i64lib.c">
+      <Filter>3rd\i64lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\compiler\importer.cc">
+      <Filter>3rd\protobuf\compiler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\compiler\parser.cc">
+      <Filter>3rd\protobuf\compiler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\descriptor.cc">
+      <Filter>3rd\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\descriptor.pb.cc">
+      <Filter>3rd\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\descriptor_database.cc">
+      <Filter>3rd\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\dynamic_message.cc">
+      <Filter>3rd\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\extension_set.cc">
+      <Filter>3rd\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\extension_set_heavy.cc">
+      <Filter>3rd\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\generated_message_reflection.cc">
+      <Filter>3rd\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\generated_message_util.cc">
+      <Filter>3rd\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\io\coded_stream.cc">
+      <Filter>3rd\protobuf\io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\io\gzip_stream.cc">
+      <Filter>3rd\protobuf\io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\io\printer.cc">
+      <Filter>3rd\protobuf\io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\io\tokenizer.cc">
+      <Filter>3rd\protobuf\io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\io\zero_copy_stream.cc">
+      <Filter>3rd\protobuf\io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\io\zero_copy_stream_impl.cc">
+      <Filter>3rd\protobuf\io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\io\zero_copy_stream_impl_lite.cc">
+      <Filter>3rd\protobuf\io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\message.cc">
+      <Filter>3rd\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\message_lite.cc">
+      <Filter>3rd\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\reflection_ops.cc">
+      <Filter>3rd\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\repeated_field.cc">
+      <Filter>3rd\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\service.cc">
+      <Filter>3rd\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\stubs\common.cc">
+      <Filter>3rd\protobuf\stubs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\stubs\once.cc">
+      <Filter>3rd\protobuf\stubs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\stubs\stringprintf.cc">
+      <Filter>3rd\protobuf\stubs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\stubs\structurally_valid.cc">
+      <Filter>3rd\protobuf\stubs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\stubs\strutil.cc">
+      <Filter>3rd\protobuf\stubs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\stubs\substitute.cc">
+      <Filter>3rd\protobuf\stubs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\text_format.cc">
+      <Filter>3rd\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\unknown_field_set.cc">
+      <Filter>3rd\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\wire_format.cc">
+      <Filter>3rd\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\wire_format_lite.cc">
+      <Filter>3rd\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\stubs\atomicops_internals_x86_msvc.cc">
+      <Filter>3rd\protobuf\stubs</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Common\FType.h">
@@ -190,6 +307,9 @@
     </ClInclude>
     <ClInclude Include="..\VersionMan\VersionMan.hpp">
       <Filter>Patcher</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\i64lib.h">
+      <Filter>3rd\i64lib</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

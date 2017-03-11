@@ -61,6 +61,7 @@ LUALIB_API int luaopen_bit(lua_State *L);
 #endif//_USE_NATIVE_LUA
 LUALIB_API int luaopen_lfs(lua_State *L);
 //LUALIB_API int luaopen_zlib(lua_State *L);
+LUALIB_API int luaopen_i64lib(lua_State *L);
 
 static const luaL_Reg s_lib_preload[] = {
 #ifdef _USE_NATIVE_LUA
@@ -78,6 +79,7 @@ static const luaL_Reg s_lib_preload[] = {
 	{ "sproto.core",    luaopen_sproto_core },
 	{ "lfs",  luaopen_lfs },
 	//{ "zlib", luaopen_zlib },// any 3rd lualibs added here
+	{"i64lib", luaopen_i64lib },
 	{ NULL, NULL }
 };
 __CFunEnd

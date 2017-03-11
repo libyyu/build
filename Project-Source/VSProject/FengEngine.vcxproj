@@ -163,14 +163,14 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;FENGENGINE_EXPORTS;_WIN32;LUA_BUILD_AS_DLL;API_BUILD_AS_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>.\;..\;..\..\;..\..\luajit-2.1.0\src;..\..\pbc-win;..\Common;..\AnyLog;..\..\zlib-1.2.5;..\..\zlib-1.2.5\contrib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\;..\;..\..\;..\..\luajit-2.1.0\src;..\..\pbc-win;..\Common;..\AnyLog;..\..\zlib-1.2.5;..\..\zlib-1.2.5\contrib;..\..\protobuf-2.5.0\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\lib\x86\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>libluajit.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libluajit_d.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>..\bin\x86\Debug\$(TargetName)$(TargetExt)</OutputFile>
       <ProgramDatabaseFile>..\bin\x86\Debug\$(TargetName).pdb</ProgramDatabaseFile>
     </Link>
@@ -195,14 +195,14 @@ call "%BuildFilePath%\make_luajit_with_vs.bat" vs2015
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;FENGENGINE_EXPORTS;_WIN32;LUA_BUILD_AS_DLL;API_BUILD_AS_DLL;_USE_NATIVE_LUA;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>.\;..\;..\..\;..\..\lua-5.1.5\src;..\..\pbc-win;..\Common;..\AnyLog;..\..\zlib-1.2.5;..\..\zlib-1.2.5\contrib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\;..\;..\..\;..\..\lua-5.1.5\src;..\..\pbc-win;..\Common;..\AnyLog;..\..\zlib-1.2.5;..\..\zlib-1.2.5\contrib;..\..\protobuf-2.5.0\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\lib\x86\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>liblua.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>liblua_d.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>..\bin\native\x86\Debug\$(TargetName)$(TargetExt)</OutputFile>
       <ProgramDatabaseFile>..\bin\native\x86\Debug\$(TargetName).pdb</ProgramDatabaseFile>
     </Link>
@@ -233,8 +233,8 @@ call "%BuildFilePath%\make_nativelua_with_vs.bat" vs2015
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <OutputFile>..\bin\x64\Debug\$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalLibraryDirectories>..\lib\x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>libluajit.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libluajit_d.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ProgramDatabaseFile>..\bin\x64\Debug\$(TargetName).pdb</ProgramDatabaseFile>
     </Link>
     <PreBuildEvent>
@@ -261,8 +261,8 @@ call "%BuildFilePath%\make_luajit_with_vs.bat" vs2015
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <OutputFile>..\bin\native\x64\Debug\$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalLibraryDirectories>..\lib\x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>liblua.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>liblua_d.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ProgramDatabaseFile>..\bin\native\x64\Debug\$(TargetName).pdb</ProgramDatabaseFile>
     </Link>
     <PreBuildEvent>
@@ -285,14 +285,14 @@ call "%BuildFilePath%\make_nativelua_with_vs.bat" vs2015
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;FENGENGINE_EXPORTS;_WIN32;LUA_BUILD_AS_DLL;API_BUILD_AS_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>.\;..\;..\..\;..\..\luajit-2.1.0\src;..\..\pbc-win;..\Common;..\AnyLog;..\..\zlib-1.2.5;..\..\zlib-1.2.5\contrib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\;..\;..\..\;..\..\luajit-2.1.0\src;..\..\pbc-win;..\Common;..\AnyLog;..\..\zlib-1.2.5;..\..\zlib-1.2.5\contrib;..\..\protobuf-2.5.0\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>..\lib\x86\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>libluajit.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>..\bin\x86\Release\$(TargetName)$(TargetExt)</OutputFile>
       <ProgramDatabaseFile>..\bin\x86\Release\$(TargetName).pdb</ProgramDatabaseFile>
@@ -324,14 +324,14 @@ copy %Pdb_Name% %PROJECT_PATH%\$(TargetName).pdb /y</Command>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;FENGENGINE_EXPORTS;_WIN32;LUA_BUILD_AS_DLL;API_BUILD_AS_DLL;_USE_NATIVE_LUA;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>.\;..\;..\..\;..\..\lua-5.1.5\src;..\..\pbc-win;..\Common;..\AnyLog;..\..\zlib-1.2.5;..\..\zlib-1.2.5\contrib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\;..\;..\..\;..\..\lua-5.1.5\src;..\..\pbc-win;..\Common;..\AnyLog;..\..\zlib-1.2.5;..\..\zlib-1.2.5\contrib;..\..\protobuf-2.5.0\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>..\lib\x86\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>liblua.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>..\bin\native\x86\Release\$(TargetName)$(TargetExt)</OutputFile>
       <ProgramDatabaseFile>..\bin\native\x86\Release\$(TargetName).pdb</ProgramDatabaseFile>
@@ -371,7 +371,7 @@ copy %Pdb_Name% %PROJECT_PATH%\$(TargetName).pdb /y</Command>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <OutputFile>..\bin\x64\Release\$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalLibraryDirectories>..\lib\x64\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ProgramDatabaseFile>..\bin\x64\Release\$(TargetName).pdb</ProgramDatabaseFile>
       <AdditionalDependencies>libluajit.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
@@ -410,7 +410,7 @@ copy %Pdb_Name% %PROJECT_PATH%\$(TargetName).pdb /y</Command>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <OutputFile>..\bin\native\x64\Release\$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalLibraryDirectories>..\lib\x64\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ProgramDatabaseFile>..\bin\native\x64\Release\$(TargetName).pdb</ProgramDatabaseFile>
       <AdditionalDependencies>liblua.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
@@ -437,6 +437,7 @@ copy %Pdb_Name% %PROJECT_PATH%\$(TargetName).pdb /y
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\bit.c" />
+    <ClCompile Include="..\..\i64lib.c" />
     <ClCompile Include="..\..\lfs.c" />
     <ClCompile Include="..\..\lpeg\lpeg.c" />
     <ClCompile Include="..\..\lua-cjson-2.1.0\fpconv.c" />
@@ -471,6 +472,39 @@ copy %Pdb_Name% %PROJECT_PATH%\$(TargetName).pdb /y
     <ClCompile Include="..\..\pbc-win\src\stringpool.c" />
     <ClCompile Include="..\..\pbc-win\src\varint.c" />
     <ClCompile Include="..\..\pbc-win\src\wmessage.c" />
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\compiler\importer.cc" />
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\compiler\parser.cc" />
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\descriptor.cc" />
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\descriptor.pb.cc" />
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\descriptor_database.cc" />
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\dynamic_message.cc" />
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\extension_set.cc" />
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\extension_set_heavy.cc" />
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\generated_message_reflection.cc" />
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\generated_message_util.cc" />
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\io\coded_stream.cc" />
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\io\gzip_stream.cc" />
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\io\printer.cc" />
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\io\tokenizer.cc" />
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\io\zero_copy_stream.cc" />
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\io\zero_copy_stream_impl.cc" />
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\io\zero_copy_stream_impl_lite.cc" />
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\message.cc" />
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\message_lite.cc" />
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\reflection_ops.cc" />
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\repeated_field.cc" />
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\service.cc" />
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\stubs\atomicops_internals_x86_msvc.cc" />
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\stubs\common.cc" />
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\stubs\once.cc" />
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\stubs\stringprintf.cc" />
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\stubs\structurally_valid.cc" />
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\stubs\strutil.cc" />
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\stubs\substitute.cc" />
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\text_format.cc" />
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\unknown_field_set.cc" />
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\wire_format.cc" />
+    <ClCompile Include="..\..\protobuf-2.5.0\src\google\protobuf\wire_format_lite.cc" />
     <ClCompile Include="..\..\slua.c" />
     <ClCompile Include="..\..\sproto-master\lsproto.c" />
     <ClCompile Include="..\..\sproto-master\sproto.c" />
@@ -481,6 +515,7 @@ copy %Pdb_Name% %PROJECT_PATH%\$(TargetName).pdb /y
     <ClCompile Include="..\Win32DllMain.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\i64lib.h" />
     <ClInclude Include="..\AnyLog\ILog.h" />
     <ClInclude Include="..\Common\FAssist.h" />
     <ClInclude Include="..\Common\FType.h" />

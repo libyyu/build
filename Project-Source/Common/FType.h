@@ -21,7 +21,6 @@
   #include <windows.h>
   #include <float.h>
   #include <io.h>
-  #include <stdlib.h>
 
   #define STD_CALL  __stdcall
   #define CALLBACK  __stdcall
