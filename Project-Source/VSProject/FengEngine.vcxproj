@@ -163,7 +163,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;FENGENGINE_EXPORTS;_WIN32;LUA_BUILD_AS_DLL;API_BUILD_AS_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>.\;..\;..\..\;..\..\luajit-2.1.0\src;..\..\pbc-win;..\Common;..\AnyLog;..\..\zlib-1.2.5;..\..\zlib-1.2.5\contrib;..\..\protobuf-2.5.0\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\;..\;..\..\;..\..\luajit-2.1.0\src;..\..\pbc-win;..\Common;..\AnyLog;..\..\zlib-1.2.5;..\..\zlib-1.2.5\contrib;..\..\protobuf-2.5.0\src;..\..\boost_1_57_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
     <Link>
@@ -190,7 +190,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;FENGENGINE_EXPORTS;_WIN32;LUA_BUILD_AS_DLL;API_BUILD_AS_DLL;_USE_NATIVE_LUA;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>.\;..\;..\..\;..\..\lua-5.1.5\src;..\..\pbc-win;..\Common;..\AnyLog;..\..\zlib-1.2.5;..\..\zlib-1.2.5\contrib;..\..\protobuf-2.5.0\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\;..\;..\..\;..\..\lua-5.1.5\src;..\..\pbc-win;..\Common;..\AnyLog;..\..\zlib-1.2.5;..\..\zlib-1.2.5\contrib;..\..\protobuf-2.5.0\src;..\..\boost_1_57_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
     <Link>
@@ -217,7 +217,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;FENGENGINE_EXPORTS;_WIN32;WIN32;LUA_BUILD_AS_DLL;API_BUILD_AS_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>.\;..\;..\..\;..\..\luajit-2.1.0\src;..\..\pbc-win;..\Common;..\AnyLog;..\..\zlib-1.2.5;..\..\zlib-1.2.5\contrib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\;..\;..\..\;..\..\luajit-2.1.0\src;..\..\pbc-win;..\Common;..\AnyLog;..\..\zlib-1.2.5;..\..\zlib-1.2.5\contrib;..\..\protobuf-2.5.0\src;..\..\boost_1_57_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -240,7 +240,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;FENGENGINE_EXPORTS;_WIN32;WIN32;LUA_BUILD_AS_DLL;API_BUILD_AS_DLL;_USE_NATIVE_LUA;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>.\;..\;..\..\;..\..\lua-5.1.5\src;..\..\pbc-win;..\Common;..\AnyLog;..\..\zlib-1.2.5;..\..\zlib-1.2.5\contrib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\;..\;..\..\;..\..\lua-5.1.5\src;..\..\pbc-win;..\Common;..\AnyLog;..\..\zlib-1.2.5;..\..\zlib-1.2.5\contrib;..\..\protobuf-2.5.0\src;..\..\boost_1_57_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -265,7 +265,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;FENGENGINE_EXPORTS;_WIN32;LUA_BUILD_AS_DLL;API_BUILD_AS_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>.\;..\;..\..\;..\..\luajit-2.1.0\src;..\..\pbc-win;..\Common;..\AnyLog;..\..\zlib-1.2.5;..\..\zlib-1.2.5\contrib;..\..\protobuf-2.5.0\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\;..\;..\..\;..\..\luajit-2.1.0\src;..\..\pbc-win;..\Common;..\AnyLog;..\..\zlib-1.2.5;..\..\zlib-1.2.5\contrib;..\..\protobuf-2.5.0\src;..\..\boost_1_57_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -282,11 +282,8 @@
       </Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>set PROJECT_PATH=..\..\..\LuaGame\ProjectUnity\Assets\Plugins\x86
-set Plugin_Name=..\bin\x86\Release\$(TargetName)$(TargetExt)
-set Pdb_Name=..\bin\x86\Release\$(TargetName).pdb
-copy %Plugin_Name% %PROJECT_PATH%\$(TargetName)$(TargetExt) /y
-copy %Pdb_Name% %PROJECT_PATH%\$(TargetName).pdb /y</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_Native|Win32'">
@@ -299,7 +296,7 @@ copy %Pdb_Name% %PROJECT_PATH%\$(TargetName).pdb /y</Command>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;FENGENGINE_EXPORTS;_WIN32;LUA_BUILD_AS_DLL;API_BUILD_AS_DLL;_USE_NATIVE_LUA;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>.\;..\;..\..\;..\..\lua-5.1.5\src;..\..\pbc-win;..\Common;..\AnyLog;..\..\zlib-1.2.5;..\..\zlib-1.2.5\contrib;..\..\protobuf-2.5.0\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\;..\;..\..\;..\..\lua-5.1.5\src;..\..\pbc-win;..\Common;..\AnyLog;..\..\zlib-1.2.5;..\..\zlib-1.2.5\contrib;..\..\protobuf-2.5.0\src;..\..\boost_1_57_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -316,11 +313,8 @@ copy %Pdb_Name% %PROJECT_PATH%\$(TargetName).pdb /y</Command>
       </Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>set PROJECT_PATH=..\..\..\LuaGame\ProjectUnity\Assets\Plugins\x86
-set Plugin_Name=..\bin\x86\Release\$(TargetName)$(TargetExt)
-set Pdb_Name=..\bin\x86\Release\$(TargetName).pdb
-copy %Plugin_Name% %PROJECT_PATH%\$(TargetName)$(TargetExt) /y
-copy %Pdb_Name% %PROJECT_PATH%\$(TargetName).pdb /y</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -333,7 +327,7 @@ copy %Pdb_Name% %PROJECT_PATH%\$(TargetName).pdb /y</Command>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;FENGENGINE_EXPORTS;_WIN32;WIN32;LUA_BUILD_AS_DLL;API_BUILD_AS_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>.\;..\;..\..\;..\..\luajit-2.1.0\src;..\..\pbc-win;..\Common;..\AnyLog;..\..\zlib-1.2.5;..\..\zlib-1.2.5\contrib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\;..\;..\..\;..\..\luajit-2.1.0\src;..\..\pbc-win;..\Common;..\AnyLog;..\..\zlib-1.2.5;..\..\zlib-1.2.5\contrib;..\..\protobuf-2.5.0\src;..\..\boost_1_57_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -350,11 +344,8 @@ copy %Pdb_Name% %PROJECT_PATH%\$(TargetName).pdb /y</Command>
       </Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>set PROJECT_PATH=..\..\..\LuaGame\ProjectUnity\Assets\Plugins\x64
-set Plugin_Name=..\bin\x64\Release\$(TargetName)$(TargetExt)
-set Pdb_Name=..\bin\x64\Release\$(TargetName).pdb
-copy %Plugin_Name% %PROJECT_PATH%\$(TargetName)$(TargetExt) /y
-copy %Pdb_Name% %PROJECT_PATH%\$(TargetName).pdb /y</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_Native|x64'">
@@ -367,7 +358,7 @@ copy %Pdb_Name% %PROJECT_PATH%\$(TargetName).pdb /y</Command>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;FENGENGINE_EXPORTS;_WIN32;WIN32;LUA_BUILD_AS_DLL;API_BUILD_AS_DLL;_USE_NATIVE_LUA;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>.\;..\;..\..\;..\..\lua-5.1.5\src;..\..\pbc-win;..\Common;..\AnyLog;..\..\zlib-1.2.5;..\..\zlib-1.2.5\contrib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\;..\;..\..\;..\..\lua-5.1.5\src;..\..\pbc-win;..\Common;..\AnyLog;..\..\zlib-1.2.5;..\..\zlib-1.2.5\contrib;..\..\protobuf-2.5.0\src;..\..\boost_1_57_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -384,12 +375,8 @@ copy %Pdb_Name% %PROJECT_PATH%\$(TargetName).pdb /y</Command>
       </Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>set PROJECT_PATH=..\..\..\LuaGame\ProjectUnity\Assets\Plugins\x64
-set Plugin_Name=..\bin\x64\Release\$(TargetName)$(TargetExt)
-set Pdb_Name=..\bin\x64\Release\$(TargetName).pdb
-copy %Plugin_Name% %PROJECT_PATH%\$(TargetName)$(TargetExt) /y
-copy %Pdb_Name% %PROJECT_PATH%\$(TargetName).pdb /y
-</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

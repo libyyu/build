@@ -65,6 +65,8 @@ buildvm -m folddef -o lj_folddef.h lj_opt_fold.c
 @if errorlevel 1 goto :BAD
 
 @if "%1" neq "debug" goto :NODEBUG
+@set LJDLLNAME=lua51_d.dll
+@set LJLIBNAME=lua51_d.lib
 @shift
 @set LJCOMPILE=%LJCOMPILE% /Zi
 @set LJLINK=%LJLINK% /debug
