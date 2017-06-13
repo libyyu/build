@@ -55,7 +55,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\Win32DllMain.cpp" />
+    <ClCompile Include="..\DllMain.cpp" />
     <ClCompile Include="..\..\pb.c">
       <Filter>3rd\pb</Filter>
     </ClCompile>

@@ -426,7 +426,7 @@
     <ClCompile Include="..\Common\FAssist.cpp" />
     <ClCompile Include="..\FLuaExport.cpp" />
     <ClCompile Include="..\VersionMan\VersionMan.cpp" />
-    <ClCompile Include="..\Win32DllMain.cpp" />
+    <ClCompile Include="..\DllMain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\i64lib.h" />
