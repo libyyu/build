@@ -4,6 +4,8 @@
 
 #include "FAssist.h"
 
+#ifdef _WIN32
+
 #include <Windows.h>
 
 BOOL APIENTRY DllMain(HMODULE hModule,
@@ -21,6 +23,7 @@ BOOL APIENTRY DllMain(HMODULE hModule,
 	}
 	return TRUE;
 }
+#endif
 
 _FCFunBegin
 LUA_API void luaS_openextlibs(lua_State *L);

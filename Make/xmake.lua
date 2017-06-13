@@ -78,7 +78,6 @@ target("FengEngine")
         "../pbc-master", 
         "../pbc-master/src", 
         "../lua-cjson-2.1.0", 
-       -- "../luasocket-2.0.2",
         "../sproto-master",
         "../luasocket-2.0.2/src",
         "../Project-Source",
@@ -86,20 +85,14 @@ target("FengEngine")
         "../Project-Source/AnyLog")
 
     if is_plat("macosx") then
-        add_ldflags("-bundle -undefined dynamic_lookup")
+        add_ldflags("-bundle", "-undefined dynamic_lookup")
     end
-
-    -- if is_plat("windows") then
-    --     add_files("../luasocket-2.0.2/src/*.c|serial.c|unix.c|usocket.c") 
-    -- else
-    --     add_files("../luasocket-2.0.2/src/*.c|wsocket.c") 
-    -- end
 
     add_files("../slua.c","../bit.c", "../pb.c", "../lpeg/lpeg.c", "../i64lib.c", "../lfs.c")
     add_files("../pbc-master/src/*.c", "../pbc-master/binding/lua/pbc-lua.c")
     add_files("../lua-cjson-2.1.0/strbuf.c", "../lua-cjson-2.1.0/fpconv.c", "../lua-cjson-2.1.0/lua_cjson.c")
     add_files("../sproto-master/sproto.c", "../sproto-master/lsproto.c")
-    add_files("../Project-Source/AnyLog/ILog.cpp","../Project-Source/Common/FAssist.cpp","../Project-Source/FLuaExport.cpp")
+    add_files("../Project-Source/AnyLog/ILog.cpp","../Project-Source/Common/FAssist.cpp","../Project-Source/FLuaExport.cpp", "../Project-Source/DllMain.cpp")
 
     if is_plat("windows") then
         add_defines("WIN32","_WIN32", "LUA_BUILD_AS_DLL")
