@@ -3,10 +3,10 @@
 #ifndef __FASSIST_H__
 #define __FASSIST_H__
 
+#include <stdarg.h>
+//#include <string.h>
 #include "FType.h"
 #include "ILog.h"
-#include <stdarg.h>
-#include <string>
 #include "lua.hpp"
 #ifdef _WIN32
 #elif _ANDROID

@@ -62,7 +62,7 @@ public:
 	{
 		if(NULL != pLog)
 		{
-			delete pLog;
+			//delete pLog;
 			pLog = NULL;
 		}
 	}
