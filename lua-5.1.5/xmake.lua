@@ -42,3 +42,15 @@ target("lua")
     set_objectdir("$(buildir)/$(plat)/$(arch)/.objs")
 
     set_targetdir("$(projectdir)/$(plat)/$(arch)")
+
+-- add target
+target("lua_wrapper")
+    -- make as a static library
+    set_kind("shared")
+    -- add the common source files
+    add_files("src/*.c|lua.c|luac.c|print.c", "demo.cpp") 
+
+    -- set the object files directory
+    set_objectdir("$(buildir)/$(plat)/$(arch)/.objs")
+
+    set_targetdir("$(projectdir)/$(plat)/$(arch)")

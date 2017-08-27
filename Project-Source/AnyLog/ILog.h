@@ -55,7 +55,6 @@ public:
 	{
 		AnyLog::PLOG pLog = new FLog();
 		pLog->SetLogCall((PLogFunc)pfunc);
-		pLog->Log("AnyLog Established!");
 		return pLog;
 	}
 	static void DestroyILog(AnyLog::PLOG pLog)

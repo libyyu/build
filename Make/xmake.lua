@@ -14,19 +14,19 @@ set_xmakever("2.1.2")
 set_languages("c99", "cxx11")
 
 -- disable some compiler errors
-add_cxflags("-Wno-error=deprecated-declarations", "-fno-strict-aliasing", "-Wdelete-non-virtual-dtor")
+--add_cxflags("-Wno-error=deprecated-declarations", "-fno-strict-aliasing", "-Wdelete-non-virtual-dtor")
 
 -- add defines
-add_defines("_GNU_SOURCE=1", "_FILE_OFFSET_BITS=64", "_LARGEFILE_SOURCE")
+--add_defines("_GNU_SOURCE=1", "_FILE_OFFSET_BITS=64", "_LARGEFILE_SOURCE")
 
 -- set the symbols visibility: hidden
-set_symbols("hidden")
+--set_symbols("hidden")
 
 -- strip all symbols
-set_strip("all")
+--set_strip("all")
 
 -- fomit the frame pointer
-add_cxflags("-fomit-frame-pointer", "-Wunused-variable","-Wreserved-user-defined-literal")
+--add_cxflags("-fomit-frame-pointer", "-Wunused-variable","-Wreserved-user-defined-literal")
 
 -- for the windows platform (msvc)
 if is_plat("windows") then 
@@ -42,9 +42,9 @@ if is_plat("windows") then
 end
 
 -- for macosx
-if is_plat("macosx") then
-    add_ldflags("-all_load", "-pagezero_size 10000", "-image_base 100000000")
-end
+-- if is_plat("macosx") then
+--     add_ldflags("-all_load", "-pagezero_size 10000", "-image_base 100000000")
+-- end
 
 -- for mode coverage
 if is_mode("coverage") then
@@ -83,10 +83,6 @@ target("FengEngine")
         "../Project-Source",
         "../Project-Source/Common",
         "../Project-Source/AnyLog")
-
-    if is_plat("macosx") then
-        add_ldflags("-bundle", "-undefined dynamic_lookup")
-    end
 
     add_files("../slua.c","../bit.c", "../pb.c", "../lpeg/lpeg.c", "../i64lib.c", "../lfs.c")
     add_files("../pbc-master/src/*.c", "../pbc-master/binding/lua/pbc-lua.c")

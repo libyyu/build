@@ -624,7 +624,7 @@ depend:
 ##############################################################################
 
 $(MINILUA_T): $(MINILUA_O)
-	$(E) "HOSTLINK  $@"
+	$(E) "HOSTLINK  $@ $(MINILUA_LIBS) $(HOST_ALDFLAGS) $(TARGET_LJARCH)"
 	$(Q)$(HOST_CC) $(HOST_ALDFLAGS) -o $@ $(MINILUA_O) $(MINILUA_LIBS) $(HOST_ALIBS)
 
 host/buildvm_arch.h: $(DASM_DASC) $(DASM_DEP) $(DASM_DIR)/*.lua
